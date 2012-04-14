@@ -1,0 +1,11 @@
+Package: me.k3a.ae
+Name: AssistantExtensions
+Version: 1.0.2
+Homepage: http://ae.k3a.me
+Priority: standard
+Architecture: iphoneos-arm
+Section: Tweaks
+Author: K3A <root@k3a.me>
+Description: Plugin system for new Siri functionality. Several commands and snippets are built-in, including a chat bot for talking to Siri about anything you like.
+Depends: firmware (>= 5.0), mobilesubstrate, me.k3a.libaiml, preferenceloader, openssl, pcre, com.zimm.libdisplaystack, com.chpwn.spire | com.technetec.spite | com.technetec.spite2 | gsc.assistant
+Icon: file:///Library/PreferenceBundles/AEPrefs.bundle/AEPrefs@2x.png

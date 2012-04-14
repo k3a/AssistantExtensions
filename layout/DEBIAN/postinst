@@ -1,0 +1,6 @@
+#!/bin/bash
+chmod 777 /Library/AssistantExtensions/
+chmod 777 /Library/AssistantExtensions/aiml/
+chmod 666 /Library/AssistantExtensions/aiml/gossip.txt
+chmod 666 /Library/AssistantExtensions/aiml/userlist.xml
+echo "RESPRING YOUR DEVICE AFTER INSTALLING THIS PACKAGE!!!"

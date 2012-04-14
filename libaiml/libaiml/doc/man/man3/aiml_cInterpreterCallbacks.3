@@ -1,0 +1,40 @@
+.TH "aiml::cInterpreterCallbacks" 3 "3 Feb 2006" "Version 0.6" "libaiml" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+aiml::cInterpreterCallbacks \- This structure is used to receive notifications of events that libaiml generates.  
+
+.PP
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBonAimlLoad\fP (const std::string &filename)=0"
+.br
+.RI "\fIThis function is called during initialization, for each aiml file that is loaded. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure is used to receive notifications of events that libaiml generates. 
+
+You could derive this class and then pass 'this' to \fBcInterpreter::registerCallbacks()\fP. None of these functions should block libaiml, they should return as soon as possible.
+.PP
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void aiml::cInterpreterCallbacks::onAimlLoad (const std::string & filename)\fC [pure virtual]\fP"
+.PP
+This function is called during initialization, for each aiml file that is loaded. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP is the full path to the aiml file just loaded.
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libaiml from the source code.

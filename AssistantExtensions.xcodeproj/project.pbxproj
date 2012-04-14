@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7206448214ACE16700584D75 /* AEContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 7206448014ACE16700584D75 /* AEContext.h */; };
+		7211DDCE1517C95800787888 /* AEX.h in Headers */ = {isa = PBXBuildFile; fileRef = 7211DDCC1517C95600787888 /* AEX.h */; };
+		7211DDCF1517C95800787888 /* AEX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7211DDCD1517C95700787888 /* AEX.mm */; };
+		722006FC14DB40DB00E9AF5D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 723141A7135B396E00AC38DC /* main.mm */; };
+		722006FD14DB40DB00E9AF5D /* shared.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72A81605132D1FE4004172F7 /* shared.mm */; };
+		722006FE14DB40DB00E9AF5D /* AEToggle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72BC67D61484E4F100ABCA0D /* AEToggle.mm */; };
+		722006FF14DB40DB00E9AF5D /* systemcmds.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72BC67D91484EC0F00ABCA0D /* systemcmds.mm */; };
+		7220070014DB40DB00E9AF5D /* AESpringBoardMsgCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72D5CF6D148666C700564657 /* AESpringBoardMsgCenter.mm */; };
+		7220070114DB40DB00E9AF5D /* AEAssistantdMsgCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72E6003214BA43DA002499D6 /* AEAssistantdMsgCenter.mm */; };
+		7220070214DB40DB00E9AF5D /* AEStringAdditions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72D5CF71148671CC00564657 /* AEStringAdditions.mm */; };
+		7220070314DB40DB00E9AF5D /* SiriObjects.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72E169D814A78BFF0024EB69 /* SiriObjects.mm */; };
+		7220070414DB40DB00E9AF5D /* AEExtension.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72E169DC14A7E7D50024EB69 /* AEExtension.mm */; };
+		7220070514DB40DB00E9AF5D /* AEContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7206448114ACE16700584D75 /* AEContext.mm */; };
+		7220070614DB40DB00E9AF5D /* AESupport.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72D4491314CCBE6100247B46 /* AESupport.mm */; };
+		7220070714DB40DB00E9AF5D /* AEChatBot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7223AAD214D9F19D00B0A00B /* AEChatBot.mm */; };
+		7220070914DB626600E9AF5D /* OS5Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7220070814DB626600E9AF5D /* OS5Additions.h */; };
+		7223AAD314D9F19E00B0A00B /* AEChatBot.h in Headers */ = {isa = PBXBuildFile; fileRef = 7223AAD114D9F19D00B0A00B /* AEChatBot.h */; };
+		72D4491414CCBE6100247B46 /* AESupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 72D4491214CCBE6100247B46 /* AESupport.h */; };
+		72D5CF4614864AF500564657 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D5CF4514864AF500564657 /* Foundation.framework */; };
+		72D5CF6E148666C700564657 /* AESpringBoardMsgCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 72D5CF6C148666C700564657 /* AESpringBoardMsgCenter.h */; };
+		72D5CF72148671CD00564657 /* AEStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 72D5CF70148671CC00564657 /* AEStringAdditions.h */; };
+		72E169DB14A78C110024EB69 /* SiriObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 72E169DA14A78C110024EB69 /* SiriObjects.h */; };
+		72E169DF14A7E7E00024EB69 /* AEExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 72E169DE14A7E7E00024EB69 /* AEExtension.h */; };
+		72E6003314BA43DA002499D6 /* AEAssistantdMsgCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 72E6003114BA43DA002499D6 /* AEAssistantdMsgCenter.h */; };
+		72E786E014ABEE3D0094B045 /* SiriObjects_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 72E786DF14ABEE3D0094B045 /* SiriObjects_private.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7206448014ACE16700584D75 /* AEContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEContext.h; sourceTree = "<group>"; };
+		7206448114ACE16700584D75 /* AEContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEContext.mm; sourceTree = "<group>"; };
+		7211DDCC1517C95600787888 /* AEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEX.h; sourceTree = "<group>"; };
+		7211DDCD1517C95700787888 /* AEX.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEX.mm; sourceTree = "<group>"; };
+		722006DF14DB34A300E9AF5D /* API_PROPOSALS.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = API_PROPOSALS.txt; path = docs/API_PROPOSALS.txt; sourceTree = "<group>"; };
+		722006E014DB34A300E9AF5D /* GERMAN.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = GERMAN.txt; path = docs/GERMAN.txt; sourceTree = "<group>"; };
+		7220070814DB626600E9AF5D /* OS5Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OS5Additions.h; sourceTree = "<group>"; };
+		7223AAD114D9F19D00B0A00B /* AEChatBot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEChatBot.h; sourceTree = "<group>"; };
+		7223AAD214D9F19D00B0A00B /* AEChatBot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEChatBot.mm; sourceTree = "<group>"; };
+		723141A6135B396E00AC38DC /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		723141A7135B396E00AC38DC /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		72A81604132D1FE4004172F7 /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
+		72A81605132D1FE4004172F7 /* shared.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = shared.mm; sourceTree = "<group>"; };
+		72B20E1B1483C40000DE086B /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		72BC67D61484E4F100ABCA0D /* AEToggle.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AEToggle.mm; sourceTree = "<group>"; };
+		72BC67D71484E4FE00ABCA0D /* AEToggle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEToggle.h; sourceTree = "<group>"; };
+		72BC67D81484EC0F00ABCA0D /* systemcmds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = systemcmds.h; sourceTree = "<group>"; };
+		72BC67D91484EC0F00ABCA0D /* systemcmds.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = systemcmds.mm; sourceTree = "<group>"; };
+		72D4491214CCBE6100247B46 /* AESupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESupport.h; sourceTree = "<group>"; };
+		72D4491314CCBE6100247B46 /* AESupport.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AESupport.mm; sourceTree = "<group>"; };
+		72D5CF4214864AF500564657 /* libAssistantExtensions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAssistantExtensions.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		72D5CF4514864AF500564657 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		72D5CF6C148666C700564657 /* AESpringBoardMsgCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESpringBoardMsgCenter.h; sourceTree = "<group>"; };
+		72D5CF6D148666C700564657 /* AESpringBoardMsgCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AESpringBoardMsgCenter.mm; sourceTree = "<group>"; };
+		72D5CF70148671CC00564657 /* AEStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEStringAdditions.h; sourceTree = "<group>"; };
+		72D5CF71148671CC00564657 /* AEStringAdditions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEStringAdditions.mm; sourceTree = "<group>"; };
+		72DD841215336B44006AD3E2 /* AEDevHelper.xm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AEDevHelper.xm; sourceTree = "<group>"; };
+		72E169D814A78BFF0024EB69 /* SiriObjects.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SiriObjects.mm; sourceTree = "<group>"; };
+		72E169DA14A78C110024EB69 /* SiriObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiriObjects.h; sourceTree = "<group>"; };
+		72E169DC14A7E7D50024EB69 /* AEExtension.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEExtension.mm; sourceTree = "<group>"; };
+		72E169DE14A7E7E00024EB69 /* AEExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEExtension.h; sourceTree = "<group>"; };
+		72E6003114BA43DA002499D6 /* AEAssistantdMsgCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEAssistantdMsgCenter.h; sourceTree = "<group>"; };
+		72E6003214BA43DA002499D6 /* AEAssistantdMsgCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEAssistantdMsgCenter.mm; sourceTree = "<group>"; };
+		72E786DF14ABEE3D0094B045 /* SiriObjects_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiriObjects_private.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72D5CF3F14864AF500564657 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D5CF4614864AF500564657 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		722006DE14DB348B00E9AF5D /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				722006DF14DB34A300E9AF5D /* API_PROPOSALS.txt */,
+				722006E014DB34A300E9AF5D /* GERMAN.txt */,
+			);
+			name = docs;
+			sourceTree = "<group>";
+		};
+		7271ED3B12F842B30013D5F2 = {
+			isa = PBXGroup;
+			children = (
+				722006DE14DB348B00E9AF5D /* docs */,
+				7271ED4712F843530013D5F2 /* Sources */,
+				72D5CF4414864AF500564657 /* Frameworks */,
+				72D5CF4314864AF500564657 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7271ED4712F843530013D5F2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				72DD841215336B44006AD3E2 /* AEDevHelper.xm */,
+				72B20E1B1483C40000DE086B /* Makefile */,
+				7220070814DB626600E9AF5D /* OS5Additions.h */,
+				723141A7135B396E00AC38DC /* main.mm */,
+				723141A6135B396E00AC38DC /* main.h */,
+				72A81605132D1FE4004172F7 /* shared.mm */,
+				72A81604132D1FE4004172F7 /* shared.h */,
+				72BC67D61484E4F100ABCA0D /* AEToggle.mm */,
+				72BC67D71484E4FE00ABCA0D /* AEToggle.h */,
+				72BC67D91484EC0F00ABCA0D /* systemcmds.mm */,
+				72BC67D81484EC0F00ABCA0D /* systemcmds.h */,
+				72D5CF6C148666C700564657 /* AESpringBoardMsgCenter.h */,
+				72D5CF6D148666C700564657 /* AESpringBoardMsgCenter.mm */,
+				72E6003114BA43DA002499D6 /* AEAssistantdMsgCenter.h */,
+				72E6003214BA43DA002499D6 /* AEAssistantdMsgCenter.mm */,
+				72D5CF70148671CC00564657 /* AEStringAdditions.h */,
+				72D5CF71148671CC00564657 /* AEStringAdditions.mm */,
+				72E169D814A78BFF0024EB69 /* SiriObjects.mm */,
+				72E169DA14A78C110024EB69 /* SiriObjects.h */,
+				72E786DF14ABEE3D0094B045 /* SiriObjects_private.h */,
+				72E169DC14A7E7D50024EB69 /* AEExtension.mm */,
+				72E169DE14A7E7E00024EB69 /* AEExtension.h */,
+				7206448014ACE16700584D75 /* AEContext.h */,
+				7206448114ACE16700584D75 /* AEContext.mm */,
+				72D4491214CCBE6100247B46 /* AESupport.h */,
+				72D4491314CCBE6100247B46 /* AESupport.mm */,
+				7223AAD114D9F19D00B0A00B /* AEChatBot.h */,
+				7223AAD214D9F19D00B0A00B /* AEChatBot.mm */,
+				7211DDCC1517C95600787888 /* AEX.h */,
+				7211DDCD1517C95700787888 /* AEX.mm */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		72D5CF4314864AF500564657 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72D5CF4214864AF500564657 /* libAssistantExtensions.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72D5CF4414864AF500564657 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72D5CF4514864AF500564657 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		72D5CF4014864AF500564657 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D5CF6E148666C700564657 /* AESpringBoardMsgCenter.h in Headers */,
+				72D5CF72148671CD00564657 /* AEStringAdditions.h in Headers */,
+				72E169DB14A78C110024EB69 /* SiriObjects.h in Headers */,
+				72E169DF14A7E7E00024EB69 /* AEExtension.h in Headers */,
+				72E786E014ABEE3D0094B045 /* SiriObjects_private.h in Headers */,
+				7206448214ACE16700584D75 /* AEContext.h in Headers */,
+				72E6003314BA43DA002499D6 /* AEAssistantdMsgCenter.h in Headers */,
+				72D4491414CCBE6100247B46 /* AESupport.h in Headers */,
+				7223AAD314D9F19E00B0A00B /* AEChatBot.h in Headers */,
+				7220070914DB626600E9AF5D /* OS5Additions.h in Headers */,
+				7211DDCE1517C95800787888 /* AEX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		72D5CF4114864AF500564657 /* AssistantExtensions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72D5CF4F14864AF500564657 /* Build configuration list for PBXNativeTarget "AssistantExtensions" */;
+			buildPhases = (
+				722006FB14DB3FB800E9AF5D /* ShellScript */,
+				722006EE14DB3F9A00E9AF5D /* Sources */,
+				72D5CF3F14864AF500564657 /* Frameworks */,
+				72D5CF4014864AF500564657 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AssistantExtensions;
+			productName = SiriCommands;
+			productReference = 72D5CF4214864AF500564657 /* libAssistantExtensions.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7271ED3D12F842B30013D5F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 7271ED4012F842B30013D5F2 /* Build configuration list for PBXProject "AssistantExtensions" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 7271ED3B12F842B30013D5F2;
+			productRefGroup = 72D5CF4314864AF500564657 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72D5CF4114864AF500564657 /* AssistantExtensions */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		722006FB14DB3FB800E9AF5D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export THEOS_DEVICE_IP=\"127.0.0.1\"\nexport THEOS_DEVICE_PORT=2222\n\nmake distclean package install\nexit 1";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		722006EE14DB3F9A00E9AF5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				722006FC14DB40DB00E9AF5D /* main.mm in Sources */,
+				722006FD14DB40DB00E9AF5D /* shared.mm in Sources */,
+				722006FE14DB40DB00E9AF5D /* AEToggle.mm in Sources */,
+				722006FF14DB40DB00E9AF5D /* systemcmds.mm in Sources */,
+				7220070014DB40DB00E9AF5D /* AESpringBoardMsgCenter.mm in Sources */,
+				7220070114DB40DB00E9AF5D /* AEAssistantdMsgCenter.mm in Sources */,
+				7220070214DB40DB00E9AF5D /* AEStringAdditions.mm in Sources */,
+				7220070314DB40DB00E9AF5D /* SiriObjects.mm in Sources */,
+				7220070414DB40DB00E9AF5D /* AEExtension.mm in Sources */,
+				7220070514DB40DB00E9AF5D /* AEContext.mm in Sources */,
+				7220070614DB40DB00E9AF5D /* AESupport.mm in Sources */,
+				7220070714DB40DB00E9AF5D /* AEChatBot.mm in Sources */,
+				7211DDCF1517C95800787888 /* AEX.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7271ED3E12F842B30013D5F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv6;
+				COPY_PHASE_STRIP = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7271ED3F12F842B30013D5F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv6;
+				COPY_PHASE_STRIP = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		72D5CF4D14864AF500564657 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv6;
+				DSTROOT = /tmp/SiriCommands.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					SC_PRIVATE,
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/theos/include,
+					"$(SRC_ROOT)include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AssistantExtensions;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		72D5CF4E14864AF500564657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv6;
+				DSTROOT = /tmp/SiriCommands.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = SC_PRIVATE;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/theos/include,
+					"$(SRC_ROOT)include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = AssistantExtensions;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7271ED4012F842B30013D5F2 /* Build configuration list for PBXProject "AssistantExtensions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7271ED3E12F842B30013D5F2 /* Debug */,
+				7271ED3F12F842B30013D5F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72D5CF4F14864AF500564657 /* Build configuration list for PBXNativeTarget "AssistantExtensions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72D5CF4D14864AF500564657 /* Debug */,
+				72D5CF4E14864AF500564657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7271ED3D12F842B30013D5F2 /* Project object */;
+}

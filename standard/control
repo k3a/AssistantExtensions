@@ -1,0 +1,9 @@
+Package: am.theiostre.ae.std
+Name: Standard
+Depends: firmware (>= 5.0), gsc.assistant | com.chpwn.spire, me.k3a.ae
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome extension for Siri!
+Maintainer: theiostream
+Author: theiostream
+Section: Addons (AssistantExtensions)

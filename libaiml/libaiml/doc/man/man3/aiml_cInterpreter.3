@@ -1,0 +1,265 @@
+.TH "aiml::cInterpreter" 3 "3 Feb 2006" "Version 0.6" "libaiml" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+aiml::cInterpreter \- libaiml interpreter.  
+
+.PP
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcInterpreter\fP (void)"
+.br
+.RI "\fIInitializes everything. \fP"
+.ti -1c
+.RI "virtual \fB~cInterpreter\fP (void)"
+.br
+.RI "\fIDeinitialize the core. \fP"
+.ti -1c
+.RI "virtual bool \fBinitialize\fP (const std::string &filename)=0"
+.br
+.RI "\fIInitialize the AIML core using configuration file. \fP"
+.ti -1c
+.RI "virtual bool \fBinitialize\fP (const std::string &filename, const \fBcCoreOptions\fP &opts)=0"
+.br
+.RI "\fIInitialize the AIML core using data passed from client program. \fP"
+.ti -1c
+.RI "virtual void \fBdeinitialize\fP (void)=0"
+.br
+.RI "\fIDeinitialize the core. \fP"
+.ti -1c
+.RI "virtual void \fBregisterCallbacks\fP (\fBcInterpreterCallbacks\fP *callbacks)=0"
+.br
+.RI "\fIRegister callbacks for libaiml to use. \fP"
+.ti -1c
+.RI "virtual bool \fBrespond\fP (const std::string &input, const std::string &username, std::string &output, std::list< \fBcMatchLog\fP > *log=NULL)=0"
+.br
+.RI "\fIresponder function. \fP"
+.ti -1c
+.RI "virtual void \fBunregisterUser\fP (const std::string &username)=0"
+.br
+.RI "\fIRemoves a user from the list in memory. \fP"
+.ti -1c
+.RI "virtual bool \fBlearnFile\fP (const std::string &filename)=0"
+.br
+.RI "\fIloads an .aiml file. \fP"
+.ti -1c
+.RI "virtual bool \fBsaveGraphmaster\fP (const std::string &file)=0"
+.br
+.RI "\fISaves currently loaded graphmaster into a .caiml file. \fP"
+.ti -1c
+.RI "virtual bool \fBloadGraphmaster\fP (const std::string &file)=0"
+.br
+.RI "\fILoads a previously saved .caiml file into the core. \fP"
+.ti -1c
+.RI "\fBAIMLError\fP \fBgetError\fP (void)"
+.br
+.RI "\fIGet the last error set. \fP"
+.ti -1c
+.RI "virtual std::string \fBgetErrorStr\fP (\fBAIMLError\fP error_num)=0"
+.br
+.RI "\fIget the last error code generated in humanly readable form. \fP"
+.ti -1c
+.RI "virtual std::string \fBgetRuntimeErrorStr\fP (void)=0"
+.br
+.RI "\fIreturns the last runtime error message set by the corresponding subsystem. \fP"
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBcInterpreter\fP * \fBnewInterpreter\fP (void)"
+.br
+.RI "\fICreate a new interpreter instance. \fP"
+.ti -1c
+.RI "static void \fBfreeInterpreter\fP (\fBcInterpreter\fP *i)"
+.br
+.RI "\fIDestroy a \fBcInterpreter\fP object. \fP"
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBAIMLError\fP \fBlast_error\fP"
+.br
+.ti -1c
+.RI "\fBcInterpreterCallbacks\fP * \fBcallbacks\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+libaiml interpreter. 
+
+This is the class to be used as the interface. It encapsulates the libaiml interpreter.
+.PP
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cInterpreter::~cInterpreter (void)\fC [virtual]\fP"
+.PP
+Deinitialize the core. 
+.PP
+Calls \fBdeinitialize()\fP. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool aiml::cInterpreter::initialize (const std::string & filename)\fC [pure virtual]\fP"
+.PP
+Initialize the AIML core using configuration file. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP is a path to the configuration file that libaiml uses. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true iif initialization was successful
+.RE
+.PP
+
+.SS "virtual bool aiml::cInterpreter::initialize (const std::string & filename, const \fBcCoreOptions\fP & opts)\fC [pure virtual]\fP"
+.PP
+Initialize the AIML core using data passed from client program. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP is the path to the libaiml configuration file (the <options> tag is ignored) 
+.br
+\fIopts\fP is the structure containing the values wanted for each option available. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true iif initialization was successful
+.RE
+.PP
+
+.SS "virtual void aiml::cInterpreter::deinitialize (void)\fC [pure virtual]\fP"
+.PP
+Deinitialize the core. 
+.PP
+Saves all user variables into the user's files and shuts everything down. You don't have to call this explicitly, the destructor does it.
+.SS "virtual bool aiml::cInterpreter::respond (const std::string & input, const std::string & username, std::string & output, std::list< \fBcMatchLog\fP > * log = \fCNULL\fP)\fC [pure virtual]\fP"
+.PP
+responder function. 
+.PP
+The output is touched iif the function returns true. The username will be created if this function is called for the first time with such parameter. The matching & response will be done inside the user's context. If the log parameter is used, it is used to store each of the matches made by the interpreter to reach the template. It is a list because it includes the top-level match and any possible internal <srai> matches made later. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIinput\fP is the input that should be passed to the aiml interpreter. 
+.br
+\fIusername\fP is the username or id that should be asociated with the conversation. 
+.br
+\fIoutput\fP is a reference to a string where the interpreter saves the response. 
+.br
+\fIlog\fP is an optional pointer to a list to be used to store \fBcMatchLog\fP structures (user should provide the storage). 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true iif no errors were found.
+.RE
+.PP
+
+.SS "virtual void aiml::cInterpreter::unregisterUser (const std::string & username)\fC [pure virtual]\fP"
+.PP
+Removes a user from the list in memory. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIusername\fP is the user's name as passed to \fBrespond()\fP.
+.RE
+.PP
+
+.SS "virtual bool aiml::cInterpreter::learnFile (const std::string & filename)\fC [pure virtual]\fP"
+.PP
+loads an .aiml file. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP is the path (relative to client program) of the aiml file to load. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+if it was successful.
+.RE
+.PP
+
+.SS "virtual bool aiml::cInterpreter::saveGraphmaster (const std::string & file)\fC [pure virtual]\fP"
+.PP
+Saves currently loaded graphmaster into a .caiml file. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfile\fP is the name of the file. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+if saving was succesful.
+.RE
+.PP
+
+.SS "virtual bool aiml::cInterpreter::loadGraphmaster (const std::string & file)\fC [pure virtual]\fP"
+.PP
+Loads a previously saved .caiml file into the core. 
+.PP
+This functions replaces the content of the graphmaster completely, so if you want to mix aiml files and ONE .caiml file (more wouldn't make sense), you should load all .aiml files first. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfile\fP is the name of the file. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+if loading was succesful.
+.RE
+.PP
+
+.SS "virtual std::string aiml::cInterpreter::getErrorStr (\fBAIMLError\fP error_num)\fC [pure virtual]\fP"
+.PP
+get the last error code generated in humanly readable form. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIerror_num\fP is the error to interpret (you can take \fBgetError()\fP output for this).
+.RE
+.PP
+
+.SS "virtual std::string aiml::cInterpreter::getRuntimeErrorStr (void)\fC [pure virtual]\fP"
+.PP
+returns the last runtime error message set by the corresponding subsystem. 
+.PP
+\fBReturns:\fP
+.RS 4
+the runtime error or an empty string if none was generated.
+.RE
+.PP
+
+.SS "\fBcInterpreter\fP * cInterpreter::newInterpreter (void)\fC [static]\fP"
+.PP
+Create a new interpreter instance. 
+.PP
+This is necessary because \fBcInterpreter\fP is an abstract interface, you couldn't build the interpreter yourself without seeing the implementation. The data returned is dynamically allocated with 'new', so you can call destroy on it afterwards. 
+.PP
+\fBReturns:\fP
+.RS 4
+a pointer to the newly allocated interpreter object.
+.RE
+.PP
+
+.SS "void cInterpreter::freeInterpreter (\fBcInterpreter\fP * i)\fC [static]\fP"
+.PP
+Destroy a \fBcInterpreter\fP object. 
+.PP
+You don't need to use this as you can just do 'delete i;'. This function is just defined for simmetry.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libaiml from the source code.

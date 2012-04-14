@@ -1,0 +1,150 @@
+.TH "aiml" 3 "3 Feb 2006" "Version 0.6" "libaiml" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+aiml \- Namespace that holds the libaiml public interface.  
+
+.PP
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcMatchLog\fP"
+.br
+.RI "\fIThis structure is used to hold the nodes of the tree that matched the user's input, that and topic. \fP"
+.ti -1c
+.RI "struct \fBcCoreOptions\fP"
+.br
+.RI "\fIOptions to configure the interpreter. \fP"
+.ti -1c
+.RI "class \fBcInterpreterCallbacks\fP"
+.br
+.RI "\fIThis structure is used to receive notifications of events that libaiml generates. \fP"
+.ti -1c
+.RI "class \fBcInterpreter\fP"
+.br
+.RI "\fIlibaiml interpreter. \fP"
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBAIMLError\fP { \fBAIMLERR_NO_ERR\fP, \fBAIMLERR_NO_FILES\fP, \fBAIMLERR_PATT_READERR\fP, \fBAIMLERR_PATT_UNKNOWN\fP, \fBAIMLERR_OPEN_GOSSIP\fP, \fBAIMLERR_NOT_INIT\fP, \fBAIMLERR_ALREADY_INIT\fP, \fBAIMLERR_NO_CFGFILE\fP, \fBAIMLERR_NO_USERLIST\fP, \fBAIMLERR_SYSTEM_NOT_ALLOWED\fP, \fBAIMLERR_JAVASCRIPT_NOT_ALLOWED\fP, \fBAIMLERR_JAVASCRIPT_PROBLEM\fP, \fBAIMLERR_EMPTY_INPUT\fP, \fBAIMLERR_NO_MATCH\fP, \fBAIMLERR_EMPTY_GM\fP, \fBAIMLERR_AIML_NOOPEN\fP, \fBAIMLERR_AIML_PARSE\fP, \fBAIMLERR_CAIML_NOMAGIC\fP, \fBAIMLERR_CAIML_NOTCAIML\fP, \fBAIMLERR_CAIML_NOOPEN_READ\fP, \fBAIMLERR_CAIML_NOVERSION\fP, \fBAIMLERR_CAIML_WRONGVERSION\fP, \fBAIMLERR_CAIML_NOSIZE\fP, \fBAIMLERR_CAIML_NOCHILDSNUM\fP, \fBAIMLERR_CAIML_NOKEY\fP, \fBAIMLERR_CAIML_NOTEMPLATE\fP, \fBAIMLERR_CAIML_EMPTYGM\fP, \fBAIMLERR_CAIML_NOOPEN_WRITE\fP, \fBAIMLERR_CAIML_INCORRECTSTRUCT\fP, \fBAIMLERR_TEMLP_UNKNOWN_TAG\fP, \fBAIMLERR_NEG_THAT_INDEX\fP, \fBAIMLERR_NEG_INPUT_INDEX\fP, \fBAIMLERR_MAX\fP }"
+.br
+.RI "\fIError codes produced by libaiml. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Namespace that holds the libaiml public interface. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBaiml::AIMLError\fP"
+.PP
+Error codes produced by libaiml. 
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIAIMLERR_NO_ERR \fP\fP
+No error. 
+.TP
+\fB\fIAIMLERR_NO_FILES \fP\fP
+No aiml files specified to load. 
+.TP
+\fB\fIAIMLERR_PATT_READERR \fP\fP
+Read error while matching file patterns. 
+.TP
+\fB\fIAIMLERR_PATT_UNKNOWN \fP\fP
+Unknown error while matching file patterns. 
+.TP
+\fB\fIAIMLERR_OPEN_GOSSIP \fP\fP
+Couldn't open gossip file for writing. 
+.TP
+\fB\fIAIMLERR_NOT_INIT \fP\fP
+The core isn't yet initialized. 
+.TP
+\fB\fIAIMLERR_ALREADY_INIT \fP\fP
+The core is already initialized. 
+.TP
+\fB\fIAIMLERR_NO_CFGFILE \fP\fP
+Couldn't open/read configuration file. 
+.PP
+(use \fBcInterpreter::getRuntimeErrorStr()\fP). 
+.TP
+\fB\fIAIMLERR_NO_USERLIST \fP\fP
+Error with userlist file. 
+.TP
+\fB\fIAIMLERR_SYSTEM_NOT_ALLOWED \fP\fP
+System tag is not allowed to be executed. 
+.TP
+\fB\fIAIMLERR_JAVASCRIPT_NOT_ALLOWED \fP\fP
+Javascript tag is not allowed to be executed. 
+.TP
+\fB\fIAIMLERR_JAVASCRIPT_PROBLEM \fP\fP
+Problem with JavaScript interpreter (use \fBcInterpreter::getRuntimeErrorStr()\fP). 
+.TP
+\fB\fIAIMLERR_EMPTY_INPUT \fP\fP
+Normalization of input resulted in empty string. 
+.TP
+\fB\fIAIMLERR_NO_MATCH \fP\fP
+No match found for input. 
+.TP
+\fB\fIAIMLERR_EMPTY_GM \fP\fP
+Empty graphmaster (no categories loaded). 
+.TP
+\fB\fIAIMLERR_AIML_NOOPEN \fP\fP
+Couldn't open aiml file. 
+.TP
+\fB\fIAIMLERR_AIML_PARSE \fP\fP
+AIML Parser error (use \fBcInterpreter::getRuntimeErrorStr()\fP). 
+.TP
+\fB\fIAIMLERR_CAIML_NOMAGIC \fP\fP
+Couldn't retrieve magic number from caiml file. 
+.TP
+\fB\fIAIMLERR_CAIML_NOTCAIML \fP\fP
+Not a CAIML file. 
+.TP
+\fB\fIAIMLERR_CAIML_NOOPEN_READ \fP\fP
+Couldn't open CAIML file for reading. 
+.TP
+\fB\fIAIMLERR_CAIML_NOVERSION \fP\fP
+Couldn't get version from CAIML file. 
+.TP
+\fB\fIAIMLERR_CAIML_WRONGVERSION \fP\fP
+CAIML file version not supported. 
+.TP
+\fB\fIAIMLERR_CAIML_NOSIZE \fP\fP
+Couldn't get size of graphmaster (ie: number of templates) from CAIML file. 
+.TP
+\fB\fIAIMLERR_CAIML_NOCHILDSNUM \fP\fP
+No size of childs for node in CAIML file. 
+.TP
+\fB\fIAIMLERR_CAIML_NOKEY \fP\fP
+Coulnd't read key for node in CAIML file. 
+.TP
+\fB\fIAIMLERR_CAIML_NOTEMPLATE \fP\fP
+Coulnd't read template for node in CAIML file. 
+.TP
+\fB\fIAIMLERR_CAIML_EMPTYGM \fP\fP
+Can't save an empty graphmaster. 
+.TP
+\fB\fIAIMLERR_CAIML_NOOPEN_WRITE \fP\fP
+Couldn't open CAIML file for writing. 
+.TP
+\fB\fIAIMLERR_CAIML_INCORRECTSTRUCT \fP\fP
+Caiml file is not correctly built. 
+.TP
+\fB\fIAIMLERR_TEMLP_UNKNOWN_TAG \fP\fP
+Unknown tag found while parsing template. 
+.TP
+\fB\fIAIMLERR_NEG_THAT_INDEX \fP\fP
+Negative index in 'that' tag found. 
+.TP
+\fB\fIAIMLERR_NEG_INPUT_INDEX \fP\fP
+Negative index in 'input' tag found. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libaiml from the source code.

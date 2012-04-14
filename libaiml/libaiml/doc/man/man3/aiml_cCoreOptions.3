@@ -1,0 +1,69 @@
+.TH "aiml::cCoreOptions" 3 "3 Feb 2006" "Version 0.6" "libaiml" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+aiml::cCoreOptions \- Options to configure the interpreter.  
+
+.PP
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBcCoreOptions\fP (void)"
+.br
+.RI "\fIDefault constructor. \fP"
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBfile_patterns\fP"
+.br
+.RI "\fISpace separated list of patterns of aiml files to be loaded. \fP"
+.ti -1c
+.RI "std::string \fBfile_gossip\fP"
+.br
+.RI "\fIThe path where to gossip (a file). \fP"
+.ti -1c
+.RI "std::string \fBuser_file\fP"
+.br
+.RI "\fIFile where user's data is saved. \fP"
+.ti -1c
+.RI "std::string \fBsentence_limit\fP"
+.br
+.RI "\fICharacters used to separate sentences. \fP"
+.ti -1c
+.RI "bool \fBshould_trim_blanks\fP"
+.br
+.RI "\fIIf the interpreter should treat multiple whitespace combinations as a single space. \fP"
+.ti -1c
+.RI "bool \fBallow_system\fP"
+.br
+.RI "\fIIf the interpreter should execute commands from <system> tags. \fP"
+.ti -1c
+.RI "bool \fBallow_javascript\fP"
+.br
+.RI "\fIIf the interpreter should execute code from <javascript> tags. \fP"
+.ti -1c
+.RI "bool \fBallow_dateformat\fP"
+.br
+.RI "\fIIf the interpreter should format date using the 'format' parameter. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Options to configure the interpreter. 
+.PP
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cCoreOptions::cCoreOptions (void)"
+.PP
+Default constructor. 
+.PP
+This gives the default values to each of the parameters in this structure. Refer to the configuration file description to see which are those defaults.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libaiml from the source code.

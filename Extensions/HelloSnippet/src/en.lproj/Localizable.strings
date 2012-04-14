@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  HelloSnippet
+
+  Created by K3A on 2/23/12.
+  Copyright (c) 2012 K3A. All rights reserved.
+*/
+
+"Hello Snippet!!" = "Hello snippet in English";
+"This snippet has been loaded from a nib file." = "This snippet has been loaded from a nib file.";
+"Text passed as a snippet property." = "Text passed as a snippet property.";

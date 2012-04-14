@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = AECustomizerPreferences;
+	cell = PSLinkCell;
+	detail = AECustomizerPreferencesListController;
+	icon = AECustomizerPreferences.png;
+	isController = 1;
+	label = AECustomizerPreferences;
+    };
+}

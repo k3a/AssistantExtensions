@@ -1,0 +1,48 @@
+libaiml installation
+===================
+
+1. Requirements
+	You'll need three things to use libaiml:
+	1) std_utils: a small static library that I use in all my projects with a lot of usefull stuff
+	(it avoids repeting code). You can get it at my site: [1].
+	2) libxml2: a XML parser (it came with my linux distro so you'll probably do fine), anyway
+	you can find it at [2]
+	3) An AIML set: I used the AAA set but you could use your own set obviously.
+		WARNING: The AAA set wasn't the best choice for testing because it has some shadowed
+		categories and can't be used all together. It is more like a starting point to do your own set.
+		If you want to use the AAA set you should check the README file, there's some important
+		info in there about it.
+    
+  4) Optionally, to enable JavaScript support in the interpreter you will need
+  "SpiderMonkey" (the Mozilla JavaScript interpreter). [4]
+		
+2. Building:
+	The plain ol' way: ./configure && make && make install
+  NOTE: if you can't compile libaiml because there are warnings poping up, you
+  can disable the 'treat warnings as errors' feature, using --disable-werror
+  at configure time. YOU SHOULD STILL SEND ME A NOTICE ABOUT THE WARNING.
+	
+3. Testing
+	A test_app will be built together with libaiml. You can use this to test you own AIML set
+or get an idea of how libaiml works.
+
+4. Using
+	Read the README files regarding usage of the library. You actually need to do these things:
+		*	use a properly configured .conf file
+		* use properly written substitution and bot variables files
+		* create a user dir with read/write permissions
+		* find an AIML set to use with the interpreter
+		* integrate the library to your project
+		
+	Check the core.h header as it contains the interface your program will be using. Once again
+	read the README file for further instructions, this is just a brief intro to the library.
+	
+5. Notes
+	At [3] you will find all my projects also.
+	_DO_ read the README file. The ChangeLog may also hold important release information.
+	Be sure to check these files.	
+	
+[1] http://omicron.ig3.net/
+[2] http://xmlsoft.org/
+[3] http://freshmeat.net/
+[4] http://www.mozilla.org/js/spidermonkey/

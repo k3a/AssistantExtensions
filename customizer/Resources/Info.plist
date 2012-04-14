@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>Customizer</string>
+	<key>CFBundleIdentifier</key>
+	<string>me.k3a.ae.customizer</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>CFBundleDisplayName</key>
+	<string>Customizer</string>
+	<key>MinimumOSVersion</key>
+	<string>5.0</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>iPhoneOS</string>
+	</array>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>AppBundleID</key>
+	<string>me.k3a.ae.customizer</string>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+		<integer>2</integer>
+	</array>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>NSPrincipalClass</key>
+	<string>AECustomizer</string>
+	<key>AEExtensionName</key>
+	<string>Custom responses</string>
+	<key>AEPreferenceBundle</key>
+	<string>AECustomizerPreferences</string>
+	<key>AEAuthor</key>
+	<string>theiostream</string>
+</dict>
+</plist>

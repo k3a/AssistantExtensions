@@ -1,0 +1,10 @@
+Package: k3a.me.aecmd
+Name: AECmd
+Depends: 
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome tool of some sort!!
+Maintainer: K3A
+Author: K3A
+Section: System
+Tag: role::hacker

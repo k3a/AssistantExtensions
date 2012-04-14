@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AEAuthor</key>
+	<string>K3A</string>
+	<key>AEDescription</key>
+	<string>Sample Extension</string>
+	<key>AEEmail</key>
+	<string>ae@k3a.me</string>
+	<key>AEIcon</key>
+	<string>Icon@2x.png</string>
+	<key>AEName</key>
+	<string>Hello Snippet</string>
+	<key>AEVersion</key>
+	<string>1.0.1</string>
+	<key>AEVersionRequirement</key>
+	<string>1.0.2</string>
+	<key>AEWebsite</key>
+	<string>http://ae.k3a.me</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>HelloSnippet</string>
+	<key>CFBundleIdentifier</key>
+	<string>me.k3a.ace.HelloSnippet</string>
+	<key>CFBundleName</key>
+	<string>HelloSnippet</string>
+	<key>CFBundleResourceSpecification</key>
+	<string>ResourceRules.plist</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2012 K3A.me. All rights reserved.</string>
+	<key>NSPrincipalClass</key>
+	<string>K3AHelloSnippetExtension</string>
+	<key>UIDeviceFamily</key>
+	<array>
+		<string>2</string>
+		<integer>1</integer>
+	</array>
+</dict>
+</plist>

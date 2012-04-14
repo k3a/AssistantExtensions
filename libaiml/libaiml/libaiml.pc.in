@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: @PACKAGE@
+Description: AIML interpreter engine library.
+Version: @VERSION@
+Libs: -L${libdir} -lstd_utils @PCRECPP_LIBS@ @XML2_LIBS@
+Cflags: -I${includedir}

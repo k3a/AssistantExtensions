@@ -1,0 +1,292 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		721B2F7214ACA2EF00BC2916 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 721B2F6C14ACA2EF00BC2916 /* InfoPlist.strings */; };
+		721B2F7314ACA2EF00BC2916 /* SnippetExtension-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 721B2F6E14ACA2EF00BC2916 /* SnippetExtension-Info.plist */; };
+		721B2F7414ACA2EF00BC2916 /* SnippetExtensionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721B2F7114ACA2EF00BC2916 /* SnippetExtensionController.m */; };
+		72D4B1D1149D5AF400743EE1 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D4B1D0149D5AF400743EE1 /* CoreFoundation.framework */; };
+		72D4B1E2149D60E800743EE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D4B1E1149D60E800743EE1 /* UIKit.framework */; };
+		72D4B1E4149D616900743EE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D4B1E3149D616900743EE1 /* Foundation.framework */; };
+		72EF8B0E149E913500333658 /* SAObjects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EF8B0D149E913500333658 /* SAObjects.framework */; };
+		72EF8B10149E92DE00333658 /* AssistantUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EF8B0F149E92DE00333658 /* AssistantUI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		721B2F6D14ACA2EF00BC2916 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		721B2F6E14ACA2EF00BC2916 /* SnippetExtension-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SnippetExtension-Info.plist"; path = "../SnippetExtension/SnippetExtension-Info.plist"; sourceTree = "<group>"; };
+		721B2F6F14ACA2EF00BC2916 /* SnippetExtension-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SnippetExtension-Prefix.pch"; path = "../SnippetExtension/SnippetExtension-Prefix.pch"; sourceTree = "<group>"; };
+		721B2F7014ACA2EF00BC2916 /* SnippetExtensionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SnippetExtensionController.h; path = SnippetExtension/SnippetExtensionController.h; sourceTree = "<group>"; };
+		721B2F7114ACA2EF00BC2916 /* SnippetExtensionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SnippetExtensionController.m; path = SnippetExtension/SnippetExtensionController.m; sourceTree = "<group>"; };
+		72D4B1CD149D5AF400743EE1 /* SnippetExtension.assistantUIBundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnippetExtension.assistantUIBundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		72D4B1D0149D5AF400743EE1 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		72D4B1E1149D60E800743EE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		72D4B1E3149D616900743EE1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		72EF8B0D149E913500333658 /* SAObjects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SAObjects.framework; path = /Users/kexik/lith/dyld_decache/libraries/System/Library/PrivateFrameworks/SAObjects.framework; sourceTree = "<absolute>"; };
+		72EF8B0F149E92DE00333658 /* AssistantUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssistantUI.framework; path = /Users/kexik/lith/dyld_decache/libraries/System/Library/PrivateFrameworks/AssistantUI.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72D4B1CA149D5AF400743EE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72EF8B10149E92DE00333658 /* AssistantUI.framework in Frameworks */,
+				72EF8B0E149E913500333658 /* SAObjects.framework in Frameworks */,
+				72D4B1E4149D616900743EE1 /* Foundation.framework in Frameworks */,
+				72D4B1E2149D60E800743EE1 /* UIKit.framework in Frameworks */,
+				72D4B1D1149D5AF400743EE1 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		721B2F6B14ACA2EF00BC2916 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				721B2F6C14ACA2EF00BC2916 /* InfoPlist.strings */,
+			);
+			name = en.lproj;
+			path = ../SnippetExtension/en.lproj;
+			sourceTree = "<group>";
+		};
+		72D4B1C2149D5AF400743EE1 = {
+			isa = PBXGroup;
+			children = (
+				721B2F7014ACA2EF00BC2916 /* SnippetExtensionController.h */,
+				721B2F7114ACA2EF00BC2916 /* SnippetExtensionController.m */,
+				72D4B1D2149D5AF400743EE1 /* SnippetExtensiond */,
+				72D4B1CF149D5AF400743EE1 /* Frameworks */,
+				72D4B1CE149D5AF400743EE1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		72D4B1CE149D5AF400743EE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72D4B1CD149D5AF400743EE1 /* SnippetExtension.assistantUIBundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72D4B1CF149D5AF400743EE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72EF8B0F149E92DE00333658 /* AssistantUI.framework */,
+				72EF8B0D149E913500333658 /* SAObjects.framework */,
+				72D4B1E3149D616900743EE1 /* Foundation.framework */,
+				72D4B1E1149D60E800743EE1 /* UIKit.framework */,
+				72D4B1D0149D5AF400743EE1 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72D4B1D2149D5AF400743EE1 /* SnippetExtensiond */ = {
+			isa = PBXGroup;
+			children = (
+				72D4B1D3149D5AF400743EE1 /* Supporting Files */,
+			);
+			name = SnippetExtensiond;
+			path = HelloAce;
+			sourceTree = "<group>";
+		};
+		72D4B1D3149D5AF400743EE1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				721B2F6B14ACA2EF00BC2916 /* en.lproj */,
+				721B2F6E14ACA2EF00BC2916 /* SnippetExtension-Info.plist */,
+				721B2F6F14ACA2EF00BC2916 /* SnippetExtension-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72D4B1CC149D5AF400743EE1 /* SnippetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72D4B1DB149D5AF400743EE1 /* Build configuration list for PBXNativeTarget "SnippetExtension" */;
+			buildPhases = (
+				72D4B1C9149D5AF400743EE1 /* Sources */,
+				72D4B1CA149D5AF400743EE1 /* Frameworks */,
+				72D4B1CB149D5AF400743EE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnippetExtension;
+			productName = HelloAce;
+			productReference = 72D4B1CD149D5AF400743EE1 /* SnippetExtension.assistantUIBundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		72D4B1C4149D5AF400743EE1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 72D4B1C7149D5AF400743EE1 /* Build configuration list for PBXProject "SnippetExtension" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 72D4B1C2149D5AF400743EE1;
+			productRefGroup = 72D4B1CE149D5AF400743EE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72D4B1CC149D5AF400743EE1 /* SnippetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72D4B1CB149D5AF400743EE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				721B2F7214ACA2EF00BC2916 /* InfoPlist.strings in Resources */,
+				721B2F7314ACA2EF00BC2916 /* SnippetExtension-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		72D4B1C9149D5AF400743EE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				721B2F7414ACA2EF00BC2916 /* SnippetExtensionController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		721B2F6C14ACA2EF00BC2916 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				721B2F6D14ACA2EF00BC2916 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		72D4B1D9149D5AF400743EE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		72D4B1DA149D5AF400743EE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		72D4B1DC149D5AF400743EE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Hros (A6HRX8CY75)";
+				FRAMEWORK_SEARCH_PATHS = /Users/kexik/lith/dyld_decache/libraries/System/Library/PrivateFrameworks/;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelloAce/SnippetExtension-Prefix.pch";
+				INFOPLIST_FILE = "HelloAce/SnippetExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = SnippetExtension;
+				PROVISIONING_PROFILE = "EA042641-A5F3-46B1-992D-3849DF9251FB";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = assistantUIBundle;
+			};
+			name = Debug;
+		};
+		72D4B1DD149D5AF400743EE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Hros (A6HRX8CY75)";
+				FRAMEWORK_SEARCH_PATHS = /Users/kexik/lith/dyld_decache/libraries/System/Library/PrivateFrameworks/;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HelloAce/SnippetExtension-Prefix.pch";
+				INFOPLIST_FILE = "HelloAce/SnippetExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = SnippetExtension;
+				PROVISIONING_PROFILE = "EA042641-A5F3-46B1-992D-3849DF9251FB";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = assistantUIBundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72D4B1C7149D5AF400743EE1 /* Build configuration list for PBXProject "SnippetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72D4B1D9149D5AF400743EE1 /* Debug */,
+				72D4B1DA149D5AF400743EE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72D4B1DB149D5AF400743EE1 /* Build configuration list for PBXNativeTarget "SnippetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72D4B1DC149D5AF400743EE1 /* Debug */,
+				72D4B1DD149D5AF400743EE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 72D4B1C4149D5AF400743EE1 /* Project object */;
+}

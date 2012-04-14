@@ -1,0 +1,71 @@
+Suggestions for any other TODO items / IDEAS / how to resolve an unresolved and problematic
+TODO / how to optimize something, can be sent to me (check the README)
+
+Issues/Things to Consider
+=========================
+- if getAnswer() is false inside respond() the input vector will be filled
+with unanswered inputs
+
+- check "dialog history" behavior, something is not right... either with
+libaiml or with Dialog.aiml
+
+Optimizations
+=============
+- look for expensive operations on vectors/nodes/lists
+
+Still pending (probably for next version)
+=========================================
+** move trim_blanks to runtime before the response is delivered to user. This
+allows to removed newlines introduced by <javascript> and other tags
+|_ just remove the newlines and stuff generated at runtime
+
+XML:
+  - add namespace processing support to aiml_parser
+    |_ there are incorrect .aiml's that use <li> inside <ul>, which confuses
+    the interpreter (because <li> is parsed as aiml: when it should be noted
+    that such li's are html:). Fix that.
+    
+  - check for XML specs about casing of tags/parameters. should they be case
+  insensitive?
+  - check for xml:space handling in libxml
+  - add validation support
+
+- try to ship with my own aiml set next time
+- AI::AIML showed that a template like <template>ok</template> could return
+  'ok ', check why
+
+- libxml: there are some util functions like hasProp getProp that should be used
+
+General:
+  - allow # of that/input's saved to be settable at runtime (array -> vector)
+  - Add options to the .conf file to let the user decide how to handle unclear
+  or undefined situations of the AIML spec
+
+JavaScript:
+  - consider a way of defining some script to execute inside the general context
+  at startup (to define functions, classes, open persistent databse connections and such)
+  |_ conflicts with making each tag its own context, maybe it would be better
+  to look into global classes or something like that
+
+Reaching 1.0
+============
+- Do some profiling to find bottlenecks
+- Optimizations
+
+Side Programs
+=============
+AIML compiler: will allow compiling .aiml code into .caiml which can be loaded a
+  lot faster. Compiled AIML code would be an optional input to the interpreter, native
+  AIML parser won't be removed from libaiml.
+
+IDEAS:
+=====
+	* Automatic learning could be using the system (and maybe javascript) tag: the bot could
+	write AIML data to a file and then learn it using <learn></learn>.
+		Of course, one could use a normal targeting approach by gossiping to a file (plain-text)
+	information about an input being match by the catch-all category (all * wildcards). And then
+	the botmaster would approve or deny this and use the learn feature with a user provided
+	AIML file.
+	
+  * Make a perl script that can parse XML test sets (Program D's?) and use the
+  perl interface to libaiml to validate the results

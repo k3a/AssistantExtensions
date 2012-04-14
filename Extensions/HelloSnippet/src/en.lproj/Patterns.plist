@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>example</key>
+    <string>Test Snippet</string>
+    <key>icon</key>
+    <string>Icon@2x</string>
+	<key>patterns</key>
+	<dict>
+		<key>TEST</key>
+		<dict>
+			<key>category</key>
+			<string>Snippet Example</string>
+			<key>pattern</key>
+			<string>test</string>
+			<key>examples</key>
+			<array>
+				<string>Test</string>
+			</array>
+		</dict>
+		<key>AGE</key>
+		<dict>
+			<key>category</key>
+			<string>Patterns</string>
+			<key>patterns</key>
+			<array>
+				<string>I am (age:&lt;number&gt;) [years] [old]</string>
+				<string>my age is (age:&lt;number&gt;) [years]</string>
+			</array>
+			<key>examples</key>
+			<array>
+				<string>I am 23</string>
+				<string>My age is 27 years</string>
+				<string>My age is 12</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

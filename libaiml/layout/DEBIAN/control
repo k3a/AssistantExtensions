@@ -1,0 +1,10 @@
+Package: me.k3a.libaiml
+Name: libaiml
+Depends: 
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: AIML (The Artificial Intelligence Markup Language) Library
+Maintainer: k3a
+Author: k3a
+Section: System
+Tag: role::developer

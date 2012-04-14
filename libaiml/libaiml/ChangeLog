@@ -1,0 +1,154 @@
+0.6
+  - FIX: JavaScript wasn't being handled verbatim
+  - FIX: defining an empty template would make the interpreter
+  think there weren't any matching categories
+  - FIX: Makefile.cvs should work now
+  - commented in detail the workings of the grapmhaster matching algorithm (I
+  couldn't remember what my code did =\)
+  - updates on the purpose of CAIML (see README and CAIML)
+  - complete redesign: abstract interface, callbacks. This avoids having to
+  include all internal headers and makes compiling programs faster and simpler
+  - libxml2 is used, expat is gone
+  - user management completely rewritten using one XML file: now there's no
+  restriction in what usernames can have, nor what predicate names, nor
+  predicate values.
+  - configuration file (and previously used subsitutions+bot variables files)
+  are now all merged into one XML file
+  - completely integrated error reporting of subsystems by using getRuntimeError()
+  (getXMLError() is gone)
+  - aiml_parser now informs the first error generated (this could be noticed
+  in an imprecision in the line number when reporting XML parsing errors)
+  - Perl Compatible Regular Expression support for substitutions
+  - added options: sentence_limit allows you to define which characters
+  delimit sentences
+  - configuration options have defaults now
+  - javascript error reporting finished
+  - print() is now defined for javascript code to use(evaluating something is no
+  longer the way to print stuff)
+  - fixed possible problems with newer GCC 4.x versions, altough there will be
+  probably more problems with that compiler
+  - FIX: when loading no aiml files glob() would crash
+  - FIX: STTTTTTUPPPIDDDD bug that made CAIML not work, it should work perfect
+  now
+  
+0.5:
+  - removed old #if 0'd code
+  - beautified some other code
+  - Documentation fixes
+  - some code simplification
+  - fixed a compilation warning for GCC 4.0.1
+  - Compressed AIML support
+  - Added support for XML error reporting
+  - UserID is now unsigned long
+  - gettok() changed interface in last release, libaiml was still using old
+  interface, which is incompatible with new one. This would manifest at incorrect
+  handling of <that> and <input> tags (regarding ther index="" parameter)
+  - load_substitutions was all wrong (it never loaded any substitutions), so
+  any wierd behavior asociated with this may be caused by this bug
+  - protected get_error_str() from crashes if it was called with AIMLERR_MAX
+  (why would you do that anyway?)
+  - following error reporting of XML subsystem
+  - interface changes (mostly names and compatible types)
+  - more error types
+  - support for loading aiml files on the fly
+  - total usage of binary representation of aiml templates... happier code
+  - support for logging of matches, you can see the whole path of the match
+  - avoided lots of unnecessary copies of strings/vectors and such using
+  references smarter
+  - removed LIBAIML_VERSION, VERSION is the "correct" name, removed config.h
+  from header, this may have caused problems
+  - simplified test_app a little
+  - avoided some internal string copies on respond()
+  - removed ridiculous limits for line sizes when reading from libaiml's files,
+  since I discovered the getline() func that works with STL strings
+  - onAimlFileLoad (or something like that) virtual function, cCore is now
+  derivable. You can get notifications of each file loaded with this
+  - ERRLEV of cConfig wasn't quiet
+  - added handling of format parameter in <date> (optionally)
+  - aiml_files + aiml_path -> file_patterns, mucho more powerfull =b
+  - README/INSTALL updates
+  - other tweaks here and there probably
+  - made user vars get unset if you do a <set></set> (empty assignment)
+  - removed log_matches from conf file
+  - JavaScript support!!!
+	- added documentation for interface
+	- changed strtoul() to istringstream (the portable way to do it)
+	- added some checks to the ./configure system
+0.4:
+	- Made the binary search to be fast enough at load-time to consider leaving it. Binary searching is now default.
+	- Made getMatch to return a boolean and take a reference to a string (I was returning just the string and testing
+	for emptyness). This should avoid calling the copy constructor on every recursive call, so the pattern matching should
+	be faster
+	- Fixed default substitute.txt: it had ` instead of ' (dunno why)
+	- Added an error in case of having an empty graphmaster (no AIML data loaded)
+	- REAAALLY simplified the pattern matcher. It uses a 2nd function now (which takes a lot
+	of parameters, but I don't think that it can be done in any other way. Anyhow, this function
+	takes all references and just one primitive value (enum) by copy.
+	- Found stale code (bug) inside the pattern matcher when doing the previous task, fixed it
+	- Made some functions on stuff.cpp use the string iterator rather than the [] operator
+	- Removed respond.cpp (respond() is now at core.cpp)
+	- Made initialize() return false when a config key is missing
+	- Implemented the <system> tag: it passes the commands to the system shell and returns the
+	stdout (so if you do "echo -n 1", the tag returns "1"). This tag can be disabled in the config
+	file
+	- <date/> tag wasn't getting interpreted
+	- Removed old atoi() calls from template parser (now it uses stringstreams)
+	- Some fixes in bot.vars
+	- Done some finer analysis of loading time using a push_back+sort vs. plain insert. The
+	difference (on my machine, see previous version log) was 1s aprox (7 vs. 6s aproximately).
+	I still consider that using binary search compensates that second. 
+	- readTemplate returns a const reference so it should be a little faster as it doesn't
+	involve a copy constructor at every recursive call.
+	- getMatch/getMatchWildcard (pattern matcher) now uses a new type (InputIterator). This avoids
+	passing the list<string> by copy on every recursive call. The overhead of the InputIterator
+	copy is of two list<string>::iterator. So the pattern matcher should be faster and nicer to
+	the stack
+	- isMatch now uses InputIterators aswell (and it was partitioned like the general pattern
+	matcher into isMatch and isMatchWildcard). Condition matching should be a little faster and
+	nicer to the stack.
+  - added error handling to load_botvars (function that loads the <bot> variables file)
+  - saved user variables are now properly loaded (the value part didn't allowed spaces)
+  - <system> tags always get interpreted as if "trim_blanks" were off
+
+0.3:
+	- Added the possiblity of using binary searches when going through a sequence of keys (after looking for _, and before *).
+	You can use this feature to achieve O(logn) versus O(n) searches by defining _LIBAIML_USE_BINARY_SEARCH at compile time.
+	BEWARE: loading time can get REALLY bad (1m24s vs 7s when loading the AAA set on my 2.26Ghz+512MB RAM PC). Anyway, if this is what takes
+	to create the tree (sorted), the keyword matching time should get really good. I suggest using this feature if you intend to use
+	AIML sets that could have a lot of keywords as childs of a node but you don't mind spending some time creating the tree.
+	- Implemented <sentence> and <formal> roughly (throw some feedback if they don't work as expected)
+	- Implemented <learn> (yeah, finally). The format is <learn>path_to_file</learn>, where path_to_file is interpreted as:
+	<aiml_path>path_to_file (note that aiml_path always ends with /).
+	- Fixed the "newline bug" (actually I was setting the "trim_blanks" config var to "yes" when I should be
+	setting it to "1" =b)
+	- Added support for checking if a variable is set or not (if it is blank or not). You can do this
+	by using an empty "value" parameter in a li/condition tag (eg: <condition name="age" value="">age is unset</condition>)
+	- Fixed a bug when respond() returned false but no error was set
+	- Fixed a bug when counting the number of loaded categories (<id/>)
+	- Added a missing #include <map> at core.h (dunno why it compiled for me without it)
+	- Removed msgs being vomited to cout (conditional compilation used to be verbose only when library is compiled
+with _DEBUG defined)
+	- BIG INTERNAL REDESIGN: modularized everything. cCore was split into pieces. Public interface is now under
+the "aiml" namespace, internals are under the "_aiml" namespace (MUCH cleaner).
+	- Compiles without warnings (at least for me)
+	- Added error reporting. Public interface is: get_error() and get_error_str();
+
+0.2:
+	- Minor code cleansing
+	- Changed some names to avoid name clashing of preprocessor definitions
+	- Fixed the installation of headers issue (all the needed headers weren't being installed)
+	- Added multiuser support (with complete uservars loading/saving)
+	- Implemented the missing <id /> tag because of multiuser support
+	- Implemented the <person>/<person2>/<gender> tags
+	- Substitution files are merged to one file (for substitutions during normalization and for the three tags
+	mentioned above)
+	- All necessary files are included now with the test_app (EXCEPT FOR THE AIML SET)
+	- Fixed a bug where the normalized input resulted empty
+	- Fixed a bug during sentence splitting (the last sentence after a sentence separator was getting lost)
+	- Added an option in the config file: "trim_blanks" (adds support for trimming contiguous spaces inside templates)
+
+0.1:
+	First Release
+		This is not a complete release, it has some unimplemented stuff that I will add.
+		I plan doing bug-fixes (if you report them) and finish the library to reach version 1.0
+		I will be adding comments/documentation and editing the README, ChangeLog and INSTALL files as necessary

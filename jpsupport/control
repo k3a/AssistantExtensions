@@ -1,0 +1,9 @@
+Package: me.k3a.ae.jp
+Name: jpsupport
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: K3A
+Author: K3A
+Section: Tweaks
