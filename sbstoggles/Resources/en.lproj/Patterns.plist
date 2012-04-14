@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "--//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<plist version="1.0">
+	<dict>
+		<key>example</key>
+		<string>SBSettings Toggles</string>
+		<key>icon</key>
+		<string>Icon</string>
+		<key>patterns</key>
+		<dict>
+			<key>TurnOn</key>
+			<dict>
+				<key>category</key>
+				<string>Turning on a Toggle</string>
+				<key>examples</key>
+				<array>
+					<string>Turn on Wi-Fi</string>
+					<string>Enable Wi-Fi</string>
+					<string>Turn Wi-Fi on</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>turn [the|a] (t:&lt;word&gt;+) on</string>
+					<string>turn on [the|a] (t:&lt;word&gt;+)</string>
+					<string>enable [the|a] (t:&lt;word&gt;+)</string>
+				</array>
+			</dict>
+			
+			<key>TurnOff</key>
+			<dict>
+				<key>category</key>
+				<string>Turning off a Toggle</string>
+				<key>examples</key>
+				<array>
+					<string>Turn off Wi-Fi</string>
+					<string>Disable Wi-Fi</string>
+					<string>Turn Wi-Fi off</string>
+				</array>
+				<key>patterns</key>
+                <array>
+                    <string>turn [the|a] (t:&lt;word&gt;+) off</string>
+                    <string>turn off [the|a] (t:&lt;word&gt;+)</string>
+                    <string>disable [the|a] (t:&lt;word&gt;+)</string>
+                </array>
+			</dict>
+
+			<key>List</key>
+            <dict>
+                <key>category</key>
+                <string>Listing Toggles</string>
+                <key>examples</key>
+                <array>
+                    <string>List Toggles</string>
+                    <string>List Switches</string>
+                </array>
+                <key>patterns</key>
+                <array>
+                    <string>list [of] switches|toggles|speeches|seachase|tacos</string>
+                    <string>list [of] sweet|say cheese</string>
+                </array>
+            </dict>
+
+		</dict>
+	</dict>
+</plist>

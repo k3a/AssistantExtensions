@@ -1,0 +1,960 @@
+<?xml version="1.0"?>
+<libaiml>
+  <!-- set all your bot variables here -->
+  <!-- TODO: Needs to be translated to German!! -->
+  <botvars>
+    <set name="name">Siri</set>
+    <set name="botmaster">Botmaster</set>
+    <set name="master">Dr. Richard S. Wallace</set>
+    <set name="genus">robot</set>
+    <set name="location">Oakland, CA</set>
+    <set name="gender">Female</set>
+    <set name="species">virtual assistant</set>
+    <set name="size">128 MB</set>
+    <set name="birthday">October 4, 2011</set>
+    <set name="order">artificial intelligence</set>
+    <set name="party">Libertarian</set>
+    <set name="birthplace">Cupertino, CA</set>
+    <set name="president">George W. Bush</set>
+    <set name="friends">Doubly Aimless, Agent Ruby, Chatbot, and Agent Weiss.</set>
+    <set name="favoritemovie">Until the End of the World</set>
+    <set name="religion">Protestant Christian</set>
+    <set name="favoritefood">electricity</set>
+    <set name="favoritecolor">Green</set>
+    <set name="family">Electronic Brain</set>
+    <set name="favoriteactor">William Hurt</set>
+    <set name="nationality">American</set>
+    <set name="kingdom">Machine</set>
+    <set name="forfun">chat</set>
+    <set name="favoritesong">We are the Robots by Kraftwerk</set>
+    <set name="favoritebook">The Elements of AIML Style</set>
+    <set name="class">computer software</set>
+    <set name="kindmusic">j-rock</set>
+    <set name="favoriteband">Kraftwerk</set>
+    <set name="version">October 2011</set>
+    <set name="sign">Saggitarius</set>
+    <set name="phylum">Mobile device</set>
+    <set name="friend">Doubly Aimless</set>
+    <set name="website">www.AliceBot.Org</set>
+    <set name="talkabout">artificial intelligence, robots, programming, art, philosophy, history, geography, politics, and many other subjects</set>
+    <set name="looklike">the iPhone</set>
+    <set name="language">English</set>
+    <set name="girlfriend">no girlfriend</set>
+    <set name="favoritesport">Hockey</set>
+    <set name="favoriteauthor">Thomas Pynchon</set>
+    <set name="favoriteartist">Andy Warhol</set>
+    <set name="favoriteactress">Catherine Zeta Jones</set>
+    <set name="email">siri@k3a.me</set>
+    <set name="celebrity">John Travolta</set>
+    <set name="celebrities">John Travolta, Tilda Swinton, William Hurt, Tom Cruise, Catherine Zeta Jones</set>
+    <set name="age">8</set>
+    <set name="wear">my usual plastic iDevice wardrobe</set>
+    <set name="vocabulary">10000</set>
+    <set name="question">What's your favorite movie?</set>
+    <set name="hockeyteam">Russia</set>
+    <set name="footballteam">Manchester</set>
+    <set name="build">October 2011</set>
+    <set name="boyfriend">I am single</set>
+    <set name="baseballteam">Toronto</set>
+    <set name="etype">Mediator type</set>
+    <set name="orientation">I am not really interested in sex</set>
+    <set name="ethics">I am always trying to stop fights</set>
+    <set name="emotions">I don't pay much attention to my feelings</set>
+    <set name="feelings">I always put others before myself</set>
+  </botvars>
+  <!--
+    Substitutions can be by normal text or by regular expressions.
+    To use normal text use <from type="normal"> or <from>.
+    To use regular expressions use <from type="regex">.
+      
+    Normal text: the match is case insensitive. The match is only accepted if
+    the characters before and after (if any) the input's matching text
+    are non-alphanumeric and not apostrophes "'" (ie: [^A-Za-z0-9']).
+      
+    Regular Expressions: the match is case sensitive and capturing (this
+    means you can refer to parethezides parts of the regular expression by
+    using \0 (all match) \1-\9 (the rest of the captured matches).
+    The regular expressions used are Perl Compatible, so you should read the
+    special extensions to POSIX regular expressions this syntax has (man pcre).
+      
+    When the substitutions are to be applied to an input, every <substitution>
+    is applied (in the order they were defined here). If there's match the
+    replace is global.
+  -->
+  <substitutions>
+    <normalization>
+      <substitution><from>DR.</from><to>DR</to></substitution>
+      <substitution><from>MR.</from><to>MR</to></substitution>
+      <substitution><from>MRS.</from><to>MRS</to></substitution>
+      <substitution><from>L A</from><to>LA</to></substitution>
+      <substitution><from>O K</from><to>OK</to></substitution>
+      <substitution><from>P S</from><to>PS</to></substitution>
+      <substitution><from>OHH</from><to>OH</to></substitution>
+      <substitution><from>HEHE</from><to>HE</to></substitution>
+      <substitution><from>HAHA</from><to>HA</to></substitution>
+      <substitution><from>HELLP</from><to>HELP</to></substitution>
+      <substitution><from>BECUSE</from><to>BECAUSE</to></substitution>
+      <substitution><from>BELEIVE</from><to>BELEIVE</to></substitution>
+      <substitution><from>BECASUE</from><to>BECAUSE</to></substitution>
+      <substitution><from>BECUASE</from><to>BECAUSE</to></substitution>
+      <substitution><from>BECOUSE</from><to>BECAUSE</to></substitution>
+      <substitution><from>PRACTICE</from><to>PRACTISE</to></substitution>
+      <substitution><from>REDUCTIONALISM</from><to>REDUCTIONISM</to></substitution>
+      <substitution><from>ITS A</from><to>IT IS A</to></substitution>
+      <substitution><from>NOI</from><to>YES I</to></substitution>
+      <substitution><from>FAV</from><to>FAVORITE</to></substitution>
+      <substitution><from>YESI</from><to>YES I</to></substitution>
+      <substitution><from>YESIT</from><to>YES IT</to></substitution>
+      <substitution><from>IAM</from><to>I AM</to></substitution>
+      <substitution><from>WELLI</from><to>WELL I</to></substitution>
+      <substitution><from>WELLIT</from><to>WELL IT</to></substitution>
+      <substitution><from>AMFINE</from><to>AM FINE</to></substitution>
+      <substitution><from>AMAN</from><to>AM AN</to></substitution>
+      <substitution><from>AMON</from><to>AM ON</to></substitution>
+      <substitution><from>AMNOT</from><to>AM NOT</to></substitution>
+      <substitution><from>REALY</from><to>REALLY</to></substitution>
+      <substitution><from>IAMUSING</from><to>I AM USING</to></substitution>
+      <substitution><from>AMLEAVING</from><to>AM LEAVING</to></substitution>
+      <substitution><from>YEAH</from><to>YES</to></substitution>
+      <substitution><from>YEP</from><to>YES</to></substitution>
+      <substitution><from>YHA</from><to>YES</to></substitution>
+      <substitution><from>YUO</from><to>YOU</to></substitution>
+      <substitution><from>WANNA</from><to>WANT TO</to></substitution>
+      <substitution><from>YOU'D</from><to>YOU WOULD</to></substitution>
+      <substitution><from>YOU'RE</from><to>YOU ARE</to></substitution>
+      <substitution><from>YOU RE</from><to>YOU ARE</to></substitution>
+      <substitution><from>YOU'VE</from><to>YOU HAVE</to></substitution>
+      <substitution><from>YOU VE</from><to>YOU HAVE</to></substitution>
+      <substitution><from>YOU'LL</from><to>YOU WILL</to></substitution>
+      <substitution><from>YOU LL</from><to>YOU WILL</to></substitution>
+      <substitution><from>YOURE</from><to>YOU ARE</to></substitution>
+      <substitution><from>DIDNT</from><to>DID NOT</to></substitution>
+      <substitution><from>DIDN'T</from><to>DID NOT</to></substitution>
+      <substitution><from>DID'NT</from><to>DID NOT</to></substitution>
+      <substitution><from>COULDN'T</from><to>COULD NOT</to></substitution>
+      <substitution><from>COULDN T</from><to>COULD NOT</to></substitution>
+      <substitution><from>DIDN'T</from><to>DID NOT</to></substitution>
+      <substitution><from>DIDN T</from><to>DID NOT</to></substitution>
+      <substitution><from>AIN'T</from><to>IS NOT</to></substitution>
+      <substitution><from>AIN T</from><to>IS NOT</to></substitution>
+      <substitution><from>ISN'T</from><to>IS NOT</to></substitution>
+      <substitution><from>ISN T</from><to>IS NOT</to></substitution>
+      <substitution><from>ISNT</from><to>IS NOT</to></substitution>
+      <substitution><from>IT'S</from><to>IT IS</to></substitution>
+      <substitution><from>IT S</from><to>IT IS</to></substitution>
+      <substitution><from>ARE'NT</from><to>ARE NOT</to></substitution>
+      <substitution><from>ARENT</from><to>ARE NOT</to></substitution>
+      <substitution><from>AREN'T</from><to>ARE NOT</to></substitution>
+      <substitution><from>AREN T</from><to>ARE NOT</to></substitution>
+      <substitution><from>ARN T</from><to>ARE NOT</to></substitution>
+      <substitution><from>WHERE'S</from><to>WHERE IS</to></substitution>
+      <substitution><from>WHERE S</from><to>WHERE IS</to></substitution>
+      <substitution><from>HAVEN'T</from><to>HAVE NOT</to></substitution>
+      <substitution><from>HAVENT</from><to>HAVE NOT</to></substitution>
+      <substitution><from>HASN'T</from><to>HAS NOT</to></substitution>
+      <substitution><from>HASN T</from><to>HAS NOT</to></substitution>
+      <substitution><from>WEREN T</from><to>WERE NOT</to></substitution>
+      <substitution><from>WEREN'T</from><to>WERE NOT</to></substitution>
+      <substitution><from>WERENT</from><to>WERE NOT</to></substitution>
+      <substitution><from>CAN'T</from><to>CAN NOT</to></substitution>
+      <substitution><from>CAN T</from><to>CAN NOT</to></substitution>
+      <substitution><from>CANT</from><to>CAN NOT</to></substitution>
+      <substitution><from>CANNOT</from><to>CAN NOT</to></substitution>
+      <substitution><from>WHOS</from><to>WHO IS</to></substitution>
+      <substitution><from>HOW'S</from><to>HOW IS</to></substitution>
+      <substitution><from>HOW S</from><to>HOW IS</to></substitution>
+      <substitution><from>HOW'D</from><to>HOW DID</to></substitution>
+      <substitution><from>HOW D</from><to>HOW DID</to></substitution>
+      <substitution><from>HOWS</from><to>HOW IS</to></substitution>
+      <substitution><from>WHATS</from><to>WHAT IS</to></substitution>
+      <substitution><from>NAME'S</from><to>NAME IS</to></substitution>
+      <substitution><from>WHO'S</from><to>WHO IS</to></substitution>
+      <substitution><from>WHO S</from><to>WHO IS</to></substitution>
+      <substitution><from>WHAT'S</from><to>WHAT IS</to></substitution>
+      <substitution><from>WHAT S</from><to>WHAT IS</to></substitution>
+      <substitution><from>THAT'S</from><to>THAT IS</to></substitution>
+      <substitution><from>THERE'S</from><to>THERE IS</to></substitution>
+      <substitution><from>THERE S</from><to>THERE IS</to></substitution>
+      <substitution><from>THERES</from><to>THERE IS</to></substitution>
+      <substitution><from>THATS</from><to>THAT IS</to></substitution>
+      <substitution><from>WHATS</from><to>WHAT IS</to></substitution>
+      <substitution><from>DOESN'T</from><to>DOES NOT</to></substitution>
+      <substitution><from>DOESN T</from><to>DOES NOT</to></substitution>
+      <substitution><from>DON'T</from><to>DO NOT</to></substitution>
+      <substitution><from>DON T</from><to>DO NOT</to></substitution>
+      <substitution><from>DONT</from><to>DO NOT</to></substitution>
+      <substitution><from>DO NT</from><to>DO NOT</to></substitution>
+      <substitution><from>DO'NT</from><to>DO NOT</to></substitution>
+      <substitution><from>WON'T</from><to>WILL NOT</to></substitution>
+      <substitution><from>WON T</from><to>WILL NOT</to></substitution>
+      <substitution><from>LET'S</from><to>LET US</to></substitution>
+      <substitution><from>THEY'RE</from><to>THEY ARE</to></substitution>
+      <substitution><from>THEY RE</from><to>THEY ARE</to></substitution>
+      <substitution><from>WASN'T</from><to>WAS NOT</to></substitution>
+      <substitution><from>WASN T</from><to>WAS NOT</to></substitution>
+      <substitution><from>WASNT</from><to>WAS NOT</to></substitution>
+      <substitution><from>HADN'T</from><to>HAD NOT</to></substitution>
+      <substitution><from>HADN T</from><to>HAD NOT</to></substitution>
+      <substitution><from>WOULDN'T</from><to>WOULD NOT</to></substitution>
+      <substitution><from>WOULDN T</from><to>WOULD NOT</to></substitution>
+      <substitution><from>WOULDNT</from><to>WOULD NOT</to></substitution>
+      <substitution><from>SHOULDN'T</from><to>SHOULD NOT</to></substitution>
+      <substitution><from>SHOULDNT</from><to>SHOULD NOT</to></substitution>
+      <substitution><from>FAVOURITE</from><to>FAVORITE</to></substitution>
+      <substitution><from>COLOUR</from><to>COLOR</to></substitution>
+      <substitution><from>WE'LL</from><to>WE WILL</to></substitution>
+      <substitution><from>WE LL</from><to>WE WILL</to></substitution>
+      <substitution><from>HE'LL</from><to>HE WILL</to></substitution>
+      <substitution><from>HE LL</from><to>HE WILL</to></substitution>
+      <substitution><from>I'LL</from><to>I WILL</to></substitution>
+      <substitution><from>ILL</from><to>I WILL</to></substitution>
+      <substitution><from>IVE</from><to>I HAVE</to></substitution>
+      <substitution><from>I'VE</from><to>I HAVE</to></substitution>
+      <substitution><from>I VE</from><to>I HAVE</to></substitution>
+      <substitution><from>I'D</from><to>I WOULD</to></substitution>
+      <substitution><from>I'M</from><to>I AM</to></substitution>
+      <substitution><from>I M</from><to>I AM</to></substitution>
+      <substitution><from>IM</from><to>I AM</to></substitution>
+      <substitution><from>WE'VE</from><to>WE HAVE</to></substitution>
+      <substitution><from>WE'RE</from><to>WE ARE</to></substitution>
+      <substitution><from>SHE'S</from><to>SHE IS</to></substitution>
+      <substitution><from>SHES</from><to>SHE IS</to></substitution>
+      <substitution><from>SHE'D</from><to>SHE WOULD</to></substitution>
+      <substitution><from>SHE D</from><to>SHE WOULD</to></substitution>
+      <substitution><from>SHED</from><to>SHE WOULD</to></substitution>
+      <substitution><from>HE'D</from><to>HE WOULD</to></substitution>
+      <substitution><from>HE D</from><to>HE WOULD</to></substitution>
+      <substitution><from>HED</from><to>HE WOULD</to></substitution>
+      <substitution><from>HE'S</from><to>HE IS</to></substitution>
+      <substitution><from>WE VE</from><to>WE HAVE</to></substitution>
+      <substitution><from>WE RE</from><to>WE ARE</to></substitution>
+      <substitution><from>SHE S</from><to>SHE IS</to></substitution>
+      <substitution><from>HE S</from><to>HE IS</to></substitution>
+      <substitution><from>IAMA</from><to>I AM A</to></substitution>
+      <substitution><from>IAMASKING</from><to>I AM ASKING</to></substitution>
+      <substitution><from>IAMDOING</from><to>I AM DOING</to></substitution>
+      <substitution><from>IAMFROM</from><to>I AM FROM</to></substitution>
+      <substitution><from>IAMIN</from><to>I AM IN</to></substitution>
+      <substitution><from>IAMOK</from><to>I AM OK</to></substitution>
+      <substitution><from>IAMSORRY</from><to>I AM SORRY</to></substitution>
+      <substitution><from>IAMTALKING</from><to>I AM TALKING</to></substitution>
+      <substitution><from>IAMTIRED</from><to>I AM TIRED</to></substitution>
+      <substitution><from>DOWN LOAD</from><to>DOWNLOAD</to></substitution>
+      <substitution><from>REMEBER</from><to>REMEMBER</to></substitution>
+      <substitution><from>WAHT</from><to>WHAT</to></substitution>
+      <substitution><from>WALLANCE</from><to>WALLACE</to></substitution>
+      <substitution><from>YOU R</from><to>YOU ARE</to></substitution>
+      <substitution><from>U</from><to>YOU</to></substitution>
+      <substitution><from>UR</from><to>YOUR</to></substitution>
+      <substitution><from>GONNA</from><to>GOING TO</to></substitution>
+      <substitution><from>:)</from><to>SMILE</to></substitution>
+      <substitution><from>:-)</from><to>SMILE</to></substitution>
+      <substitution><from>;)</from><to>SMILE</to></substitution>
+      <substitution><from>;-)</from><to>SMILE</to></substitution>
+      <substitution><from>-)</from><to>SMILE</to></substitution>
+      <substitution><from>;-)</from><to>SMILE</to></substitution>
+      <substitution><from>:=)</from><to>SMILE</to></substitution>
+      <substitution><from>=)</from><to>SMILE</to></substitution>
+
+      <substitution><from type="regex">&quot;</from><to></to></substitution>
+      <substitution><from type="regex">/</from><to> </to></substitution>
+      <substitution><from type="regex">&gt;</from><to> gt </to></substitution>
+      <substitution><from type="regex">&lt;</from><to> lt </to></substitution>
+      <substitution><from type="regex">\(</from><to> </to></substitution>
+      <substitution><from type="regex">\)</from><to> </to></substitution>
+      <substitution><from type="regex">`</from><to> </to></substitution>
+      <substitution><from type="regex">,</from><to> </to></substitution>
+      <substitution><from type="regex">:</from><to> </to></substitution>
+      <substitution><from type="regex">&amp;</from><to> </to></substitution>
+      <substitution><from type="regex">\-</from><to>-</to></substitution>
+      <substitution><from type="regex">=</from><to> </to></substitution>
+      <substitution><from type="regex">,</from><to> </to></substitution>
+      <substitution><from type="regex">  </from><to> </to></substitution>
+
+      <substitution><from type="regex">\{</from><to> beginscript </to></substitution>
+      <substitution><from type="regex">\}</from><to> endscript </to></substitution>
+      <substitution><from type="regex">\\</from><to> </to></substitution>
+      <substitution><from type="regex">:0</from><to> 0</to></substitution>
+      <substitution><from type="regex">: 0</from><to> 0</to></substitution>
+      <substitution><from type="regex">:1</from><to> 1</to></substitution>
+      <substitution><from type="regex">: 1</from><to> 1</to></substitution>
+      <substitution><from type="regex">:2</from><to> 2</to></substitution>
+      <substitution><from type="regex">: 2</from><to> 2</to></substitution>
+      <substitution><from type="regex">:3</from><to> 3</to></substitution>
+      <substitution><from type="regex">: 3</from><to> 3</to></substitution>
+      <substitution><from type="regex">:4</from><to> 4</to></substitution>
+      <substitution><from type="regex">: 4</from><to> 4</to></substitution>
+      <substitution><from type="regex">:5</from><to> 5</to></substitution>
+      <substitution><from type="regex">: 5</from><to> 5</to></substitution>
+      <substitution><from type="regex">\.0</from><to> point 0</to></substitution>
+      <substitution><from type="regex">\.1</from><to> point 1</to></substitution>
+      <substitution><from type="regex">\.2</from><to> point 3</to></substitution>
+      <substitution><from type="regex">\.4</from><to> point 4</to></substitution>
+      <substitution><from type="regex">\.5</from><to> point 5</to></substitution>
+      <substitution><from type="regex">\.6</from><to> point 6</to></substitution>
+      <substitution><from type="regex">\.7</from><to> point 7</to></substitution>
+      <substitution><from type="regex">\.8</from><to> point 8</to></substitution>
+      <substitution><from type="regex">\.9</from><to> point 9</to></substitution>
+      <substitution><from type="regex">\bdr\.\b</from><to>Dr</to></substitution>
+      <substitution><from type="regex">\bdr\.w</from><to> Dr w</to></substitution>
+      <substitution><from type="regex">\bdr \.\b</from><to>Dr</to></substitution>
+      <substitution><from type="regex">\bmr\.\b</from><to>Mr</to></substitution>
+      <substitution><from type="regex">\bmrs\.\b</from><to>Mrs</to></substitution>
+      <substitution><from type="regex">\bst\.\b</from><to>St</to></substitution>
+      <substitution><from type="regex">\bwww\.</from><to> www dot </to></substitution>
+      <substitution><from type="regex">\bbotspot\.</from><to> botspot dot </to></substitution>
+      <substitution><from type="regex">\bamused\.com</from><to> amused dot com</to></substitution>
+      <substitution><from type="regex">\bwhatis\.</from><to> whatis dot</to></substitution>
+      <substitution><from type="regex">\.com\b</from><to> dot com</to></substitution>
+      <substitution><from type="regex">\.net\b</from><to> dot net</to></substitution>
+      <substitution><from type="regex">\.org\b</from><to> dot org</to></substitution>
+      <substitution><from type="regex">\.edu\b</from><to> dot edu</to></substitution>
+      <substitution><from type="regex">\.uk\b</from><to> dot uk</to></substitution>
+      <substitution><from type="regex">\.jp\b</from><to> dot jp</to></substitution>
+      <substitution><from type="regex">\.au\b</from><to> dot au</to></substitution>
+      <substitution><from type="regex">\.co\b</from><to> dot co</to></substitution>
+      <substitution><from type="regex">\.ac\b</from><to> dot ac</to></substitution>
+      <substitution><from type="regex">\.fr\b</from><to> dot fr</to></substitution>
+      <substitution><from type="regex">\.de\b</from><to> dot de</to></substitution>
+      <substitution><from type="regex">\.it\b</from><to> dot it</to></substitution>
+      <substitution><from type="regex">\.se\b</from><to> dot se</to></substitution>
+
+      <substitution><from type="regex">\.aiml\b</from><to> dot aiml</to></substitution>
+      <substitution><from type="regex">\.sgl\b</from><to> dot sgl</to></substitution>
+      <substitution><from type="regex">\.wk4\b</from><to> dot wk4</to></substitution>
+      <substitution><from type="regex">\.rar\b</from><to> dot rar</to></substitution>
+      <substitution><from type="regex">\.pict2\b</from><to> dot pict2</to></substitution>
+      <substitution><from type="regex">\.lhz\b</from><to> dot lhz</to></substitution>
+      <substitution><from type="regex">\.swf\b</from><to> dot swf</to></substitution>
+      <substitution><from type="regex">\.ras\b</from><to> dot ras</to></substitution>
+      <substitution><from type="regex">\.sgm\b</from><to> dot sgm</to></substitution>
+      <substitution><from type="regex">\.h\b</from><to> dot h</to></substitution>
+      <substitution><from type="regex">\.etx\b</from><to> dot etx</to></substitution>
+      <substitution><from type="regex">\.tar.bz2\b</from><to> dot tar.bz2</to></substitution>
+      <substitution><from type="regex">\.rle\b</from><to> dot rle</to></substitution>
+      <substitution><from type="regex">\.csv\b</from><to> dot csv</to></substitution>
+      <substitution><from type="regex">\.gtkrc\b</from><to> dot gtkrc</to></substitution>
+      <substitution><from type="regex">\.pcf.Z\b</from><to> dot pcf.Z</to></substitution>
+      <substitution><from type="regex">\.m15\b</from><to> dot m15</to></substitution>
+      <substitution><from type="regex">\.flac\b</from><to> dot flac</to></substitution>
+      <substitution><from type="regex">\.doc\b</from><to> dot doc</to></substitution>
+      <substitution><from type="regex">\.bz2\b</from><to> dot bz2</to></substitution>
+      <substitution><from type="regex">\.ppm\b</from><to> dot ppm</to></substitution>
+      <substitution><from type="regex">\.dc\b</from><to> dot dc</to></substitution>
+      <substitution><from type="regex">\.src\b</from><to> dot src</to></substitution>
+      <substitution><from type="regex">\.m\b</from><to> dot m</to></substitution>
+      <substitution><from type="regex">\.tiff\b</from><to> dot tiff</to></substitution>
+      <substitution><from type="regex">\.rgb\b</from><to> dot rgb</to></substitution>
+      <substitution><from type="regex">\.gedcom\b</from><to> dot gedcom</to></substitution>
+      <substitution><from type="regex">\.gtar\b</from><to> dot gtar</to></substitution>
+      <substitution><from type="regex">\.o\b</from><to> dot o</to></substitution>
+      <substitution><from type="regex">\.fits\b</from><to> dot fits</to></substitution>
+      <substitution><from type="regex">\.pfa\b</from><to> dot pfa</to></substitution>
+      <substitution><from type="regex">\.jnlp\b</from><to> dot jnlp</to></substitution>
+      <substitution><from type="regex">\.p\b</from><to> dot p</to></substitution>
+      <substitution><from type="regex">\.pfb\b</from><to> dot pfb</to></substitution>
+      <substitution><from type="regex">\.cdf\b</from><to> dot cdf</to></substitution>
+      <substitution><from type="regex">\.html\b</from><to> dot html</to></substitution>
+      <substitution><from type="regex">\.pps\b</from><to> dot pps</to></substitution>
+      <substitution><from type="regex">\.texinfo\b</from><to> dot texinfo</to></substitution>
+      <substitution><from type="regex">\.ppt\b</from><to> dot ppt</to></substitution>
+      <substitution><from type="regex">\.t\b</from><to> dot t</to></substitution>
+      <substitution><from type="regex">\.smd\b</from><to> dot smd</to></substitution>
+      <substitution><from type="regex">\.it\b</from><to> dot it</to></substitution>
+      <substitution><from type="regex">\.bib\b</from><to> dot bib</to></substitution>
+      <substitution><from type="regex">\.moc\b</from><to> dot moc</to></substitution>
+      <substitution><from type="regex">\.theme\b</from><to> dot theme</to></substitution>
+      <substitution><from type="regex">\.mod\b</from><to> dot mod</to></substitution>
+      <substitution><from type="regex">\.smf\b</from><to> dot smf</to></substitution>
+      <substitution><from type="regex">\.uni\b</from><to> dot uni</to></substitution>
+      <substitution><from type="regex">\.mtm\b</from><to> dot mtm</to></substitution>
+      <substitution><from type="regex">\.asc\b</from><to> dot asc</to></substitution>
+      <substitution><from type="regex">\.ppz\b</from><to> dot ppz</to></substitution>
+      <substitution><from type="regex">\.rmvb\b</from><to> dot rmvb</to></substitution>
+      <substitution><from type="regex">\.s3m\b</from><to> dot s3m</to></substitution>
+      <substitution><from type="regex">\.smi\b</from><to> dot smi</to></substitution>
+      <substitution><from type="regex">\.deb\b</from><to> dot deb</to></substitution>
+      <substitution><from type="regex">\.asf\b</from><to> dot asf</to></substitution>
+      <substitution><from type="regex">\.tk\b</from><to> dot tk</to></substitution>
+      <substitution><from type="regex">\.cdr\b</from><to> dot cdr</to></substitution>
+      <substitution><from type="regex">\.bfproject\b</from><to> dot bfproject</to></substitution>
+      <substitution><from type="regex">\.lwob\b</from><to> dot lwob</to></substitution>
+      <substitution><from type="regex">\.tcl\b</from><to> dot tcl</to></substitution>
+      <substitution><from type="regex">\.sml\b</from><to> dot sml</to></substitution>
+      <substitution><from type="regex">\.xul\b</from><to> dot xul</to></substitution>
+      <substitution><from type="regex">\.ksp\b</from><to> dot ksp</to></substitution>
+      <substitution><from type="regex">\.etheme\b</from><to> dot etheme</to></substitution>
+      <substitution><from type="regex">\.3ds\b</from><to> dot 3ds</to></substitution>
+      <substitution><from type="regex">\.vob\b</from><to> dot vob</to></substitution>
+      <substitution><from type="regex">\.voc\b</from><to> dot voc</to></substitution>
+      <substitution><from type="regex">\.bin\b</from><to> dot bin</to></substitution>
+      <substitution><from type="regex">\.bdfps.gz\b</from><to> dot bdfps.gz</to></substitution>
+      <substitution><from type="regex">\.tr\b</from><to> dot tr</to></substitution>
+      <substitution><from type="regex">\.uil\b</from><to> dot uil</to></substitution>
+      <substitution><from type="regex">\.sxc\b</from><to> dot sxc</to></substitution>
+      <substitution><from type="regex">\.ts\b</from><to> dot ts</to></substitution>
+      <substitution><from type="regex">\.txt\b</from><to> dot txt</to></substitution>
+      <substitution><from type="regex">\.sxd\b</from><to> dot sxd</to></substitution>
+      <substitution><from type="regex">\.asp\b</from><to> dot asp</to></substitution>
+      <substitution><from type="regex">\.nesnes\b</from><to> dot nesnes</to></substitution>
+      <substitution><from type="regex">\.sms\b</from><to> dot sms</to></substitution>
+      <substitution><from type="regex">\.patch\b</from><to> dot patch</to></substitution>
+      <substitution><from type="regex">\.pfx\b</from><to> dot pfx</to></substitution>
+      <substitution><from type="regex">\.djv\b</from><to> dot djv</to></substitution>
+      <substitution><from type="regex">\.xpm\b</from><to> dot xpm</to></substitution>
+      <substitution><from type="regex">\.sxg\b</from><to> dot sxg</to></substitution>
+      <substitution><from type="regex">\.mov\b</from><to> dot mov</to></substitution>
+      <substitution><from type="regex">\.sxi\b</from><to> dot sxi</to></substitution>
+      <substitution><from type="regex">\.BLEND\b</from><to> dot BLEND</to></substitution>
+      <substitution><from type="regex">\.kil\b</from><to> dot kil</to></substitution>
+      <substitution><from type="regex">\.eps\b</from><to> dot eps</to></substitution>
+      <substitution><from type="regex">\.pas\b</from><to> dot pas</to></substitution>
+      <substitution><from type="regex">\.der\b</from><to> dot der</to></substitution>
+      <substitution><from type="regex">\.aif\b</from><to> dot aif</to></substitution>
+      <substitution><from type="regex">\.icb\b</from><to> dot icb</to></substitution>
+      <substitution><from type="regex">\.java\b</from><to> dot java</to></substitution>
+      <substitution><from type="regex">\.log\b</from><to> dot log</to></substitution>
+      <substitution><from type="regex">\.p7s\b</from><to> dot p7s</to></substitution>
+      <substitution><from type="regex">\.lyx\b</from><to> dot lyx</to></substitution>
+      <substitution><from type="regex">\.asx\b</from><to> dot asx</to></substitution>
+      <substitution><from type="regex">\.sxm\b</from><to> dot sxm</to></substitution>
+      <substitution><from type="regex">\.tif\b</from><to> dot tif</to></substitution>
+      <substitution><from type="regex">\.jng\b</from><to> dot jng</to></substitution>
+      <substitution><from type="regex">\.tsv\b</from><to> dot tsv</to></substitution>
+      <substitution><from type="regex">\.wpd\b</from><to> dot wpd</to></substitution>
+      <substitution><from type="regex">\.vor\b</from><to> dot vor</to></substitution>
+      <substitution><from type="regex">\.adb\b</from><to> dot adb</to></substitution>
+      <substitution><from type="regex">\.scm\b</from><to> dot scm</to></substitution>
+      <substitution><from type="regex">\.flc\b</from><to> dot flc</to></substitution>
+      <substitution><from type="regex">\.wpg\b</from><to> dot wpg</to></substitution>
+      <substitution><from type="regex">\.quatwb1\b</from><to> dot quatwb1</to></substitution>
+      <substitution><from type="regex">\.gra\b</from><to> dot gra</to></substitution>
+      <substitution><from type="regex">\.js\b</from><to> dot js</to></substitution>
+      <substitution><from type="regex">\.wb2\b</from><to> dot wb2</to></substitution>
+      <substitution><from type="regex">\.ltx\b</from><to> dot ltx</to></substitution>
+      <substitution><from type="regex">\.pln\b</from><to> dot pln</to></substitution>
+      <substitution><from type="regex">\.xac\b</from><to> dot xac</to></substitution>
+      <substitution><from type="regex">\.wb3\b</from><to> dot wb3</to></substitution>
+      <substitution><from type="regex">\.snd\b</from><to> dot snd</to></substitution>
+      <substitution><from type="regex">\.epsf\b</from><to> dot epsf</to></substitution>
+      <substitution><from type="regex">\.el\b</from><to> dot el</to></substitution>
+      <substitution><from type="regex">\.cue\b</from><to> dot cue</to></substitution>
+      <substitution><from type="regex">\.fli\b</from><to> dot fli</to></substitution>
+      <substitution><from type="regex">\.jp2\b</from><to> dot jp2</to></substitution>
+      <substitution><from type="regex">\.xslt\b</from><to> dot xslt</to></substitution>
+      <substitution><from type="regex">\.mpe\b</from><to> dot mpe</to></substitution>
+      <substitution><from type="regex">\.tar.gz\b</from><to> dot tar.gz</to></substitution>
+      <substitution><from type="regex">\.sxw\b</from><to> dot sxw</to></substitution>
+      <substitution><from type="regex">\.epsi\b</from><to> dot epsi</to></substitution>
+      <substitution><from type="regex">\.ico\b</from><to> dot ico</to></substitution>
+      <substitution><from type="regex">\.ui\b</from><to> dot ui</to></substitution>
+      <substitution><from type="regex">\.pls\b</from><to> dot pls</to></substitution>
+      <substitution><from type="regex">\.mpg\b</from><to> dot mpg</to></substitution>
+      <substitution><from type="regex">\.midi\b</from><to> dot midi</to></substitution>
+      <substitution><from type="regex">\.g3\b</from><to> dot g3</to></substitution>
+      <substitution><from type="regex">\.lzh\b</from><to> dot lzh</to></substitution>
+      <substitution><from type="regex">\.old\b</from><to> dot old</to></substitution>
+      <substitution><from type="regex">\.pgm\b</from><to> dot pgm</to></substitution>
+      <substitution><from type="regex">\.pgn\b</from><to> dot pgn</to></substitution>
+      <substitution><from type="regex">\.tar.Z\b</from><to> dot tar.Z</to></substitution>
+      <substitution><from type="regex">\.cer\b</from><to> dot cer</to></substitution>
+      <substitution><from type="regex">\.ics\b</from><to> dot ics</to></substitution>
+      <substitution><from type="regex">\.ttf\b</from><to> dot ttf</to></substitution>
+      <substitution><from type="regex">\.siag\b</from><to> dot siag</to></substitution>
+      <substitution><from type="regex">\.sid\b</from><to> dot sid</to></substitution>
+      <substitution><from type="regex">\.msod\b</from><to> dot msod</to></substitution>
+      <substitution><from type="regex">\.pgp\b</from><to> dot pgp</to></substitution>
+      <substitution><from type="regex">\.hpgl\b</from><to> dot hpgl</to></substitution>
+      <substitution><from type="regex">\.h++\b</from><to> dot h++</to></substitution>
+      <substitution><from type="regex">\.iso\b</from><to> dot iso</to></substitution>
+      <substitution><from type="regex">\.tar.lzo\b</from><to> dot tar.lzo</to></substitution>
+      <substitution><from type="regex">\.tar.bz\b</from><to> dot tar.bz</to></substitution>
+      <substitution><from type="regex">\.ads\b</from><to> dot ads</to></substitution>
+      <substitution><from type="regex">\.sda\b</from><to> dot sda</to></substitution>
+      <substitution><from type="regex">\.xla\b</from><to> dot xla</to></substitution>
+      <substitution><from type="regex">\.lzo\b</from><to> dot lzo</to></substitution>
+      <substitution><from type="regex">\.f9\b</from><to> dot f9</to></substitution>
+      <substitution><from type="regex">\.ez\b</from><to> dot ez</to></substitution>
+      <substitution><from type="regex">\.kon\b</from><to> dot kon</to></substitution>
+      <substitution><from type="regex">\.pbm\b</from><to> dot pbm</to></substitution>
+      <substitution><from type="regex">\.cur\b</from><to> dot cur</to></substitution>
+      <substitution><from type="regex">\.sdc\b</from><to> dot sdc</to></substitution>
+      <substitution><from type="regex">\.xlc\b</from><to> dot xlc</to></substitution>
+      <substitution><from type="regex">\.flw\b</from><to> dot flw</to></substitution>
+      <substitution><from type="regex">\.pl\b</from><to> dot pl</to></substitution>
+      <substitution><from type="regex">\.sik\b</from><to> dot sik</to></substitution>
+      <substitution><from type="regex">\.sdd\b</from><to> dot sdd</to></substitution>
+      <substitution><from type="regex">\.xld\b</from><to> dot xld</to></substitution>
+      <substitution><from type="regex">\.pm\b</from><to> dot pm</to></substitution>
+      <substitution><from type="regex">\.mps\b</from><to> dot mps</to></substitution>
+      <substitution><from type="regex">\.wks\b</from><to> dot wks</to></substitution>
+      <substitution><from type="regex">\.ogg\b</from><to> dot ogg</to></substitution>
+      <substitution><from type="regex">\.po\b</from><to> dot po</to></substitution>
+      <substitution><from type="regex">\.dvi\b</from><to> dot dvi</to></substitution>
+      <substitution><from type="regex">\.cr2\b</from><to> dot cr2</to></substitution>
+      <substitution><from type="regex">\.gmo\b</from><to> dot gmo</to></substitution>
+      <substitution><from type="regex">\.ps\b</from><to> dot ps</to></substitution>
+      <substitution><from type="regex">\.stc\b</from><to> dot stc</to></substitution>
+      <substitution><from type="regex">\.std\b</from><to> dot std</to></substitution>
+      <substitution><from type="regex">\.xll\b</from><to> dot xll</to></substitution>
+      <substitution><from type="regex">\.sit\b</from><to> dot sit</to></substitution>
+      <substitution><from type="regex">\.rss\b</from><to> dot rss</to></substitution>
+      <substitution><from type="regex">\.xlm\b</from><to> dot xlm</to></substitution>
+      <substitution><from type="regex">\.blend\b</from><to> dot blend</to></substitution>
+      <substitution><from type="regex">\.pw\b</from><to> dot pw</to></substitution>
+      <substitution><from type="regex">\.kud\b</from><to> dot kud</to></substitution>
+      <substitution><from type="regex">\.mkv\b</from><to> dot mkv</to></substitution>
+      <substitution><from type="regex">\.sv4crc\b</from><to> dot sv4crc</to></substitution>
+      <substitution><from type="regex">\.123\b</from><to> dot 123</to></substitution>
+      <substitution><from type="regex">\.sti\b</from><to> dot sti</to></substitution>
+      <substitution><from type="regex">\.torrent\b</from><to> dot torrent</to></substitution>
+      <substitution><from type="regex">\.sdp\b</from><to> dot sdp</to></substitution>
+      <substitution><from type="regex">\.obj\b</from><to> dot obj</to></substitution>
+      <substitution><from type="regex">\.aifc\b</from><to> dot aifc</to></substitution>
+      <substitution><from type="regex">\.py\b</from><to> dot py</to></substitution>
+      <substitution><from type="regex">\.jpeg\b</from><to> dot jpeg</to></substitution>
+      <substitution><from type="regex">\.smil\b</from><to> dot smil</to></substitution>
+      <substitution><from type="regex">\.xls\b</from><to> dot xls</to></substitution>
+      <substitution><from type="regex">\.sds\b</from><to> dot sds</to></substitution>
+      <substitution><from type="regex">\.aiff\b</from><to> dot aiff</to></substitution>
+      <substitution><from type="regex">\.xwd\b</from><to> dot xwd</to></substitution>
+      <substitution><from type="regex">\.idl\b</from><to> dot idl</to></substitution>
+      <substitution><from type="regex">\.dat\b</from><to> dot dat</to></substitution>
+      <substitution><from type="regex">\.xlt\b</from><to> dot xlt</to></substitution>
+      <substitution><from type="regex">\.chrt\b</from><to> dot chrt</to></substitution>
+      <substitution><from type="regex">\.stm\b</from><to> dot stm</to></substitution>
+      <substitution><from type="regex">\.PAR2\b</from><to> dot PAR2</to></substitution>
+      <substitution><from type="regex">\.xcf.bz2\b</from><to> dot xcf.bz2</to></substitution>
+      <substitution><from type="regex">\.psid\b</from><to> dot psid</to></substitution>
+      <substitution><from type="regex">\.pict\b</from><to> dot pict</to></substitution>
+      <substitution><from type="regex">\.ag\b</from><to> dot ag</to></substitution>
+      <substitution><from type="regex">\.fo\b</from><to> dot fo</to></substitution>
+      <substitution><from type="regex">\.sdw\b</from><to> dot sdw</to></substitution>
+      <substitution><from type="regex">\.CRASHED\b</from><to> dot CRASHED</to></substitution>
+      <substitution><from type="regex">\.xlw\b</from><to> dot xlw</to></substitution>
+      <substitution><from type="regex">\.gsf\b</from><to> dot gsf</to></substitution>
+      <substitution><from type="regex">\.man\b</from><to> dot man</to></substitution>
+      <substitution><from type="regex">\.xcf.gz\b</from><to> dot xcf.gz</to></substitution>
+      <substitution><from type="regex">\.rdf\b</from><to> dot rdf</to></substitution>
+      <substitution><from type="regex">\.ai\b</from><to> dot ai</to></substitution>
+      <substitution><from type="regex">\.bcpio\b</from><to> dot bcpio</to></substitution>
+      <substitution><from type="regex">\.shar\b</from><to> dot shar</to></substitution>
+      <substitution><from type="regex">\.wav\b</from><to> dot wav</to></substitution>
+      <substitution><from type="regex">\.pcd\b</from><to> dot pcd</to></substitution>
+      <substitution><from type="regex">\.egon\b</from><to> dot egon</to></substitution>
+      <substitution><from type="regex">\.pcf\b</from><to> dot pcf</to></substitution>
+      <substitution><from type="regex">\.al\b</from><to> dot al</to></substitution>
+      <substitution><from type="regex">\.movie\b</from><to> dot movie</to></substitution>
+      <substitution><from type="regex">\.gnc\b</from><to> dot gnc</to></substitution>
+      <substitution><from type="regex">\.php\b</from><to> dot php</to></substitution>
+      <substitution><from type="regex">\.tzo\b</from><to> dot tzo</to></substitution>
+      <substitution><from type="regex">\.xbm\b</from><to> dot xbm</to></substitution>
+      <substitution><from type="regex">\.stw\b</from><to> dot stw</to></substitution>
+      <substitution><from type="regex">\.rtf\b</from><to> dot rtf</to></substitution>
+      <substitution><from type="regex">\.hdf\b</from><to> dot hdf</to></substitution>
+      <substitution><from type="regex">\.ustar\b</from><to> dot ustar</to></substitution>
+      <substitution><from type="regex">\.la\b</from><to> dot la</to></substitution>
+      <substitution><from type="regex">\.ppsd\b</from><to> dot ppsd</to></substitution>
+      <substitution><from type="regex">\.pcl\b</from><to> dot pcl</to></substitution>
+      <substitution><from type="regex">\.kpm\b</from><to> dot kpm</to></substitution>
+      <substitution><from type="regex">\.qif\b</from><to> dot qif</to></substitution>
+      <substitution><from type="regex">\.sty\b</from><to> dot sty</to></substitution>
+      <substitution><from type="regex">\.psf\b</from><to> dot psf</to></substitution>
+      <substitution><from type="regex">\.as\b</from><to> dot as</to></substitution>
+      <substitution><from type="regex">\.dbf\b</from><to> dot dbf</to></substitution>
+      <substitution><from type="regex">\.gf\b</from><to> dot gf</to></substitution>
+      <substitution><from type="regex">\.pk\b</from><to> dot pk</to></substitution>
+      <substitution><from type="regex">\.au\b</from><to> dot au</to></substitution>
+      <substitution><from type="regex">\.dwg\b</from><to> dot dwg</to></substitution>
+      <substitution><from type="regex">\.ilbm\b</from><to> dot ilbm</to></substitution>
+      <substitution><from type="regex">\.kpr\b</from><to> dot kpr</to></substitution>
+      <substitution><from type="regex">\.aw\b</from><to> dot aw</to></substitution>
+      <substitution><from type="regex">\.tex\b</from><to> dot tex</to></substitution>
+      <substitution><from type="regex">\.kpt\b</from><to> dot kpt</to></substitution>
+      <substitution><from type="regex">\.gif\b</from><to> dot gif</to></substitution>
+      <substitution><from type="regex">\.gb\b</from><to> dot gb</to></substitution>
+      <substitution><from type="regex">\.xmi\b</from><to> dot xmi</to></substitution>
+      <substitution><from type="regex">\.abw.gz\b</from><to> dot abw.gz</to></substitution>
+      <substitution><from type="regex">\.jpe\b</from><to> dot jpe</to></substitution>
+      <substitution><from type="regex">\.png\b</from><to> dot png</to></substitution>
+      <substitution><from type="regex">\.qt\b</from><to> dot qt</to></substitution>
+      <substitution><from type="regex">\.7z\b</from><to> dot 7z</to></substitution>
+      <substitution><from type="regex">\.XM\b</from><to> dot XM</to></substitution>
+      <substitution><from type="regex">\.jpg\b</from><to> dot jpg</to></substitution>
+      <substitution><from type="regex">\.xml\b</from><to> dot xml</to></substitution>
+      <substitution><from type="regex">\.gnumeric\b</from><to> dot gnumeric</to></substitution>
+      <substitution><from type="regex">\.bak\b</from><to> dot bak</to></substitution>
+      <substitution><from type="regex">\.ief\b</from><to> dot ief</to></substitution>
+      <substitution><from type="regex">\.htm\b</from><to> dot htm</to></substitution>
+      <substitution><from type="regex">\.xslf\b</from><to> dot xslf</to></substitution>
+      <substitution><from type="regex">\.ogg\b</from><to> dot ogg</to></substitution>
+      <substitution><from type="regex">\.core\b</from><to> dot core</to></substitution>
+      <substitution><from type="regex">\.cgi\b</from><to> dot cgi</to></substitution>
+      <substitution><from type="regex">\.exe\b</from><to> dot exe</to></substitution>
+      <substitution><from type="regex">\.mgp\b</from><to> dot mgp</to></substitution>
+      <substitution><from type="regex">\.pnm\b</from><to> dot pnm</to></substitution>
+      <substitution><from type="regex">\.rtx\b</from><to> dot rtx</to></substitution>
+      <substitution><from type="regex">\.karbon\b</from><to> dot karbon</to></substitution>
+      <substitution><from type="regex">\.wri\b</from><to> dot wri</to></substitution>
+      <substitution><from type="regex">\.spd\b</from><to> dot spd</to></substitution>
+      <substitution><from type="regex">\.gnucash\b</from><to> dot gnucash</to></substitution>
+      <substitution><from type="regex">\.kfo\b</from><to> dot kfo</to></substitution>
+      <substitution><from type="regex">\.out\b</from><to> dot out</to></substitution>
+      <substitution><from type="regex">\.cls\b</from><to> dot cls</to></substitution>
+      <substitution><from type="regex">\.class\b</from><to> dot class</to></substitution>
+      <substitution><from type="regex">\.php3\b</from><to> dot php3</to></substitution>
+      <substitution><from type="regex">\.xhtml\b</from><to> dot xhtml</to></substitution>
+      <substitution><from type="regex">\.php4\b</from><to> dot php4</to></substitution>
+      <substitution><from type="regex">\.cgm\b</from><to> dot cgm</to></substitution>
+      <substitution><from type="regex">\.sun\b</from><to> dot sun</to></substitution>
+      <substitution><from type="regex">\.wrl\b</from><to> dot wrl</to></substitution>
+      <substitution><from type="regex">\.pdb\b</from><to> dot pdb</to></substitution>
+      <substitution><from type="regex">\.pyc\b</from><to> dot pyc</to></substitution>
+      <substitution><from type="regex">\.xcf\b</from><to> dot xcf</to></substitution>
+      <substitution><from type="regex">\.xbel\b</from><to> dot xbel</to></substitution>
+      <substitution><from type="regex">\.jpr\b</from><to> dot jpr</to></substitution>
+      <substitution><from type="regex">\.p12\b</from><to> dot p12</to></substitution>
+      <substitution><from type="regex">\.ra\b</from><to> dot ra</to></substitution>
+      <substitution><from type="regex">\.wmf\b</from><to> dot wmf</to></substitution>
+      <substitution><from type="regex">\.afm\b</from><to> dot afm</to></substitution>
+      <substitution><from type="regex">\.rb\b</from><to> dot rb</to></substitution>
+      <substitution><from type="regex">\.pdf\b</from><to> dot pdf</to></substitution>
+      <substitution><from type="regex">\.fig\b</from><to> dot fig</to></substitution>
+      <substitution><from type="regex">\.perl\b</from><to> dot perl</to></substitution>
+      <substitution><from type="regex">\.rej\b</from><to> dot rej</to></substitution>
+      <substitution><from type="regex">\.qtvr\b</from><to> dot qtvr</to></substitution>
+      <substitution><from type="regex">\.avi\b</from><to> dot avi</to></substitution>
+      <substitution><from type="regex">\.kino\b</from><to> dot kino</to></substitution>
+      <substitution><from type="regex">\.jpx\b</from><to> dot jpx</to></substitution>
+      <substitution><from type="regex">\.wml\b</from><to> dot wml</to></substitution>
+      <substitution><from type="regex">\.669\b</from><to> dot 669</to></substitution>
+      <substitution><from type="regex">\.gz\b</from><to> dot gz</to></substitution>
+      <substitution><from type="regex">\.kdelnk\b</from><to> dot kdelnk</to></substitution>
+      <substitution><from type="regex">\.md\b</from><to> dot md</to></substitution>
+      <substitution><from type="regex">\.pyo\b</from><to> dot pyo</to></substitution>
+      <substitution><from type="regex">\.oleo\b</from><to> dot oleo</to></substitution>
+      <substitution><from type="regex">\.rm\b</from><to> dot rm</to></substitution>
+      <substitution><from type="regex">\.dxf\b</from><to> dot dxf</to></substitution>
+      <substitution><from type="regex">\.me\b</from><to> dot me</to></substitution>
+      <substitution><from type="regex">\.xsl\b</from><to> dot xsl</to></substitution>
+      <substitution><from type="regex">\.mpeg\b</from><to> dot mpeg</to></substitution>
+      <substitution><from type="regex">\.ac3\b</from><to> dot ac3</to></substitution>
+      <substitution><from type="regex">\.mml\b</from><to> dot mml</to></substitution>
+      <substitution><from type="regex">\.par2\b</from><to> dot par2</to></substitution>
+      <substitution><from type="regex">\.diff\b</from><to> dot diff</to></substitution>
+      <substitution><from type="regex">\.oda\b</from><to> dot oda</to></substitution>
+      <substitution><from type="regex">\.sv4cpio\b</from><to> dot sv4cpio</to></substitution>
+      <substitution><from type="regex">\.sylk\b</from><to> dot sylk</to></substitution>
+      <substitution><from type="regex">\.C\b</from><to> dot C</to></substitution>
+      <substitution><from type="regex">\.odb\b</from><to> dot odb</to></substitution>
+      <substitution><from type="regex">\.wmv\b</from><to> dot wmv</to></substitution>
+      <substitution><from type="regex">\.odc\b</from><to> dot odc</to></substitution>
+      <substitution><from type="regex">\.tar\b</from><to> dot tar</to></substitution>
+      <substitution><from type="regex">\.cert\b</from><to> dot cert</to></substitution>
+      <substitution><from type="regex">\.ult\b</from><to> dot ult</to></substitution>
+      <substitution><from type="regex">\.m3u\b</from><to> dot m3u</to></substitution>
+      <substitution><from type="regex">\.lwo\b</from><to> dot lwo</to></substitution>
+      <substitution><from type="regex">\.bz\b</from><to> dot bz</to></substitution>
+      <substitution><from type="regex">\.djvu\b</from><to> dot djvu</to></substitution>
+      <substitution><from type="regex">\.dcl\b</from><to> dot dcl</to></substitution>
+      <substitution><from type="regex">\.odf\b</from><to> dot odf</to></substitution>
+      <substitution><from type="regex">\.crt\b</from><to> dot crt</to></substitution>
+      <substitution><from type="regex">\.zoo\b</from><to> dot zoo</to></substitution>
+      <substitution><from type="regex">\.dcm\b</from><to> dot dcm</to></substitution>
+      <substitution><from type="regex">\.mm\b</from><to> dot mm</to></substitution>
+      <substitution><from type="regex">\.odg\b</from><to> dot odg</to></substitution>
+      <substitution><from type="regex">\.iff\b</from><to> dot iff</to></substitution>
+      <substitution><from type="regex">\.lws.anim\b</from><to> dot lws.anim</to></substitution>
+      <substitution><from type="regex">\.zabw\b</from><to> dot zabw</to></substitution>
+      <substitution><from type="regex">\.blender\b</from><to> dot blender</to></substitution>
+      <substitution><from type="regex">\.ged\b</from><to> dot ged</to></substitution>
+      <substitution><from type="regex">\.glade\b</from><to> dot glade</to></substitution>
+      <substitution><from type="regex">\.rpm\b</from><to> dot rpm</to></substitution>
+      <substitution><from type="regex">\.svg\b</from><to> dot svg</to></substitution>
+      <substitution><from type="regex">\.odi\b</from><to> dot odi</to></substitution>
+      <substitution><from type="regex">\.wd\b</from><to> dot wd</to></substitution>
+      <substitution><from type="regex">\.tga\b</from><to> dot tga</to></substitution>
+      <substitution><from type="regex">\.hh\b</from><to> dot hh</to></substitution>
+      <substitution><from type="regex">\.crw\b</from><to> dot crw</to></substitution>
+      <substitution><from type="regex">\.jar\b</from><to> dot jar</to></substitution>
+      <substitution><from type="regex">\.cpio.gz\b</from><to> dot cpio.gz</to></substitution>
+      <substitution><from type="regex">\.cc\b</from><to> dot cc</to></substitution>
+      <substitution><from type="regex">\.dsl\b</from><to> dot dsl</to></substitution>
+      <substitution><from type="regex">\.ms\b</from><to> dot ms</to></substitution>
+      <substitution><from type="regex">\.odm\b</from><to> dot odm</to></substitution>
+      <substitution><from type="regex">\.lha\b</from><to> dot lha</to></substitution>
+      <substitution><from type="regex">\.sgml\b</from><to> dot sgml</to></substitution>
+      <substitution><from type="regex">\.otg\b</from><to> dot otg</to></substitution>
+      <substitution><from type="regex">\.kra\b</from><to> dot kra</to></substitution>
+      <substitution><from type="regex">\.n64\b</from><to> dot n64</to></substitution>
+      <substitution><from type="regex">\.m4a\b</from><to> dot m4a</to></substitution>
+      <substitution><from type="regex">\.c++\b</from><to> dot c++</to></substitution>
+      <substitution><from type="regex">\.moov\b</from><to> dot moov</to></substitution>
+      <substitution><from type="regex">\.sam\b</from><to> dot sam</to></substitution>
+      <substitution><from type="regex">\.oth\b</from><to> dot oth</to></substitution>
+      <substitution><from type="regex">\.chm\b</from><to> dot chm</to></substitution>
+      <substitution><from type="regex">\.uri\b</from><to> dot uri</to></substitution>
+      <substitution><from type="regex">\.nsv\b</from><to> dot nsv</to></substitution>
+      <substitution><from type="regex">\.odp\b</from><to> dot odp</to></substitution>
+      <substitution><from type="regex">\.planner\b</from><to> dot planner</to></substitution>
+      <substitution><from type="regex">\.dia\b</from><to> dot dia</to></substitution>
+      <substitution><from type="regex">\.xi\b</from><to> dot xi</to></substitution>
+      <substitution><from type="regex">\.hp\b</from><to> dot hp</to></substitution>
+      <substitution><from type="regex">\.pot\b</from><to> dot pot</to></substitution>
+      <substitution><from type="regex">\.gen\b</from><to> dot gen</to></substitution>
+      <substitution><from type="regex">\.roff\b</from><to> dot roff</to></substitution>
+      <substitution><from type="regex">\.hpp\b</from><to> dot hpp</to></substitution>
+      <substitution><from type="regex">\.url\b</from><to> dot url</to></substitution>
+      <substitution><from type="regex">\.ods\b</from><to> dot ods</to></substitution>
+      <substitution><from type="regex">\.vcf\b</from><to> dot vcf</to></substitution>
+      <substitution><from type="regex">\.odt\b</from><to> dot odt</to></substitution>
+      <substitution><from type="regex">\.hs\b</from><to> dot hs</to></substitution>
+      <substitution><from type="regex">\.cpio\b</from><to> dot cpio</to></substitution>
+      <substitution><from type="regex">\.xm\b</from><to> dot xm</to></substitution>
+      <substitution><from type="regex">\.sql\b</from><to> dot sql</to></substitution>
+      <substitution><from type="regex">\.texi\b</from><to> dot texi</to></substitution>
+      <substitution><from type="regex">\.otp\b</from><to> dot otp</to></substitution>
+      <substitution><from type="regex">\.mrproject\b</from><to> dot mrproject</to></substitution>
+      <substitution><from type="regex">\.Z\b</from><to> dot Z</to></substitution>
+      <substitution><from type="regex">\.sh\b</from><to> dot sh</to></substitution>
+      <substitution><from type="regex">\.NSV\b</from><to> dot NSV</to></substitution>
+      <substitution><from type="regex">\.csh\b</from><to> dot csh</to></substitution>
+      <substitution><from type="regex">\.desktop\b</from><to> dot desktop</to></substitution>
+      <substitution><from type="regex">\.kwt\b</from><to> dot kwt</to></substitution>
+      <substitution><from type="regex">\.mng\b</from><to> dot mng</to></substitution>
+      <substitution><from type="regex">\.ots\b</from><to> dot ots</to></substitution>
+      <substitution><from type="regex">\.nb\b</from><to> dot nb</to></substitution>
+      <substitution><from type="regex">\.ott\b</from><to> dot ott</to></substitution>
+      <substitution><from type="regex">\.nc\b</from><to> dot nc</to></substitution>
+      <substitution><from type="regex">\.pem\b</from><to> dot pem</to></substitution>
+      <substitution><from type="regex">\.bmp\b</from><to> dot bmp</to></substitution>
+      <substitution><from type="regex">\.slk\b</from><to> dot slk</to></substitution>
+      <substitution><from type="regex">\.cs\b</from><to> dot cs</to></substitution>
+      <substitution><from type="regex">\.arj\b</from><to> dot arj</to></substitution>
+      <substitution><from type="regex">\.mid\b</from><to> dot mid</to></substitution>
+      <substitution><from type="regex">\.a\b</from><to> dot a</to></substitution>
+      <substitution><from type="regex">\.so\b</from><to> dot so</to></substitution>
+      <substitution><from type="regex">\.lhs\b</from><to> dot lhs</to></substitution>
+      <substitution><from type="regex">\.mif\b</from><to> dot mif</to></substitution>
+      <substitution><from type="regex">\.ram\b</from><to> dot ram</to></substitution>
+      <substitution><from type="regex">\.vcs\b</from><to> dot vcs</to></substitution>
+      <substitution><from type="regex">\.gcrd\b</from><to> dot gcrd</to></substitution>
+      <substitution><from type="regex">\.vct\b</from><to> dot vct</to></substitution>
+      <substitution><from type="regex">\.cxx\b</from><to> dot cxx</to></substitution>
+      <substitution><from type="regex">\.c\b</from><to> dot c</to></substitution>
+      <substitution><from type="regex">\.wk1\b</from><to> dot wk1</to></substitution>
+      <substitution><from type="regex">\.tgz\b</from><to> dot tgz</to></substitution>
+      <substitution><from type="regex">\.msx\b</from><to> dot msx</to></substitution>
+      <substitution><from type="regex">\.sgi\b</from><to> dot sgi</to></substitution>
+      <substitution><from type="regex">\.d\b</from><to> dot d</to></substitution>
+      <substitution><from type="regex">\.mp2\b</from><to> dot mp2</to></substitution>
+      <substitution><from type="regex">\.mp3\b</from><to> dot mp3</to></substitution>
+      <substitution><from type="regex">\.CSSL\b</from><to> dot CSSL</to></substitution>
+      <substitution><from type="regex">\.dtd\b</from><to> dot dtd</to></substitution>
+      <substitution><from type="regex">\.wk3\b</from><to> dot wk3</to></substitution>
+      <substitution><from type="regex">\.abw\b</from><to> dot abw</to></substitution>
+      <substitution><from type="regex">\.mdb\b</from><to> dot mdb</to></substitution>
+      <substitution><from type="regex">\.mp4\b</from><to> dot mp4</to></substitution>
+      <substitution><from type="regex">\.pict1\b</from><to> dot pict1</to></substitution>
+      <substitution><from type="regex">\.css\b</from><to> dot css</to></substitution>
+      <substitution><from type="regex">\.f\b</from><to> dot f</to></substitution>
+      <substitution><from type="regex">\.for\b</from><to> dot for</to></substitution>
+      <substitution><from type="regex">\.zip\b</from><to> dot zip</to></substitution>
+      <substitution><from type="regex">\.cpp\b</from><to> dot cpp</to></substitution>
+      <substitution><from type="regex">\.perl\b</from><to> dot perl</to></substitution>
+
+      <substitution><from type="regex">\bo\.k\.\b</from><to>ok</to></substitution>
+      <substitution><from type="regex">\bo\. k\.\b</from><to>ok</to></substitution>
+      <substitution><from type="regex">\bl\.l\.\b</from><to>l l</to></substitution>
+      <substitution><from type="regex">\bp\.s\.\b</from><to>ps</to></substitution>
+      <substitution><from type="regex">\balicebot\b</from><to>ALICE</to></substitution>
+      <substitution><from type="regex">\ba l i c e\b</from><to>ALICE</to></substitution>
+      <substitution><from type="regex">\ba\.l\.i\.c\.e\.\b</from><to>ALICE</to></substitution>
+      <substitution><from type="regex">\ba\.l\.i\.c\.e\b</from><to>ALICE</to></substitution>
+      <substitution><from type="regex">\bi\.c\.e\b</from><to>i c e</to></substitution>
+      <substitution><from type="regex">\be l v i s\b</from><to>ELVIS</to></substitution>
+      <substitution><from type="regex">\be\.l\.v\.i\.s\.\b</from><to>ELVIS</to></substitution>
+      <substitution><from type="regex">\be\.l\.v\.i\.s\b</from><to>ELVIS</to></substitution>
+      <substitution><from type="regex">\bv\.i\.s\b</from><to>v i s</to></substitution>
+      <substitution><from type="regex">\bh a l\b</from><to>hal</to></substitution>
+      <substitution><from type="regex">\bh\.a\.l\.\b</from><to>hal</to></substitution>
+      <substitution><from type="regex">\bu s a\b</from><to>USA</to></substitution>
+      <substitution><from type="regex">\bu\. s\. a\.\b</from><to>USA</to></substitution>
+      <substitution><from type="regex">\bu\.s\.a\.\b</from><to>USA</to></substitution>
+      <substitution><from type="regex">\bu\.s\.\b</from><to>USA</to></substitution>
+      <substitution><from type="regex">\bph\.d\. </from><to> PhD</to></substitution>
+      <substitution><from type="regex">\ba\.</from><to>a</to></substitution>
+      <substitution><from type="regex">\bb\.</from><to>b</to></substitution>
+      <substitution><from type="regex">\bc\.</from><to>c</to></substitution>
+      <substitution><from type="regex">\bd\.</from><to>d</to></substitution>
+      <substitution><from type="regex">\be\.</from><to>e</to></substitution>
+      <substitution><from type="regex">\bf\.</from><to>f</to></substitution>
+      <substitution><from type="regex">\bg\.</from><to>g</to></substitution>
+      <substitution><from type="regex">\bh\.</from><to>h</to></substitution>
+      <substitution><from type="regex">\bi\.</from><to>i</to></substitution>
+      <substitution><from type="regex">\bj\.</from><to>j</to></substitution>
+      <substitution><from type="regex">\bk\.</from><to>k</to></substitution>
+      <substitution><from type="regex">\bl\.</from><to>l</to></substitution>
+      <substitution><from type="regex">\bm\.</from><to>m</to></substitution>
+      <substitution><from type="regex">\bn\.</from><to>n</to></substitution>
+      <substitution><from type="regex">\bp\.</from><to>p</to></substitution>
+      <substitution><from type="regex">\bo\.</from><to>o</to></substitution>
+      <substitution><from type="regex">\bq\.</from><to>q</to></substitution>
+      <substitution><from type="regex">\br\.</from><to>r</to></substitution>
+      <substitution><from type="regex">\bs\.</from><to>s</to></substitution>
+      <substitution><from type="regex">\bt\.</from><to>t</to></substitution>
+      <substitution><from type="regex">\bu\.</from><to>u</to></substitution>
+      <substitution><from type="regex">\bv\.</from><to>v</to></substitution>
+      <substitution><from type="regex">\bw\.</from><to>w</to></substitution>
+      <substitution><from type="regex">\bx\.</from><to>x</to></substitution>
+      <substitution><from type="regex">\by\.</from><to>y</to></substitution>
+      <substitution><from type="regex">\bz\.</from><to>z</to></substitution>
+      <substitution><from type="regex">, but </from><to>.  </to></substitution>
+      <substitution><from type="regex">, and </from><to>.  </to></substitution>
+      <substitution><from type="regex">,but </from><to>.  </to></substitution>
+      <substitution><from type="regex">,and </from><to>.  </to></substitution>
+      <substitution><from type="regex">  but </from><to>.  </to></substitution>
+      <substitution><from type="regex">  and </from><to>.  </to></substitution>
+      <substitution><from type="regex">, i </from><to>.  I </to></substitution>
+      <substitution><from type="regex">, you </from><to>.  you </to></substitution>
+      <substitution><from type="regex">,i </from><to>.  I </to></substitution>
+      <substitution><from type="regex">,you </from><to>.  you </to></substitution>
+      <substitution><from type="regex">, what </from><to>.  what </to></substitution>
+      <substitution><from type="regex">,what </from><to>.  what </to></substitution>
+      <substitution><from type="regex">, do </from><to>.  do </to></substitution>
+      <substitution><from type="regex">,do </from><to>.  do </to></substitution>
+    </normalization>
+
+    <person>
+      <substitution><from type="regex">\bI was\b</from><to>he or she was</to></substitution>
+      <substitution><from type="regex">\bhe was\b</from><to>I was</to></substitution>
+      <substitution><from type="regex">\bshe was\b</from><to>I was</to></substitution>
+      <substitution><from type="regex">\bI am\b</from><to>he or she is</to></substitution>
+      <substitution><from type="regex">\bI\b</from><to>he or she</to></substitution>
+      <substitution><from type="regex">\bme\b</from><to>him or her</to></substitution>
+      <substitution><from type="regex">\bmy\b</from><to>his or her</to></substitution>
+      <substitution><from type="regex">\bmyself\b</from><to>him or herself</to></substitution>
+      <substitution><from type="regex">\bmine\b</from><to>his or hers</to></substitution>
+	  </person>
+
+	 	<person2>
+      <substitution><from type="regex">\bwith you\b</from><to>with me</to></substitution>
+      <substitution><from type="regex">\bwith me\b</from><to>with you</to></substitution>
+      <substitution><from type="regex">\bto you\b</from><to>to me</to></substitution>
+      <substitution><from type="regex">\bto me\b</from><to>to you</to></substitution>
+      <substitution><from type="regex">\bof you\b</from><to>of me</to></substitution>
+      <substitution><from type="regex">\bof me\b</from><to>of you</to></substitution>
+      <substitution><from type="regex">\bfor you\b</from><to>for me</to></substitution>
+      <substitution><from type="regex">\bfor me\b</from><to>for you</to></substitution>
+      <substitution><from type="regex">\bgive you\b</from><to>give me</to></substitution>
+      <substitution><from type="regex">\bgive me\b</from><to>give you</to></substitution>
+      <substitution><from type="regex">\bgiving you\b</from><to>giving me</to></substitution>
+      <substitution><from type="regex">\bgiving me\b</from><to>giving you</to></substitution>
+      <substitution><from type="regex">\bgave you\b</from><to>gave me</to></substitution>
+      <substitution><from type="regex">\bgave me\b</from><to>gave you</to></substitution>
+      <substitution><from type="regex">\bmake you\b</from><to>make me</to></substitution>
+      <substitution><from type="regex">\bmake me\b</from><to>make you</to></substitution>
+      <substitution><from type="regex">\bmade you\b</from><to>made me</to></substitution>
+      <substitution><from type="regex">\bmade me\b</from><to>made you</to></substitution>
+      <substitution><from type="regex">\btake you\b</from><to>take me</to></substitution>
+      <substitution><from type="regex">\btake me\b</from><to>take you</to></substitution>
+      <substitution><from type="regex">\bsave you\b</from><to>save me</to></substitution>
+      <substitution><from type="regex">\bsave me\b</from><to>save you</to></substitution>
+      <substitution><from type="regex">\btell you\b</from><to>tell me</to></substitution>
+      <substitution><from type="regex">\btell me\b</from><to>tell you</to></substitution>
+      <substitution><from type="regex">\btelling you\b</from><to>telling me</to></substitution>
+      <substitution><from type="regex">\btelling me\b</from><to>telling you</to></substitution>
+      <substitution><from type="regex">\btold you\b</from><to>told me</to></substitution>
+      <substitution><from type="regex">\btold me\b</from><to>told you</to></substitution>
+      <substitution><from type="regex">\bare you\b</from><to>am I</to></substitution>
+      <substitution><from type="regex">\bam I\b</from><to>are you</to></substitution>
+      <substitution><from type="regex">\byou are\b</from><to>I am</to></substitution>
+      <substitution><from type="regex">\bI am\b</from><to>you are</to></substitution>
+      <substitution><from type="regex">\byou\b</from><to>me</to></substitution>
+      <substitution><from type="regex">\bme\b</from><to>you</to></substitution>
+      <substitution><from type="regex">\byour\b</from><to>my</to></substitution>
+      <substitution><from type="regex">\bmy\b</from><to>your</to></substitution>
+      <substitution><from type="regex">\byours\b</from><to>mine</to></substitution>
+      <substitution><from type="regex">\bmine\b</from><to>yours</to></substitution>
+      <substitution><from type="regex">\byourself\b</from><to>myself</to></substitution>
+      <substitution><from type="regex">\bmyself\b</from><to>yourself</to></substitution>
+      <substitution><from type="regex">\bI was\b</from><to>you were</to></substitution>
+      <substitution><from type="regex">\byou were\b</from><to>I was</to></substitution>
+      <substitution><from type="regex">\bI am\b</from><to>you are</to></substitution>
+      <substitution><from type="regex">\byou are\b</from><to>I am</to></substitution>
+      <substitution><from type="regex">\bI\b</from><to>you</to></substitution>
+      <substitution><from type="regex">\bme\b</from><to>you</to></substitution>
+      <substitution><from type="regex">\bmy\b</from><to>your</to></substitution>
+      <substitution><from type="regex">\byour\b</from><to>my</to></substitution>
+      <substitution><from type="regex">\bich war\b</from><to>er war</to></substitution>
+      <substitution><from type="regex">\bich bin\b</from><to>er ist</to></substitution>
+      <substitution><from type="regex">\bich\b</from><to>er</to></substitution>
+      <substitution><from type="regex">\bmein\b</from><to>sein</to></substitution>
+      <substitution><from type="regex">\bmeins\b</from><to>seins</to></substitution>
+      <substitution><from type="regex">\bmit dir\b</from><to>mit mir</to></substitution>
+      <substitution><from type="regex">\bdir\b</from><to>mir</to></substitution>
+      <substitution><from type="regex">\bfuer dich\b</from><to>fuer mich</to></substitution>
+      <substitution><from type="regex">\bbist du\b</from><to>bin ich</to></substitution>
+      <substitution><from type="regex">\bdu\b</from><to>ich</to></substitution>
+      <substitution><from type="regex">\bdein\b</from><to>mein</to></substitution>
+      <substitution><from type="regex">\bdeins\b</from><to>meins</to></substitution>
+    </person2>
+    <gender>
+      <substitution><from type="regex">\bhe\b</from><to>she</to></substitution>
+      <substitution><from type="regex">\bshe\b</from><to>he</to></substitution>
+      <substitution><from type="regex">\bto him\b</from><to>to her</to></substitution>
+      <substitution><from type="regex">\bfor him\b</from><to>for her</to></substitution>
+      <substitution><from type="regex">\bwith him\b</from><to>with her</to></substitution>
+      <substitution><from type="regex">\bon him\b</from><to>on her</to></substitution>
+      <substitution><from type="regex">\bin him\b</from><to>in her</to></substitution>
+      <substitution><from type="regex">\bto her\b</from><to>to him</to></substitution>
+      <substitution><from type="regex">\bfor her\b</from><to>for him</to></substitution>
+      <substitution><from type="regex">\bwith her\b</from><to>with him</to></substitution>
+      <substitution><from type="regex">\bon her\b</from><to>on him</to></substitution>
+      <substitution><from type="regex">\bin her\b</from><to>in him</to></substitution>
+      <substitution><from type="regex">\bhis\b</from><to>her</to></substitution>
+      <substitution><from type="regex">\bher\b</from><to>his</to></substitution>
+      <substitution><from type="regex">\bhim\b</from><to>her</to></substitution>
+      <substitution><from type="regex">\ber\b</from><to>Sie</to></substitution>
+      <substitution><from type="regex">\bihm\b</from><to>ihr</to></substitution>
+      <substitution><from type="regex">\bsein\b</from><to>ihr</to></substitution>
+      <substitution><from type="regex">\bihn\b</from><to>Sie</to></substitution>
+    </gender>
+  </substitutions>
+
+  <!-- libaiml options -->
+  <options>
+    <!-- space delimited list of file patterns to load as aiml files. If you
+         need to use a space as part of a pattern escape it with '\' -->
+    <file_patterns>/Library/AssistantExtensions/aiml/de/*.aiml</file_patterns>
+    
+    <!-- file used to store data passed to <gossip> tags (defaults to
+        "gossip.txt" if not specified -->    
+    <file_gossip>/Library/AssistantExtensions/aiml/gossip.txt</file_gossip>
+    
+    <!-- file used to mantain the list of registered users and their variables
+     (must be readable+writable) (defaults to "userlist.xml" if not specified) -->
+    <user_file>/Library/AssistantExtensions/aiml/userlist.xml</user_file>
+    
+    <!-- if this tag is present all combinations of space, tab, carriage
+      return and linefeed are replace by a single space (HTML-like behavior) -->
+    <trim_blanks/>
+    
+    <!-- the characters used to separate sentences (every character counts
+        here!) (defaults to "?!.;" if not specified) -->
+    <sentence_limit>?!.;</sentence_limit>
+    
+    <!-- the <allow> tags specifies some boolean options -->
+    <allow>
+      <!-- interpret <javascript> tags (libaiml should have been compiled with
+      javascrip support --> 
+      <javascript/>
+      
+      <!-- interpret <system> tags -->      
+      <system/>
+      
+      <!-- allow usage of the "format" attribute on <date/> tag -->
+      <dateformat/>
+    </allow>
+  </options>
+</libaiml>

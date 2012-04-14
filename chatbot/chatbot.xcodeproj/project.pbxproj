@@ -1,0 +1,259 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72FC9E671539B794001DD68D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FC9E661539B794001DD68D /* CoreFoundation.framework */; };
+		72FC9E811539B96B001DD68D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FC9E801539B96B001DD68D /* Foundation.framework */; };
+		72FC9E8A1539CBD9001DD68D /* AEChatBot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72FC9E871539CBD9001DD68D /* AEChatBot.mm */; };
+		72FC9E8B1539CBD9001DD68D /* AEChatBotCommands.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72FC9E891539CBD9001DD68D /* AEChatBotCommands.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		72FC9E631539B794001DD68D /* chatbot.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatbot.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		72FC9E661539B794001DD68D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		72FC9E7A1539B80D001DD68D /* SiriObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiriObjects.h; sourceTree = SOURCE_ROOT; };
+		72FC9E801539B96B001DD68D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		72FC9E861539CBD9001DD68D /* AEChatBot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEChatBot.h; sourceTree = SOURCE_ROOT; };
+		72FC9E871539CBD9001DD68D /* AEChatBot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEChatBot.mm; sourceTree = SOURCE_ROOT; };
+		72FC9E881539CBD9001DD68D /* AEChatBotCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEChatBotCommands.h; sourceTree = SOURCE_ROOT; };
+		72FC9E891539CBD9001DD68D /* AEChatBotCommands.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEChatBotCommands.mm; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72FC9E601539B794001DD68D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72FC9E811539B96B001DD68D /* Foundation.framework in Frameworks */,
+				72FC9E671539B794001DD68D /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		72FC9E561539B77E001DD68D = {
+			isa = PBXGroup;
+			children = (
+				72FC9E681539B794001DD68D /* chatbot */,
+				72FC9E651539B794001DD68D /* Frameworks */,
+				72FC9E641539B794001DD68D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		72FC9E641539B794001DD68D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72FC9E631539B794001DD68D /* chatbot.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72FC9E651539B794001DD68D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72FC9E801539B96B001DD68D /* Foundation.framework */,
+				72FC9E661539B794001DD68D /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72FC9E681539B794001DD68D /* chatbot */ = {
+			isa = PBXGroup;
+			children = (
+				72FC9E861539CBD9001DD68D /* AEChatBot.h */,
+				72FC9E871539CBD9001DD68D /* AEChatBot.mm */,
+				72FC9E881539CBD9001DD68D /* AEChatBotCommands.h */,
+				72FC9E891539CBD9001DD68D /* AEChatBotCommands.mm */,
+				72FC9E7A1539B80D001DD68D /* SiriObjects.h */,
+			);
+			name = chatbot;
+			path = sbstoggles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72FC9E621539B794001DD68D /* chatbot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72FC9E6F1539B795001DD68D /* Build configuration list for PBXNativeTarget "chatbot" */;
+			buildPhases = (
+				72FC9E5F1539B794001DD68D /* Sources */,
+				72FC9E601539B794001DD68D /* Frameworks */,
+				72FC9E611539B794001DD68D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = chatbot;
+			productName = sbstoggles;
+			productReference = 72FC9E631539B794001DD68D /* chatbot.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		72FC9E581539B77E001DD68D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = K3A;
+			};
+			buildConfigurationList = 72FC9E5B1539B77E001DD68D /* Build configuration list for PBXProject "chatbot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 72FC9E561539B77E001DD68D;
+			productRefGroup = 72FC9E641539B794001DD68D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72FC9E621539B794001DD68D /* chatbot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72FC9E611539B794001DD68D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		72FC9E5F1539B794001DD68D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72FC9E8A1539CBD9001DD68D /* AEChatBot.mm in Sources */,
+				72FC9E8B1539CBD9001DD68D /* AEChatBotCommands.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		72FC9E5D1539B77E001DD68D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		72FC9E5E1539B77E001DD68D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		72FC9E701539B795001DD68D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					../include,
+				);
+				INFOPLIST_FILE = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = chatbot;
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		72FC9E711539B795001DD68D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					../include,
+				);
+				INFOPLIST_FILE = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = chatbot;
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72FC9E5B1539B77E001DD68D /* Build configuration list for PBXProject "chatbot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72FC9E5D1539B77E001DD68D /* Debug */,
+				72FC9E5E1539B77E001DD68D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72FC9E6F1539B795001DD68D /* Build configuration list for PBXNativeTarget "chatbot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72FC9E701539B795001DD68D /* Debug */,
+				72FC9E711539B795001DD68D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 72FC9E581539B77E001DD68D /* Project object */;
+}

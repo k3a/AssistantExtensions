@@ -1,0 +1,9 @@
+Package: me.k3a.ae.chatbot
+Name: ChatBot
+Depends: firmware (>= 5.0), gsc.assistant | com.chpwn.spire, me.k3a.ae
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: AIML ChatBot
+Maintainer: K3A
+Author: K3A
+Section: Addons (AssistantExtensions)

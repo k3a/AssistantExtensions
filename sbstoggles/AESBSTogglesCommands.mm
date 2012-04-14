@@ -1,12 +1,15 @@
 #import "AESBSTogglesCommands.h"
 
+#import "AEToggle.h"
+#import "../AEStringAdditions.h"
+
 @implementation AESBSTogglesCommands
 
--(id)init
+-(id)initWithSystem:(id<SESystem>)system;
 {
 	if ( (self = [super init]) )
 	{
-		// additional initialization
+		_system = system;
 	}
 	return self;
 }
@@ -17,30 +20,140 @@
 	[super dealloc];
 }
 
--(BOOL)handleSpeech:(NSString*)text tokens:(NSArray*)tokens tokenSet:(NSSet*)tokenset context:(id<SEContext>)ctx
+
+-(BOOL)handleTurnOnMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx 
 {
-	// logging useful during development
-	// NSLog(@">> AESBSTogglesCommands handleSpeech: %@", text);
-
-	// react to recognized tokens (what happen or what happened)
-	if ([tokens count] >= 2 && 
-		[[tokens objectAtIndex:0] isEqualToString:@"what"] && 
-		( [tokenset containsObject:@"happen"] || [tokenset containsObject:@"happened"] )
-	)
-	{
-		// send a simple utterance response:
-		[ctx sendAddViewsUtteranceView:@"Somebody set up us the bomb!"];
-		
-		// Inform the assistant that this is end of the request
-		// For more complex extensions, you can spawn an additional thread and process request asynchronly, 
-		// ending with sending "request completed"
-		[ctx sendRequestCompleted];
-
-		return YES; // the command has been handled by our extension (ignore the original one from the server)
-	}
-
-	return NO;
+    NSString* tog = [match namedElement:@"t"];
+    
+    // do not break turn on/off alarms
+    if ([tog isEqualToString:@"alarm"] || [tog isEqualToString:@"alarms"] || 
+        [tog isEqualToString:[_system localizedString:@"alarm"]] ) return NO;
+    
+    // mywi fix
+    if ([tog isEqualToString:@"my wife"]) tog = [NSMutableString stringWithString:@"mywi"];
+    // '3 g' fix
+    else if ([tog isEqualToString:@"3 g"]) tog = [NSMutableString stringWithString:@"3g"];
+    
+    NSLog(@"===> ACTION: Turn on toggle %@", tog);
+    
+    NSString* text = nil;
+    AEToggle* togObj = [AEToggle findToggleNamed:tog];
+    if (togObj == nil)
+    {
+        //text = [NSString stringWithFormat:@"Sorry, toggle %@ is not installed.", [tog stringWithFirstUppercase]];
+        return NO; // do not handle, allow to handle that by some other extension
+    }
+    else
+    {
+        [togObj setState:YES];
+        text = [NSString stringWithFormat:[_system localizedString:@"%@ has been turned on."], [tog stringWithFirstUppercase]];
+    }
+    
+    [ctx sendAddViewsUtteranceView:text];
+    [ctx sendRequestCompleted];
+    
+    return YES;
 }
+
+-(BOOL)handleTurnOffMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx 
+{
+    NSString* tog = [match namedElement:@"t"];
+    
+    // do not break turn on/off alarms
+    if ([tog isEqualToString:@"alarm"] || [tog isEqualToString:@"alarms"] || 
+        [tog isEqualToString:[_system localizedString:@"alarm"]] ) return NO;
+    
+    // mywi fix
+    if ([tog isEqualToString:@"my wife"]) tog = [NSMutableString stringWithString:@"mywi"];
+    // '3 g' fix
+    else if ([tog isEqualToString:@"3 g"]) tog = [NSMutableString stringWithString:@"3g"];
+    
+    NSLog(@"===> ACTION: Turn off toggle %@", tog);
+    
+    NSString* text = nil;
+    AEToggle* togObj = [AEToggle findToggleNamed:tog];
+    if (togObj == nil)
+    {
+        //text = [NSString stringWithFormat:@"Sorry, toggle %@ is not installed.", [tog stringWithFirstUppercase]];
+        return NO; // do not handle, allow to handle that by some other extension
+    }
+    else
+    {
+        [togObj setState:NO];
+        text = [NSString stringWithFormat:[_system localizedString:@"%@ has been turned off."], [tog stringWithFirstUppercase]];
+    }
+    
+    [ctx sendAddViewsUtteranceView:text];
+    [ctx sendRequestCompleted];
+    
+    return YES;
+}
+
+-(BOOL)handleListMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx 
+{
+    NSLog(@"===> ACTION: List of switches.");
+    
+    NSMutableString* strSpeak = [NSMutableString stringWithString:[_system localizedString:@"Toggles available:\n"]];
+    NSMutableString* str = [NSMutableString stringWithString:[_system localizedString:@"Toggles available:\n"]];
+    
+    for (NSString* tname in [AEToggle allToggleNames])
+    {
+        AEToggle* togObj = [AEToggle findToggleNamed:tname];
+        if (togObj)
+        {
+            NSString* tnameUpper = [tname stringWithFirstUppercase];
+            
+            [str appendFormat:@"%@: %@\n", tnameUpper, [_system localizedString: [togObj state]?@"Enabled":@"Disabled"] ];
+            
+            [strSpeak appendFormat:@"%@: %@ @{tts#\e\\pause=100\\}\n", 
+             tnameUpper, [_system localizedString: [togObj state]?@"Enabled":@"Disabled"] ];
+        }
+    }
+    
+    [ctx sendAddViewsUtteranceView:str speakableText:strSpeak];
+    [ctx sendRequestCompleted];
+    
+    return YES;
+}
+
+- (void)patternsForLang:(NSString*)lang inSystem:(id<SESystem>)system 
+{
+    [system registerNamedPattern:@"TurnOn" target:self selector:@selector(handleTurnOnMatch:context:)];
+    [system registerNamedPattern:@"TurnOff" target:self selector:@selector(handleTurnOffMatch:context:)];
+    [system registerNamedPattern:@"List" target:self selector:@selector(handleListMatch:context:)];
+}
+
 
 @end
 // vim:ft=objc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

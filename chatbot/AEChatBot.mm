@@ -1,8 +1,15 @@
-#import "AESBSToggles.h"
-#import "AESBSTogglesCommands.h"
-#import "AEToggle.h"
+//
+//  AEChatBot.mm
+//  SiriCommands
+//
+//  Created by K3A on 2/1/12.
+//  Copyright (c) 2012 K3A. All rights reserved.
+//
 
-@implementation AESBSToggles
+#import "AEChatBot.h"
+#import "AEChatBotCommands.h"
+
+@implementation AEChatBot
 
 // required initialization
 -(id)initWithSystem:(id<SESystem>)system
@@ -10,16 +17,9 @@
 	if ( (self = [super init]) )
 	{
 		// register all extension classes provided
-		[system registerCommand:[AESBSTogglesCommands class]];
-        [AEToggle initToggles];
+		[system registerCommand:[AEChatBotCommands class]];
 	}
 	return self;
-}
-
--(void)dealloc
-{
-    [AEToggle shutdownToggles];
-    [super dealloc];
 }
 
 // optional info about extension
@@ -29,11 +29,11 @@
 }
 -(NSString*)name
 {
-	return @"SBSToggles";
+	return @"ChatBot";
 }
 -(NSString*)description
 {
-	return @"SBSettings Toggles for AE";
+	return @"AIML ChatBot";
 }
 -(NSString*)website
 {
@@ -46,3 +46,9 @@
 
 @end
 // vim:ft=objc
+
+
+
+
+
+

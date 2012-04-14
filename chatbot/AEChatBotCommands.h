@@ -1,6 +1,6 @@
 #import "SiriObjects.h"
 
-@interface AESBSTogglesCommands : NSObject<SECommand> {
+@interface AEChatBotCommands : NSObject<SECommand> {
     id<SESystem> _system;
 }
 
