@@ -12,7 +12,6 @@
 		7211DDCF1517C95800787888 /* AEX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7211DDCD1517C95700787888 /* AEX.mm */; };
 		722006FC14DB40DB00E9AF5D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 723141A7135B396E00AC38DC /* main.mm */; };
 		722006FD14DB40DB00E9AF5D /* shared.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72A81605132D1FE4004172F7 /* shared.mm */; };
-		722006FE14DB40DB00E9AF5D /* AEToggle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72BC67D61484E4F100ABCA0D /* AEToggle.mm */; };
 		722006FF14DB40DB00E9AF5D /* systemcmds.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72BC67D91484EC0F00ABCA0D /* systemcmds.mm */; };
 		7220070014DB40DB00E9AF5D /* AESpringBoardMsgCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72D5CF6D148666C700564657 /* AESpringBoardMsgCenter.mm */; };
 		7220070114DB40DB00E9AF5D /* AEAssistantdMsgCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72E6003214BA43DA002499D6 /* AEAssistantdMsgCenter.mm */; };
@@ -21,9 +20,7 @@
 		7220070414DB40DB00E9AF5D /* AEExtension.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72E169DC14A7E7D50024EB69 /* AEExtension.mm */; };
 		7220070514DB40DB00E9AF5D /* AEContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7206448114ACE16700584D75 /* AEContext.mm */; };
 		7220070614DB40DB00E9AF5D /* AESupport.mm in Sources */ = {isa = PBXBuildFile; fileRef = 72D4491314CCBE6100247B46 /* AESupport.mm */; };
-		7220070714DB40DB00E9AF5D /* AEChatBot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7223AAD214D9F19D00B0A00B /* AEChatBot.mm */; };
 		7220070914DB626600E9AF5D /* OS5Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7220070814DB626600E9AF5D /* OS5Additions.h */; };
-		7223AAD314D9F19E00B0A00B /* AEChatBot.h in Headers */ = {isa = PBXBuildFile; fileRef = 7223AAD114D9F19D00B0A00B /* AEChatBot.h */; };
 		72D4491414CCBE6100247B46 /* AESupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 72D4491214CCBE6100247B46 /* AESupport.h */; };
 		72D5CF4614864AF500564657 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D5CF4514864AF500564657 /* Foundation.framework */; };
 		72D5CF6E148666C700564657 /* AESpringBoardMsgCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 72D5CF6C148666C700564657 /* AESpringBoardMsgCenter.h */; };
@@ -39,18 +36,12 @@
 		7206448114ACE16700584D75 /* AEContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEContext.mm; sourceTree = "<group>"; };
 		7211DDCC1517C95600787888 /* AEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEX.h; sourceTree = "<group>"; };
 		7211DDCD1517C95700787888 /* AEX.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEX.mm; sourceTree = "<group>"; };
-		722006DF14DB34A300E9AF5D /* API_PROPOSALS.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = API_PROPOSALS.txt; path = docs/API_PROPOSALS.txt; sourceTree = "<group>"; };
-		722006E014DB34A300E9AF5D /* GERMAN.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = GERMAN.txt; path = docs/GERMAN.txt; sourceTree = "<group>"; };
 		7220070814DB626600E9AF5D /* OS5Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OS5Additions.h; sourceTree = "<group>"; };
-		7223AAD114D9F19D00B0A00B /* AEChatBot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEChatBot.h; sourceTree = "<group>"; };
-		7223AAD214D9F19D00B0A00B /* AEChatBot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AEChatBot.mm; sourceTree = "<group>"; };
 		723141A6135B396E00AC38DC /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		723141A7135B396E00AC38DC /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		72A81604132D1FE4004172F7 /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
 		72A81605132D1FE4004172F7 /* shared.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = shared.mm; sourceTree = "<group>"; };
 		72B20E1B1483C40000DE086B /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		72BC67D61484E4F100ABCA0D /* AEToggle.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AEToggle.mm; sourceTree = "<group>"; };
-		72BC67D71484E4FE00ABCA0D /* AEToggle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEToggle.h; sourceTree = "<group>"; };
 		72BC67D81484EC0F00ABCA0D /* systemcmds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = systemcmds.h; sourceTree = "<group>"; };
 		72BC67D91484EC0F00ABCA0D /* systemcmds.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = systemcmds.mm; sourceTree = "<group>"; };
 		72D4491214CCBE6100247B46 /* AESupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESupport.h; sourceTree = "<group>"; };
@@ -83,19 +74,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		722006DE14DB348B00E9AF5D /* docs */ = {
-			isa = PBXGroup;
-			children = (
-				722006DF14DB34A300E9AF5D /* API_PROPOSALS.txt */,
-				722006E014DB34A300E9AF5D /* GERMAN.txt */,
-			);
-			name = docs;
-			sourceTree = "<group>";
-		};
 		7271ED3B12F842B30013D5F2 = {
 			isa = PBXGroup;
 			children = (
-				722006DE14DB348B00E9AF5D /* docs */,
 				7271ED4712F843530013D5F2 /* Sources */,
 				72D5CF4414864AF500564657 /* Frameworks */,
 				72D5CF4314864AF500564657 /* Products */,
@@ -112,8 +93,6 @@
 				723141A6135B396E00AC38DC /* main.h */,
 				72A81605132D1FE4004172F7 /* shared.mm */,
 				72A81604132D1FE4004172F7 /* shared.h */,
-				72BC67D61484E4F100ABCA0D /* AEToggle.mm */,
-				72BC67D71484E4FE00ABCA0D /* AEToggle.h */,
 				72BC67D91484EC0F00ABCA0D /* systemcmds.mm */,
 				72BC67D81484EC0F00ABCA0D /* systemcmds.h */,
 				72D5CF6C148666C700564657 /* AESpringBoardMsgCenter.h */,
@@ -131,8 +110,6 @@
 				7206448114ACE16700584D75 /* AEContext.mm */,
 				72D4491214CCBE6100247B46 /* AESupport.h */,
 				72D4491314CCBE6100247B46 /* AESupport.mm */,
-				7223AAD114D9F19D00B0A00B /* AEChatBot.h */,
-				7223AAD214D9F19D00B0A00B /* AEChatBot.mm */,
 				7211DDCC1517C95600787888 /* AEX.h */,
 				7211DDCD1517C95700787888 /* AEX.mm */,
 			);
@@ -170,7 +147,6 @@
 				7206448214ACE16700584D75 /* AEContext.h in Headers */,
 				72E6003314BA43DA002499D6 /* AEAssistantdMsgCenter.h in Headers */,
 				72D4491414CCBE6100247B46 /* AESupport.h in Headers */,
-				7223AAD314D9F19E00B0A00B /* AEChatBot.h in Headers */,
 				7220070914DB626600E9AF5D /* OS5Additions.h in Headers */,
 				7211DDCE1517C95800787888 /* AEX.h in Headers */,
 			);
@@ -248,7 +224,6 @@
 			files = (
 				722006FC14DB40DB00E9AF5D /* main.mm in Sources */,
 				722006FD14DB40DB00E9AF5D /* shared.mm in Sources */,
-				722006FE14DB40DB00E9AF5D /* AEToggle.mm in Sources */,
 				722006FF14DB40DB00E9AF5D /* systemcmds.mm in Sources */,
 				7220070014DB40DB00E9AF5D /* AESpringBoardMsgCenter.mm in Sources */,
 				7220070114DB40DB00E9AF5D /* AEAssistantdMsgCenter.mm in Sources */,
@@ -257,7 +232,6 @@
 				7220070414DB40DB00E9AF5D /* AEExtension.mm in Sources */,
 				7220070514DB40DB00E9AF5D /* AEContext.mm in Sources */,
 				7220070614DB40DB00E9AF5D /* AESupport.mm in Sources */,
-				7220070714DB40DB00E9AF5D /* AEChatBot.mm in Sources */,
 				7211DDCF1517C95800787888 /* AEX.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

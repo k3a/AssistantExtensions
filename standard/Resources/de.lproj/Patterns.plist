@@ -43,7 +43,7 @@
 			<key>examples</key>
 			<array>
 				<string>Respring</string>
-				<string>Springboard neu~starten</string>
+				<string>Springboard neustarten</string>
 			</array>
 			<key>patterns</key>
 			<array>
@@ -61,20 +61,20 @@
 			</array>
 			<key>patterns</key>
 			<array>
-				<string>[das|der|die|den|dem] [iphone|ipod|ipad] neu~starten</string>
+				<string>[das] [iphone|ipod|ipad] neu~starten</string>
 			</array>
 		</dict>
 		<key>PerformShutdown</key>
 		<dict>
 			<key>category</key>
-			<string>Abschalten</string>
+			<string>Ausschalten</string>
 			<key>examples</key>
 			<array>
-				<string>Abgeschalten</string>
+				<string>Ausgeschalten</string>
 			</array>
 			<key>patterns</key>
 			<array>
-				<string>[das|der|die|den|dem] [iphone|ipod|ipad] abschalten|abgeschalten</string>
+				<string>[das] [iphone|ipod|ipad] abschalten|abgeschalten</string>
 			</array>
 		</dict>
 		<key>PerformLock</key>
@@ -135,7 +135,7 @@
 			<string>Andere</string>
 			<key>examples</key>
 			<array>
-				<string>Sage Das ist wunderbar</string>
+				<string>Sage, das ist wunderbar</string>
 			</array>
 			<key>pattern</key>
 			<string>sage (what:&lt;word&gt;+)</string>
@@ -146,10 +146,10 @@
 			<string>Andere</string>
 			<key>examples</key>
 			<array>
-				<string>Was ist aktuelle batterieladung?</string>
+				<string>Was ist mein aktueller batteristatus?</string>
 			</array>
 			<key>pattern</key>
-			<string>[was] [ist] [aktuelle] batterie~ladung [?]</string>
+			<string>[was] [ist] [mein] [aktueller] batteriestatus [?]</string>
 		</dict>
 		<key>Tweet</key>
 		<dict>
@@ -157,7 +157,7 @@
 			<string>Twitter</string>
 			<key>examples</key>
 			<array>
-				<string>Tweet Das ist wunderbar!</string>
+				<string>Tweet, das ist wunderbar!</string>
 			</array>
 			<key>pattern</key>
 			<string>tweet|tweets (what:&lt;word&gt;*)</string>
@@ -168,7 +168,7 @@
 			<string>Twitter</string>
 			<key>examples</key>
 			<array>
-				<string>Tweet vorschau Das ist wunderbar!</string>
+				<string>Tweet, vorschau Das ist wunderbar!</string>
 			</array>
 			<key>patterns</key>
 			<array>
@@ -182,10 +182,10 @@
 			<string>Andere</string>
 			<key>examples</key>
 			<array>
-				<string>Entlassen</string>
+				<string>Schließe</string>
 			</array>
 			<key>pattern</key>
-			<string>entlassen [siri|assistant]</string>
+			<string>Schließe [siri|assistant]</string>
 		</dict>
 	</dict>
 </dict>

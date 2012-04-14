@@ -12,14 +12,12 @@
 #include <substrate.h>
 
 #import "AESpringBoardMsgCenter.h"
-#import "AEToggle.h"
 #include "main.h"
 #include "AEStringAdditions.h"
 #include "AESupport.h"
 
 #include "AEExtension.h"
 #include "systemcmds.h"
-#include "AEChatBot.h"
 
 static BOOL s_firstRequestMade = NO; 
 
@@ -258,10 +256,10 @@ static bool HandleSpeech(NSString* refId, NSString* text, NSArray* tokens, NSSet
     
     // handle standard commands
     //if (HandleSpeechSystemCmds(refId, text, tokens, tokenset)) return true;
-    if (HandleSpeechToggles(refId, text, tokens, tokenset)) return true;
+    //if (HandleSpeechToggles(refId, text, tokens, tokenset)) return true;
     
     // handle chatbot
-    if (!InChatMode() && 
+    /*if (!InChatMode() && 
         [tokens count] == 2 && 
         (   (
         [[tokens objectAtIndex:0] isEqualToString:@"let's"] && ( [[tokens objectAtIndex:1] isEqualToString:@"chat"] || [[tokens objectAtIndex:1] isEqualToString:@"talk"]) )
@@ -278,7 +276,7 @@ static bool HandleSpeech(NSString* refId, NSString* text, NSArray* tokens, NSSet
         if (HandleChat(refId, text, tokens, tokenset))
             return true;
     }
-    else if (HandleSpeechExtensions(refId,text,tokens,tokenset)) // check extensions
+    else */if (HandleSpeechExtensions(refId,text,tokens,tokenset)) // check extensions
     {
         s_reqHandledByExtension = true;
         return true;
@@ -673,7 +671,6 @@ static void ReloadPrefs(CFNotificationCenterRef center, void *observer, CFString
         // init commands
         InitSystemCmds();
         InitSBHooks();
-        [AEToggle initToggles];
         [AEExtension initExtensions];
         
         
@@ -701,9 +698,6 @@ static void ReloadPrefs(CFNotificationCenterRef center, void *observer, CFString
 }
 
 - (void)dealloc {
-    //ShutdownSystemCmds();
-    [AEToggle shutdownToggles];
-    
     [AEExtension shutdownExtensions];
     
     [s_tokens release];

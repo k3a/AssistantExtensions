@@ -109,7 +109,11 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 
 -(id)initWithSystem:(id<SESystem>)system
 {
-	_system = system; // will exist for the same time as this instance, no need to retain
+	if ((self = [super init]))
+	{
+		_system = system; // will exist for the same time as this instance, no need to retain
+	}
+	return self;
 }
 
 -(void)assistantDismissed
@@ -129,7 +133,7 @@ static BOOL AEPreviewTweet(NSString* tweetText)
     static SBAwayController* awayController = [objc_getClass("SBAwayController") sharedAwayController];
     if ((bool)[awayController isDeviceLocked] && (bool)[awayController isPasswordProtected])
     {
-        [ctx sendAddViewsUtteranceView:[system localizedString:@"Sorry, I don't know your lockscreen password."]];
+        [ctx sendAddViewsUtteranceView:[_system localizedString:@"Sorry, I don't know your lockscreen password."]];
         [ctx sendRequestCompleted];
         return YES;
     }
@@ -141,14 +145,14 @@ static BOOL AEPreviewTweet(NSString* tweetText)
     
 	id app = AEApplicationForDisplayName(appname);
 	if (app) {
-		[ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[system localizedString:@"Launching %@"], [appname stringWithFirstUppercase]]];
+		[ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[_system localizedString:@"Launching %@"], [appname stringWithFirstUppercase]]];
 		//sleep(2);
 		[ctx dismissAssistant];
 		[[DSDisplayController sharedInstance] activateApplication:app animated:YES];
 	}
 	
 	else
-		[ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[system localizedString:@"I'm sorry, but I couldn't find any application named %@"], [appname stringWithFirstUppercase]]];
+		[ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[_system localizedString:@"I'm sorry, but I couldn't find any application named %@"], [appname stringWithFirstUppercase]]];
 	
 	[ctx sendRequestCompleted];
 	return YES;
@@ -166,7 +170,7 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 		[appname setString:@"Navigon"];
 	
 	if ([appname isEqualToString:@"all"] || [appname isEqualToString:@"every"]) {
-		[ctx sendAddViewsUtteranceView:[system localizedString:@"Killing all applications."]];
+		[ctx sendAddViewsUtteranceView:[_system localizedString:@"Killing all applications."]];
 		for (id app in [appController allApplications]) {
 			if ([[app process] isRunning])
 			{
@@ -186,14 +190,14 @@ static BOOL AEPreviewTweet(NSString* tweetText)
         [appSwitcher _removeApplicationFromRecents:app]; // probably make configurable
 	}
 	else {
-        [ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[system localizedString:@"I'm sorry, but I couldn't find any application named %@"], [appname stringWithFirstUppercase]]];
+        [ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[_system localizedString:@"I'm sorry, but I couldn't find any application named %@"], [appname stringWithFirstUppercase]]];
     }
 	[ctx sendRequestCompleted];
 	return YES;
 }
 
 - (BOOL)handleRespringMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx {
-	[ctx sendAddViewsUtteranceView:[system localizedString:@"As you wish."]];
+	[ctx sendAddViewsUtteranceView:[_system localizedString:@"As you wish."]];
 	sleep(2);
 	
 	exit(0);	//system("killall SpringBoard");
@@ -202,7 +206,7 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 }
 
 - (BOOL)handleLockMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx {
-	[ctx sendAddViewsUtteranceView:[system localizedString:@"Locking..."]];
+	[ctx sendAddViewsUtteranceView:[_system localizedString:@"Locking..."]];
 	
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5*NSEC_PER_SEC), dispatch_get_current_queue(), ^{
 		[[objc_getClass("SBUIController") sharedInstance] lockFromSource:0];
@@ -213,7 +217,7 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 }
 
 - (BOOL)handleRebootMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx {
-	[ctx sendAddViewsUtteranceView:[system localizedString:@"Rebooting at will!"]];
+	[ctx sendAddViewsUtteranceView:[_system localizedString:@"Rebooting at will!"]];
 	// TODO: Add a nice 'Are you sure?' snippet
 	
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*NSEC_PER_SEC), dispatch_get_current_queue(), ^{
@@ -225,7 +229,7 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 }
 
 - (BOOL)handleShutdownMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx {
-	[ctx sendAddViewsUtteranceView:[system localizedString:@"Powering off right now."]];
+	[ctx sendAddViewsUtteranceView:[_system localizedString:@"Powering off right now."]];
 	
 	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*NSEC_PER_SEC), dispatch_get_current_queue(), ^{
 		[[UIApplication sharedApplication] powerDown];
@@ -261,7 +265,7 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 	static Class _SBBrightnessController = objc_getClass("SBBrightnessController");
     [[_SBBrightnessController sharedBrightnessController] setBrightnessLevel:val];
 
-	[ctx sendAddViewsUtteranceView:[system localizedString:@"As you wish."]];
+	[ctx sendAddViewsUtteranceView:[_system localizedString:@"As you wish."]];
 	[ctx sendRequestCompleted];
 	return YES;
 }
@@ -273,14 +277,14 @@ static BOOL AEPreviewTweet(NSString* tweetText)
     
     int perc = (int)[(SBUIController*)[_SBUIController sharedInstance] curvedBatteryCapacityAsPercentage];
     
-    [ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[system localizedString:@"Battery at %d %%."], perc]];
+    [ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[_system localizedString:@"Battery at %d %%."], perc]];
 	[ctx sendRequestCompleted];
     
 	return YES;
 }
 
 - (BOOL)handleRandomGetterMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx {
-	[ctx sendAddViewsUtteranceView:[system localizedString:@"Getting you a random number..."]];
+	[ctx sendAddViewsUtteranceView:[_system localizedString:@"Getting you a random number..."]];
 	
 	srand(time(NULL));
 	int r = rand() % 1001;
@@ -293,7 +297,7 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 - (BOOL)handleWouldGetterMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx {
 	srand(time(NULL));
 	int r = rand() % 2;
-	NSString *s = r>0 ? [system localizedString:@"Yes, most certainly."] : [system localizedString:@"No, that's disturbing."];
+	NSString *s = r>0 ? [_system localizedString:@"Yes, most certainly."] : [_system localizedString:@"No, that's disturbing."];
 	
 	[ctx sendAddViewsUtteranceView:s];
 	
@@ -308,9 +312,9 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 	if ([tweetText length] == 0) // just preview
 	{
     	if (AEPreviewTweet(tweetText))
-       		[ctx sendAddViewsUtteranceView:[system localizedString:@"OK, here is your tweet."]];
+       		[ctx sendAddViewsUtteranceView:[_system localizedString:@"OK, here is your tweet."]];
     	else
-        	[ctx sendAddViewsUtteranceView:[system localizedString:@"Sorry, I was unable to do that."]]; 
+        	[ctx sendAddViewsUtteranceView:[_system localizedString:@"Sorry, I was unable to do that."]]; 
 	}
 	else // send immediately
 		AESendTweet(tweetText);    
@@ -324,9 +328,9 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 	if (!tweetText) tweetText = @"";
 	
 	if (AEPreviewTweet(tweetText))
-		[ctx sendAddViewsUtteranceView:[system localizedString:@"OK, here is your tweet."]];
+		[ctx sendAddViewsUtteranceView:[_system localizedString:@"OK, here is your tweet."]];
 	else
-		[ctx sendAddViewsUtteranceView:[system localizedString:@"Sorry, I was unable to do that."]];
+		[ctx sendAddViewsUtteranceView:[_system localizedString:@"Sorry, I was unable to do that."]];
  
     [ctx sendRequestCompleted];
     return YES;

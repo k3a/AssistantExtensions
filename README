@@ -5,6 +5,13 @@ For more info please visit the website.
 You can use forums at http://ae.k3a.me/forum/viewforum.php?f=3.
 I will also publish the list of task which would be good to have completed.
 
+To Compile It
+-------------
+1. You need to have theos installed
+2. Fix theos symlinks to your theos installation
+3. Create frameworks directory and copy AssistantUI.framework and SAObjects.framework there. You can get these by extracting dyld shared cache (or maybe also from ~/Library/Developer/Xcode/iOS\ DeviceSupport..../Symbols/System/Library/PrivateFrameworks if you are a developer and have iPhone 4S - untested). I have used dyld_decache tool and extracted those from /System/Library/Caches/com.apple.dyld/dyld_shared_cache_armv7 which can be found in 4S firmwares or 4S filesystem).
+
+
 Hopefully you will like the code!
 
 Website: http://ae.k3a.me/
