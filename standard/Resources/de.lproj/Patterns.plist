@@ -110,7 +110,7 @@
 			<string>Zufällige Antworten</string>
 			<key>examples</key>
 			<array>
-				<string>Sollte ich arbeiten heute?</string>
+				<string>Sollte ich heute arbeiten?</string>
 			</array>
 			<key>patterns</key>
 			<array>

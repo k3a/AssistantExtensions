@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "--//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<plist version="1.0">
+	<dict>
+		<key>example</key>
+		<string>Lass uns Chatten</string>
+		<key>icon</key>
+		<string>Icon</string>
+		<key>patterns</key>
+		<dict>
+			<key>Start</key>
+			<dict>
+				<key>category</key>
+				<string>Eine Konversation beginnen</string>
+				<key>examples</key>
+				<array>
+					<string>Lass uns Chatten</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>Lass uns Chatten</string>
+				</array>
+			</dict>
+			
+			<key>End</key>
+			<dict>
+				<key>category</key>
+				<string>Konversation beenden</string>
+				<key>examples</key>
+				<array>
+					<string>Auf Wiedersehen</string>
+					<string>Tschüss!</string>
+				</array>
+				<key>pattern</key>
+				<array>
+                <string>Auf Wiedersehen</string>
+                <string>Tschüss</string>
+                </array>
+			</dict>
+
+		</dict>
+	</dict>
+</plist>
