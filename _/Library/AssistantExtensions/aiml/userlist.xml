@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<userset>
+  <user name="localhost">
+    <set name="favmovie"><![CDATA[ghost in the shell]]></set>
+    <set name="fifth"><![CDATA[imac]]></set>
+    <set name="fourth"><![CDATA[apple s are nice]]></set>
+    <set name="he"><![CDATA[Steve Jobs]]></set>
+    <set name="is"><![CDATA[at]]></set>
+    <set name="it"><![CDATA[computerlike]]></set>
+    <set name="last"><![CDATA[days i make]]></set>
+    <set name="like"><![CDATA[chat robots]]></set>
+    <set name="second"><![CDATA[computer]]></set>
+    <set name="seventh"><![CDATA[imix]]></set>
+    <set name="sixth"><![CDATA[this imac]]></set>
+    <set name="they"><![CDATA[smart like you]]></set>
+    <set name="third"><![CDATA[police steve jobs]]></set>
+    <set name="top"><![CDATA[computerlike]]></set>
+    <set name="topic"><![CDATA[computerlike]]></set>
+  </user>
+</userset>

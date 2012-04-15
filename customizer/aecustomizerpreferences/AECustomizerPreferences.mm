@@ -17,11 +17,13 @@ static NSUInteger GetIndexForSpec(PSListController *list, PSSpecifier *spec) {
 
 static NSString *StringForSpecifier(NSUInteger index, NSString *key) {
 	NSArray *arr = [NSArray arrayWithContentsOfFile:@PLIST_PATH];
+	if (!arr) arr = [NSMutableArray array];
 	return index<[arr count] ? [[arr objectAtIndex:index] objectForKey:key] : nil;
 }
 
 static void SetStringForSpecifier(NSUInteger index, NSString *str, NSString *key) {
 	NSMutableArray *arr = [NSMutableArray arrayWithContentsOfFile:@PLIST_PATH];
+	if (!arr) arr = [NSMutableArray array];
 	BOOL big = index<[arr count];
 	
 	NSMutableDictionary *place = big ? [arr objectAtIndex:index] : [NSMutableDictionary dictionary];
@@ -96,6 +98,7 @@ static NSArray *AddNewSpecifiers(PSListController *ctrl, BOOL first) {
 	NSMutableArray *spec = [NSMutableArray array];
 	
 	NSMutableArray *arr = [NSMutableArray arrayWithContentsOfFile:@PLIST_PATH];
+	if (!arr) arr = [NSMutableArray array];
 	if (![arr count] > 0) {
 		[arr addObject:[NSDictionary dictionary]];
 		[arr writeToFile:@PLIST_PATH atomically:YES];

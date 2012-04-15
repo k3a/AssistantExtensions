@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = AEPrefs;
+	cell = PSLinkCell;
+	detail = CustomAEController;
+	icon = AEPrefs.png;
+	isController = 1;
+	label = "AssistantExtensions";
+    };
+}

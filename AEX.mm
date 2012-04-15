@@ -880,7 +880,7 @@ fail:
     // if matched and the target was set, call handling method
     if (matched && _target) 
     {
-        [self fireWithMatch:match context:ctx];
+        matched = [self fireWithMatch:match context:ctx];
     }
     
     return matched;

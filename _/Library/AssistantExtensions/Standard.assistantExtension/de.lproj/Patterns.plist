@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>example</key>
+	<string>Standard</string>
+	<key>icon</key>
+	<string>Icon</string>
+	<key>patterns</key>
+	<dict>
+		<key>LaunchApp</key>
+		<dict>
+			<key>category</key>
+			<string>Applikationen ausführen</string>
+			<key>examples</key>
+			<array>
+				<string>Starte Einstellungen</string>
+				<string>Cydia ausführen</string>
+			</array>
+			<key>patterns</key>
+			<array>
+				<string>öffne|starte [applikation] (app:&lt;word&gt;+)</string>
+				<string>[applikation] (app:&lt;word&gt;+) ausführen</string>
+			</array>
+		</dict>
+		<key>KillApp</key>
+		<dict>
+			<key>category</key>
+			<string>Applikationen schließen</string>
+			<key>examples</key>
+			<array>
+				<string>Schließe Cydia</string>
+			</array>
+			<key>patterns</key>
+			<array>
+				<string>schließe [applikation] (app:&lt;word&gt;+)</string>
+			</array>
+		</dict>
+		<key>PerformRespring</key>
+		<dict>
+			<key>category</key>
+			<string>Respringing</string>
+			<key>examples</key>
+			<array>
+				<string>Respring</string>
+				<string>Springboard neustarten</string>
+			</array>
+			<key>patterns</key>
+			<array>
+				<string>springboard neu~starten</string>
+				<string>respring</string>
+			</array>
+		</dict>
+		<key>PerformReboot</key>
+		<dict>
+			<key>category</key>
+			<string>Neustarten</string>
+			<key>examples</key>
+			<array>
+				<string>Neustarten</string>
+			</array>
+			<key>patterns</key>
+			<array>
+				<string>[das] [iphone|ipod|ipad] neu~starten</string>
+			</array>
+		</dict>
+		<key>PerformShutdown</key>
+		<dict>
+			<key>category</key>
+			<string>Ausschalten</string>
+			<key>examples</key>
+			<array>
+				<string>Ausgeschalten</string>
+			</array>
+			<key>patterns</key>
+			<array>
+				<string>[das] [iphone|ipod|ipad] abschalten|abgeschalten</string>
+			</array>
+		</dict>
+		<key>PerformLock</key>
+		<dict>
+			<key>category</key>
+			<string>Sperren</string>
+			<key>examples</key>
+			<array>
+				<string>Sperren</string>
+				<string>Bildschirm sperren</string>
+			</array>
+			<key>patterns</key>
+			<array>
+				<string>[bildschirm] sperren</string>
+			</array>
+		</dict>
+		<key>RandomGetter</key>
+		<dict>
+			<key>category</key>
+			<string>Zufällige nummern</string>
+			<key>examples</key>
+			<array>
+				<string>Zufällige nummer</string>
+			</array>
+			<key>patterns</key>
+			<array>
+				<string>zufällige nummer [erstellen]</string>
+			</array>
+		</dict>
+		<key>WouldShouldGetter</key>
+		<dict>
+			<key>category</key>
+			<string>Zufällige Antworten</string>
+			<key>examples</key>
+			<array>
+				<string>Sollte ich heute arbeiten?</string>
+			</array>
+			<key>patterns</key>
+			<array>
+				<string>sollte ich (w:&lt;word&gt;+) [?]</string>
+				<string>soll ich (w:&lt;word&gt;+) [?]</string>
+			</array>
+		</dict>
+		<key>BrightnessSetter</key>
+		<dict>
+			<key>category</key>
+			<string>Bildschirm helligkeit</string>
+			<key>examples</key>
+			<array>
+				<string>Helligkeit auf 10 %</string>
+			</array>
+			<key>pattern</key>
+			<string>[bildschirm] helligkeit [auf] (p:&lt;word&gt;) [%|prozent] [setzen|stellen]</string>
+		</dict>
+		<key>Say</key>
+		<dict>
+			<key>category</key>
+			<string>Andere</string>
+			<key>examples</key>
+			<array>
+				<string>Sage, das ist wunderbar</string>
+			</array>
+			<key>pattern</key>
+			<string>sage (what:&lt;word&gt;+)</string>
+		</dict>
+		<key>BatteryGetter</key>
+		<dict>
+			<key>category</key>
+			<string>Andere</string>
+			<key>examples</key>
+			<array>
+				<string>Was ist mein aktueller batteristatus?</string>
+			</array>
+			<key>pattern</key>
+			<string>[was] [ist] [mein] [aktueller] batteriestatus [?]</string>
+		</dict>
+		<key>Tweet</key>
+		<dict>
+			<key>category</key>
+			<string>Twitter</string>
+			<key>examples</key>
+			<array>
+				<string>Tweet, das ist wunderbar!</string>
+			</array>
+			<key>pattern</key>
+			<string>tweet|tweets (what:&lt;word&gt;*)</string>
+		</dict>
+		<key>PreviewTweet</key>
+		<dict>
+			<key>category</key>
+			<string>Twitter</string>
+			<key>examples</key>
+			<array>
+				<string>Tweet, vorschau Das ist wunderbar!</string>
+			</array>
+			<key>patterns</key>
+			<array>
+				<string>tweet anzeigen (what:&lt;word&gt;*)</string>
+				<string>tweet vorschau (what:&lt;word&gt;*)</string>
+			</array>
+		</dict>
+		<key>Dismiss</key>
+		<dict>
+			<key>category</key>
+			<string>Andere</string>
+			<key>examples</key>
+			<array>
+				<string>Schließe</string>
+			</array>
+			<key>pattern</key>
+			<string>Schließe [siri|assistant]</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

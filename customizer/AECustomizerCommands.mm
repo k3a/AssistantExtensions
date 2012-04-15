@@ -11,6 +11,7 @@
 
 -(BOOL)handleSpeech:(NSString*)text tokens:(NSArray*)tokens tokenSet:(NSSet*)tokenset context:(id<SEContext>)ctx {
 	NSArray *pref = [NSArray arrayWithContentsOfFile:@"/var/mobile/Library/Preferences/me.k3a.ae.customizer.plist"];
+	if (!pref) pref = [NSArray array];
 	NSMutableArray *views = [NSMutableArray array];
 	
 	for (NSDictionary *dict in pref) {
