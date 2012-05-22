@@ -1052,9 +1052,10 @@ BOOL HandleSpeechExtensions(NSString* refId, NSString* text, NSArray* tokens, NS
 - (void)dealloc
 {
     //NSLog(@">> K3AExtensionSnippetController dealloc");
-    [super dealloc];
     [_view release];
     [_snip release];
+    
+    [super dealloc];
 }
 
 -(id)init

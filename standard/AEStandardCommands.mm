@@ -2,6 +2,7 @@
 #import "../AEStringAdditions.h"
 
 #import <objc/runtime.h>
+#import <objc/message.h>
 #import <libdisplaystack/DSDisplayController.h>
 #import <Twitter/Twitter.h>
 #import <SpringBoard/SBIcon.h>
@@ -261,9 +262,17 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 	if (len > 0 && ps[len-1] == '%') ps[len-1] = 0;
 	
 	float val = atof(ps)/100.0f;
-    
-	static Class _SBBrightnessController = objc_getClass("SBBrightnessController");
-    [[_SBBrightnessController sharedBrightnessController] setBrightnessLevel:val];
+	if (val <= 0.0f) val = 0.01f;
+	else if (val > 1.0f) val = 1.0f;
+ 
+	//dispatch_async(dispatch_get_main_queue(), ^{
+		[[UIApplication sharedApplication] setBacklightLevel:val permanently:YES];
+		//objc_msgSend([UIApplication sharedApplication], @selector(setBacklightLevel:permanently:), val, YES);
+	//});
+
+	//GSEventSetBacklightLevel(val);
+    //static Class _SBBrightnessController = objc_getClass("SBBrightnessController");
+    //[[_SBBrightnessController sharedBrightnessController] setBrightnessLevel:val];   
 
 	[ctx sendAddViewsUtteranceView:[_system localizedString:@"As you wish."]];
 	[ctx sendRequestCompleted];

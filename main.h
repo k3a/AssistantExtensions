@@ -13,9 +13,6 @@ id SessionSendToClient(NSDictionary* dict, id ctx=nil);
 // sends immediately without additional processing
 id SessionSendToServer(NSDictionary* dict, id ctx=nil);
 
-bool RegisterAcronymImpl(NSString* acronym, NSString* group);
-NSArray* GetAcronyms();
-
 bool InSpringBoard();
 
 #define EXTENSIONS_PATH "/Library/AssistantExtensions/"

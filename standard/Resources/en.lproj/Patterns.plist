@@ -37,7 +37,7 @@
 				</array>
 				<key>patterns</key>
 				<array>
-					<string>kill|exit|quit|end [the] (app:&lt;word&gt;+) [application|app|applications|apps|process|processes]</string>
+					<string>kill|exit|quit|end|close [the] (app:&lt;word&gt;+) [application|app|applications|apps|process|processes]</string>
 				</array>
 			</dict>
 			

@@ -48,4 +48,4 @@ NSMutableDictionary* SOCreateAceAddViewsUtteranceView(NSString* refId, NSString*
 NSMutableDictionary* SOCreateAssistantUtteranceView(NSString* text, NSString* speakableText=nil, NSString* dialogIdentifier=@"Misc#ident");
 
 
-#define AE_VERSION "1.0.2"
+#define AE_VERSION "1.0.3"

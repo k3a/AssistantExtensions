@@ -21,7 +21,6 @@
 #import "AESpringBoardMsgCenter.h"
 #import "AEAssistantdMsgCenter.h"
 
-static NSMutableArray* s_regCls = nil; // class acronyms
 static bool s_regDone = false; // whether acronyms are registered
 
 
@@ -51,7 +50,7 @@ HOOK(ADSession, sendCommand$, void, id cmd)
 }
 END
 
-// ... to add SAK3AExtension acronym (both, but mainly assistatd)
+// ... to inject SAK3AExtension acronym (both, but mainly for assistatd)
 HOOK(BasicAceContext, init, id)
 {
     // TODO: maybe cache and use only one context?
@@ -60,13 +59,6 @@ HOOK(BasicAceContext, init, id)
     
     id orig = ORIG();
     [self addAcronym:@"SAK3AExtension" forGroup:@"me.k3a.ace.extension"];
-    
-    // needed only for custom acronyms for custom AceObjects
-    /*for (NSDictionary* dict in s_regCls)
-    {
-        [self addAcronym:[dict objectForKey:@"acronym"] forGroup:[dict objectForKey:@"group"]];
-        NSLog(@"...adding acronym %@ for group %@", [dict objectForKey:@"acronym"], [dict objectForKey:@"group"]);
-    }*/
         
     return orig;
 }
@@ -154,41 +146,12 @@ id SessionSendToServer(NSDictionary* dict, id ctx)
     return obj;
 }
 
-bool RegisterAcronymImpl(NSString* acronym, NSString* group)
-{
-    if (s_regDone)
-    {
-        NSLog(@"AE ERROR: You need to call this method from the initialize() function!");
-        return false;
-    }
-    
-    [s_regCls addObject:[NSDictionary dictionaryWithObjectsAndKeys:acronym,@"acronym", group,@"group", nil]];
-    return true;
-}
-
-// springboard side
-NSArray* GetAcronyms(){ s_regDone=true; NSLog(@"++++++++++ SENDING %u acronyms!", [s_regCls count]); return s_regCls; };
-
-// assistantd side
-/*static void CopyAcronymsFromSpringboardToAssistantd()
-{
-    NSArray* acronyms = [[[CPDistributedMessagingCenter centerNamed:@"me.k3a.AssistantExtensions"] sendMessageAndReceiveReplyName:@"GetAcronyms" userInfo:nil] objectForKey:@"acronyms"];
-    if (acronyms) 
-    {
-        NSLog(@"++++++++++ RECEIVED %u acronyms!", [acronyms count]);
-    
-        [s_regCls autorelease];
-        s_regCls = [acronyms mutableCopy];
-    }
-}*/
-
 #pragma mark - INITIALIZATION CODE ---------------------------------------------------------------
 
 static void Shutdown()
 {
     NSLog(@"************* AssistantExtensions ShutDown *************");
 
-    [s_regCls release];
     AESupportShutdown();
     
     //[[AESpringBoardMsgCenter sharedInstance] release];
@@ -239,7 +202,6 @@ extern "C" void Initialize()
     
     NSLog(@"************* AssistantExtensions %s init for %s ************* ", AE_VERSION, [bundleIdent UTF8String]);
     
-    s_regCls = [[NSMutableArray alloc] init];
     
     // for custom acronyms
     GET_CLASS(BasicAceContext)
@@ -263,8 +225,6 @@ extern "C" void Initialize()
         GET_CLASS(ADSession)
         LOAD_HOOK(ADSession, _handleAceObject:, _handleAceObject$)
         LOAD_HOOK(ADSession, sendCommand:, sendCommand$)
-        
-        //CopyAcronymsFromSpringboardToAssistantd(); // only needed for custom AceObjects
         
         [[AEAssistantdMsgCenter alloc] init];
         

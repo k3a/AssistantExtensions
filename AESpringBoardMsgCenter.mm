@@ -219,10 +219,6 @@ AESpringBoardMsgCenter* s_inst = nil;
     return s_inst;
 }
 
-- (NSDictionary*)handleGetAcronyms:(NSString *)name userInfo:(NSDictionary *)userInfo {
-    return [NSDictionary dictionaryWithObjectsAndKeys:GetAcronyms(),@"acronyms", nil];
-}
-
 
 
 //---------------
@@ -512,12 +508,6 @@ static bool HandleSpeech(NSString* refId, NSString* text, NSArray* tokens, NSSet
 	return nil;
 }
 
--(NSDictionary*)handleSay:(NSString*)name userInfo:(NSDictionary*)userInfo
-{
-    AESay([userInfo objectForKey:@"text"], [userInfo objectForKey:@"leng"]);
-	return nil;
-}
-
 -(NSDictionary*)handleGotLocation:(NSString*)name userInfo:(NSDictionary*)userInfo
 {
     NSDictionary* resp = userInfo;
@@ -678,13 +668,11 @@ static void ReloadPrefs(CFNotificationCenterRef center, void *observer, CFString
 		center = [[CPDistributedMessagingCenter centerNamed:@"me.k3a.AssistantExtensions"] retain];
 		[center runServerOnCurrentThread];
         
-        [center registerForMessageName:@"GetAcronyms" target:self selector:@selector(handleGetAcronyms:userInfo:)];
         [center registerForMessageName:@"Server2Client" target:self selector:@selector(handleServer2Client:userInfo:)];
         [center registerForMessageName:@"Client2Server" target:self selector:@selector(handleClient2Server:userInfo:)];
         [center registerForMessageName:@"ActivateAssistant" target:self selector:@selector(handleActivateAssistant:userInfo:)];
         [center registerForMessageName:@"DismissAssistant" target:self selector:@selector(handleDismissAssistant:userInfo:)];
         [center registerForMessageName:@"SubmitQuery" target:self selector:@selector(handleSubmitQuery:userInfo:)];
-        [center registerForMessageName:@"Say" target:self selector:@selector(handleSay:userInfo:)];
         [center registerForMessageName:@"GotLocation" target:self selector:@selector(handleGotLocation:userInfo:)];
         [center registerForMessageName:@"AllExtensions" target:self selector:@selector(handleGetExtensions:withUserInfo:)];
         

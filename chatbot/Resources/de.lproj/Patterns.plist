@@ -4,7 +4,7 @@
 <plist version="1.0">
 	<dict>
 		<key>example</key>
-		<string>Lass uns Chatten</string>
+		<string>lass uns Chatten</string>
 		<key>icon</key>
 		<string>Icon</string>
 		<key>patterns</key>
@@ -15,11 +15,12 @@
 				<string>Eine Konversation beginnen</string>
 				<key>examples</key>
 				<array>
-					<string>Lass uns Chatten</string>
+					<string>Lass uns chatten|reden</string>
 				</array>
 				<key>patterns</key>
 				<array>
-					<string>Lass uns Chatten</string>
+					<string>lass uns Chatten|reden</string>
+					<string>lass reden|labern</string>
 				</array>
 			</dict>
 			

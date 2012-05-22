@@ -8,6 +8,7 @@
 
 #import "AEAssistantdMsgCenter.h"
 #include "main.h"
+#include "AESupport.h"
 #include <objc/runtime.h>
 
 
@@ -96,6 +97,12 @@ static NSDictionary* LocationDict(CLLocation* loc)
     return nil;
 }
 
+-(NSDictionary*)handleSay:(NSString*)name userInfo:(NSDictionary*)userInfo
+{
+    AESay([userInfo objectForKey:@"text"], [userInfo objectForKey:@"leng"]);
+	return nil;
+}
+
 - (id)init {
 	if((self = [super init])) {
         NSLog(@"************* AssistantExtensions AD MsgCenter Startup *************");
@@ -108,6 +115,7 @@ static NSDictionary* LocationDict(CLLocation* loc)
         [center registerForMessageName:@"Send2Client" target:self selector:@selector(handleSend2Client:userInfo:)];
         [center registerForMessageName:@"Send2Server" target:self selector:@selector(handleSend2Server:userInfo:)];
         [center registerForMessageName:@"GetLocation" target:self selector:@selector(handleGetLocation:userInfo:)];
+        [center registerForMessageName:@"Say"         target:self selector:@selector(handleSay:userInfo:)];
         
         // init location manager
         locationManager = [[CLLocationManager alloc] initWithEffectiveBundle:[NSBundle mainBundle]];

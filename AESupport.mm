@@ -60,7 +60,8 @@ static VSSpeechSynthesizer* s_synth = nil;
 
 void AESupportInit(bool springBoard)
 {
-    if (springBoard)
+    // init s_synth in assistantd process
+    if (!springBoard)
     {
         s_synth = [[VSSpeechSynthesizer alloc] init];
         [s_synth setVoice:@"Samantha"];
@@ -70,11 +71,13 @@ void AESupportInit(bool springBoard)
 void AESupportShutdown()
 {
     [s_synth release];
+    s_synth = nil;
 }
 
 void AESay(NSString* text, NSString* lang)
 {
-    if (InSpringBoard())
+    // say using s_synth when in assistantd process or forward it from springboard
+    if (!InSpringBoard())
     {
         //static Class _SBAssistantController = objc_getClass("SBAssistantController");
         //[(SBAssistantController*)[_SBAssistantController sharedInstance] _say:text];
