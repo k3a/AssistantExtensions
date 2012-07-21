@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "--//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<plist version="1.0">
+	<dict>
+		<key>example</key>
+		<string>SBSettings Toggles</string>
+		<key>icon</key>
+		<string>Icon</string>
+		<key>patterns</key>
+		<dict>
+			<key>TurnOn</key>
+			<dict>
+				<key>category</key>
+				<string>Activer un Toggle</string>
+				<key>examples</key>
+				<array>
+					<string>Allume le Wi-Fi</string>
+					<string>Active le Wi-Fi</string>
+					<string>Wi-Fi activé</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>allume [le|la] (t:&lt;word&gt;+)</string>
+					<string>active [le|la] (t:&lt;word&gt;+)</string>
+					<string>(t:&lt;word&gt;+) activé|allumé</string>
+				</array>
+			</dict>
+			
+			<key>TurnOff</key>
+			<dict>
+				<key>category</key>
+				<string>Désactiver un Toggle</string>
+				<key>examples</key>
+				<array>
+					<string>Éteint le Wi-Fi</string>
+					<string>Désactive le Wi-Fi</string>
+					<string>Wi-Fi désactivé</string>
+				</array>
+				<key>patterns</key>
+                <array>
+                    <string>éteint [le|la] (t:&lt;word&gt;+)</string>
+					<string>désactive [le|la] (t:&lt;word&gt;+)</string>
+					<string>(t:&lt;word&gt;+) désactivé|éteint|éteinte</string>
+                </array>
+			</dict>
+
+			<key>List</key>
+            <dict>
+                <key>category</key>
+                <string>Lister les Toggles</string>
+                <key>examples</key>
+                <array>
+                    <string>Liste Toggles</string>
+                    <string>Liste Interrupteurs</string>
+                </array>
+                <key>patterns</key>
+                <array>
+                    <string>liste [les] switches|toggles|interrupteurs|speeches|seachase|tacos</string>
+                </array>
+            </dict>
+
+		</dict>
+	</dict>
+</plist>

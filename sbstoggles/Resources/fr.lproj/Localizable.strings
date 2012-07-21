@@ -1,0 +1,6 @@
+"alarm" = "alarme";
+"Enabled" = "Activé";
+"Disabled" = "Désactivé";
+"Toggles available:\n" = "Toggles disponibles:\n";
+"%@ has been turned off." = "%@ a été désactivé.";
+"%@ has been turned on." = "%@ a été activé.";

@@ -8,6 +8,7 @@ Thx Sebastian Helms (@sebhel19 sebastianhelms.de) for logo.
 Thx theiostream (@ferreiradaniel2) for AEPrefs2 prototype, custom responses, moving systemcmds into Standards extension and simplifying make process.
 Thx Black Demon for testing.
 Thx @janhei77 and @orlinscho for German translation.
+Thx @adamcnight and Joffrey Roels for French translation.
 Thx to Olivier Poitrey for matching syntax proposal.
 
 Uses following 3rd-party libraries and sets:

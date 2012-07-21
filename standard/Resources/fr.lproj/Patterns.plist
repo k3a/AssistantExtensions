@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "--//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<plist version="1.0">
+	<dict>
+		<key>example</key>
+		<string>Tâches Standards</string>
+		<key>icon</key>
+		<string>Icon</string>
+		<key>patterns</key>
+		<dict>
+			<key>LaunchApp</key>
+			<dict>
+				<key>category</key>
+				<string>Ouverture d'applications</string>
+				<key>examples</key>
+				<array>
+					<string>Ouvre Réglages</string>
+					<string>Lance Cydia</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>ouvre|lance [le|la|l'application] (app:&lt;word&gt;+) [application|app]</string>
+				</array>
+			</dict>
+			
+			<key>KillApp</key>
+			<dict>
+				<key>category</key>
+				<string>Tuer des applications</string>
+				<key>examples</key>
+				<array>
+					<string>Ferme App Store</string>
+					<string>Quitte Cydia</string>
+					<string>Tue toutes les applications</string>
+					<string>Termine le processus Safari</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>ferme (app:&lt;word&gt;+)</string>
+					<string>tue|quitte|termine [la|le|l'application] (app:&lt;word&gt;+) [application|app|applications|apps]</string>
+					<string>tue|quitte|termine [la|le|l'application] (app:&lt;word&gt;+) [application|app|applications|apps]</string>
+				</array>
+			</dict>
+			
+			<key>PerformRespring</key>
+			<dict>
+				<key>category</key>
+				<string>Respring</string>
+				<key>examples</key>
+				<array>
+					<string>Respring</string>
+					<string>Effectue un respring</string>
+					<string>Relance le SpringBoard</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>relance [le] SpringBoard</string>
+					<string>[effectue|fait] [un] respring</string>
+				</array>
+			</dict>
+			
+			<key>PerformReboot</key>
+			<dict>
+				<key>category</key>
+				<string>Redémarrage</string>
+				<key>examples</key>
+				<array>
+					<string>Redémarre</string>
+					<string>Effectue un redémarrage</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>[effectue|fait] [un] redémarre|redémarrage|reboot [the] [iphone|ipod|ipad|device|yourself]</string>
+				</array>
+			</dict>
+			
+			<key>PerformShutdown</key>
+			<dict>
+				<key>category</key>
+				<string>Extinction</string>
+				<key>examples</key>
+				<array>
+					<string>Extinction</string>
+					<string>Éteint-toi</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>éteint [iphone|ipod|ipad|appareil|toi]</string>
+					<string>extinction [iphone|ipod|ipad|apparei]</string>
+				</array>
+			</dict>
+			
+			<key>PerformLock</key>
+			<dict>
+				<key>category</key>
+				<string>Verrouillage</string>
+				<key>examples</key>
+				<array>
+					<string>Verrouillage</string>
+					<string>Verrouille-toi</string>
+					<string>Va à l'écran de verrouillage</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>[va] [à] [l'écran] [de] verrouillage|verrouille-toi [écran|iphone|ipod|ipad|appareil]</string>
+				</array>
+			</dict>
+			
+			<key>RandomGetter</key>
+			<dict>
+				<key>category</key>
+				<string>Obtenir des réponses aléatoires</string>
+				<key>examples</key>
+				<array>
+					<string>Génère un nombre aléatoire</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>[génère|choisis] [moi] [un] nombre [aléatoire]</string>
+				</array>
+			</dict>
+			
+			<key>WouldShouldGetter</key>
+			<dict>
+				<key>category</key>
+				<string>Obtenir des réponses aléatoires</string>
+				<key>examples</key>
+				<array>
+					<string>Pourriez-vous tuer quelqu'un que vous détestez ?</string>
+					<string>Devrais-je proposer un rancard à Marie ?</string>
+				</array>
+				<key>patterns</key>
+				<array>
+					<string>pourrais|pourriez je|tu|vous (w:&lt;word&gt;+)</string>
+					<string>devrais|devriez je|tu|vous (w:&lt;word&gt;+)</string>
+				</array>
+			</dict>
+
+			<key>BrightnessSetter</key>
+			<dict>
+				<key>category</key>
+				<string>Contrôler la luminosité</string>
+				<key>examples</key>
+				<array>
+					<string>Ajuste la luminosité à 10 %</string>
+				</array>
+				<key>pattern</key>
+				<string>[mets|ajuste|change|fixe] [la] luminosité [à] (p:&lt;word&gt;) [pourcent|pour|cent%]</string>
+			</dict>
+
+			<key>Say</key>
+			<dict>
+				<key>category</key>
+				<string>Divers</string>
+				<key>examples</key>
+				<array>
+					<string>Dis Il fait beau aujourd'hui !</string>
+				</array>
+				<key>pattern</key>
+				<string>dis|répète (what:&lt;word&gt;+)</string>
+			</dict>
+
+			<key>BatteryGetter</key>
+			<dict>
+				<key>category</key>
+				<string>Divers</string>
+				<key>examples</key>
+				<array>
+					<string>Quel est le niveau de batterie ?</string>
+				</array>
+				<key>pattern</key>
+				<string>[quel] [est] [le] [niveau] [de] batterie|batterie? [?]</string>
+			</dict>
+
+			<key>Tweet</key>
+			<dict>
+				<key>category</key>
+				<string>Twitter</string>
+				<key>examples</key>
+				<array>
+					<string>Tweet Hé les gars, j'ai la dernière version de AE !</string>
+				</array>
+				<key>pattern</key>
+				<string>[envoie|envoyer|soumets] tweet|tweets (what:&lt;word&gt;*)</string>
+			</dict>
+		
+			<key>PreviewTweet</key> 
+			<dict>
+				<key>category</key>
+				<string>Twitter</string>
+				<key>examples</key>
+				<array>
+					<string>Aperçu tweet Hé les gars, j'ai la dernière version de AE !</string>
+				</array>
+				<key>pattern</key>
+				<string>aperçu|affiche|montre tweet|tweets (what:&lt;word&gt;*)</string>
+			</dict>
+
+			<key>Dismiss</key>
+			<dict>
+				<key>category</key>
+				<string>Divers</string>
+				<key>examples</key>
+                <array>
+                    <string>Ferme Siri</string>
+                    <string>Cache toi</string>
+				</array>
+				<key>pattern</key>
+				<string>ferme|dismiss|cache [siri|assistant|toi|toi-même]</string>
+			</dict>
+
+		</dict>
+	</dict>
+</plist>
