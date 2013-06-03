@@ -756,7 +756,7 @@ const int extensionsPathLen = strlen(extensionsPath);
     }
     else if (![target respondsToSelector:sel])
     {
-        NSLog(@"AE ERROR: Pattern '%@' registered with selector %s not available in target %p!", pattern, (const char*)sel, target);
+        NSLog(@"AE ERROR: Pattern '%@' registered with selector %s not available in target %p!", pattern, sel_getName(sel), target);
         return FALSE;
     }
     else if (!sel)
@@ -813,7 +813,7 @@ const int extensionsPathLen = strlen(extensionsPath);
     }
     else if (![target respondsToSelector:sel])
     {
-        NSLog(@"AE ERROR: Named pattern '%@' registered with selector %s not available in target %p!", name, (const char*)sel, target);
+        NSLog(@"AE ERROR: Named pattern '%@' registered with selector %s not available in target %p!", name, sel_getName(sel), target);
         return FALSE;
     }
     else if (!sel)

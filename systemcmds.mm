@@ -5,6 +5,13 @@
 //  Created by Kexik on 11/29/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS DEPRECATED FILE JUST FOR REFERENCE
+// DO NOT USE IT ANYMORE
+// LOOK AT "STANDARD" EXTENSION INSTEAD
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 #include "systemcmds.h"
 #import "AEStringAdditions.h"
 #import "AESpringBoardMsgCenter.h"
@@ -44,6 +51,13 @@ HOOK(SBDisplayStack, dealloc, void)
     CALL_ORIG();
 }
 END*/
+
+@protocol SBDeviceLockController
+-(BOOL)isBlockedForThermalCondition;
+-(BOOL)isDeviceLockedOrBlocked;
+-(BOOL)isDeviceLocked;
+-(BOOL)isPasswordProtected;
+@end
 
 UIViewController *s_twitterController = nil;
 HOOK(SBAssistantController, viewWillDisappear, void)
@@ -95,6 +109,7 @@ void ShutdownSystemCmds()
 }
 
 //TODO: remove unnecesary CPDistributedMessagingCenter calls (we are now in springboard on both sides)
+//SBDeviceLockController
 
 static BOOL LaunchApp(id app)
 {
@@ -102,14 +117,18 @@ static BOOL LaunchApp(id app)
     
     // --- unlock device
     static SBAwayController* awayController = [objc_getClass("SBAwayController") sharedAwayController];
-    if ([awayController respondsToSelector:@selector(_unlockWithSound:isAutoUnlock:)])
-     {
-     [awayController _unlockWithSound:NO isAutoUnlock:YES];
-     }
-    if ((bool)[awayController isDeviceLocked] && (bool)[awayController isPasswordProtected])
+    static id<SBDeviceLockController> lockController = [objc_getClass("SBDeviceLockController") sharedController];
+     
+    if ([awayController respondsToSelector:@selector(isDeviceLocked)]
+         && (bool)[awayController isDeviceLocked] && (bool)[awayController isPasswordProtected])
     {
         //[awayController applicationRequestedDeviceUnlock];
         return FALSE;
+    }
+    else if ([lockController respondsToSelector:@selector(isDeviceLocked)]
+            && (bool)[awayController isDeviceLocked] && (bool)[awayController isPasswordProtected])
+    {
+      return FALSE;
     }
     else
         [awayController _unlockWithSound:NO isAutoUnlock:YES];

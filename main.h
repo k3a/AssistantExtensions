@@ -28,12 +28,12 @@ __orig_fn(self, sel, ## args)
 
 #define GET_CLASS(class) \
 Class $ ## class = objc_getClass(#class); \
-if (! $ ## class ) Info("WARN: Failed to get class %s!", #class);
+if (! $ ## class ) Info("AE WARN: Failed to get class %s!", #class);
 
 
 #define GET_METACLASS(class) \
 Class $ ## class = objc_getMetaClass(#class); \
-if (! $ ## class ) Info("WARN: Failed to get metaclass %s!", #class);
+if (! $ ## class ) Info("AE WARN: Failed to get metaclass %s!", #class);
 
 
 #define HOOK(className, name, type, args...) \
@@ -46,7 +46,7 @@ type (*__orig_fn)(className *self, SEL sel, ## args) = _ ## className ## $ ## na
 
 #define LOAD_HOOK(class, sel, imp) \
 if ($ ## class) { MSHookMessage($ ## class, @selector(sel), MSHake(class ## $ ## imp)); \
-if (! _ ## class ## $ ## imp ) Info("WARN: " #class "-" #sel " not found!" ); }
+if (! _ ## class ## $ ## imp ) Info("AE WARN: " #class "-" #sel " not found!" ); }
 
 
 

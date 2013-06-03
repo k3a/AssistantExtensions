@@ -332,7 +332,7 @@ static bool HandleSpeech(NSString* refId, NSString* text, NSArray* tokens, NSSet
     if ([pClass isEqualToString:@"SpeechRecognized"])
     {
         // call orig
-        IPCCall(@"me.k3a.AssistantExtensions.ad", @"Send2Client", [NSDictionary dictionaryWithObjectsAndKeys:object,@"object", nil]);
+        IPCCallResponse(@"me.k3a.AssistantExtensions.ad", @"Send2Client", [NSDictionary dictionaryWithObjectsAndKeys:object,@"object", nil]);
         
         [s_tokens removeAllObjects];
         

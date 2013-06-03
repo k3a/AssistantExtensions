@@ -1,6 +1,6 @@
 Package: me.k3a.ae.toggles
 Name: SBSToggles
-Depends: firmware (>= 5.0), gsc.assistant | com.chpwn.spire, me.k3a.ae
+Depends: firmware (>= 5.0), me.k3a.ae
 Version: 0.0.1
 Architecture: iphoneos-arm
 Description: SBSettings Toggles for AE

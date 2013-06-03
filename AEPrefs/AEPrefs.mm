@@ -13,10 +13,10 @@
 {
     if ( (self = [super init]) )
     {
-        _view = [[UITextView alloc] initWithFrame:CGRectMake(0,0,320,400)];
+        _vview = [[UITextView alloc] initWithFrame:CGRectMake(0,0,320,400)];
         NSString* path = [[NSBundle bundleForClass:[self class]] pathForResource:@"about" ofType:@"txt"];
-        _view.text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-        _view.editable = NO;
+        _vview.text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        _vview.editable = NO;
         
         [[self navigationItem] setTitle:@"About"];
     }
@@ -25,12 +25,12 @@
 }
 -(void)dealloc
 {
-    [_view release];
+    [_vview release];
 	[super dealloc];
 }
 - (id) view
 {
-    return _view;
+    return _vview;
 }
 @end
 

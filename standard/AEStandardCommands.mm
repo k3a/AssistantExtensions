@@ -3,12 +3,20 @@
 
 #import <objc/runtime.h>
 #import <objc/message.h>
-#import <libdisplaystack/DSDisplayController.h>
+#import <LibDisplay.h>
 #import <Twitter/Twitter.h>
+#import <SpringBoard/SpringBoard-Class.h>
 #import <SpringBoard/SBIcon.h>
 #import <SpringBoard/SBUIController.h>
 #import <SpringBoard/SBAwayController.h>
 #import <Accounts/Accounts.h>
+
+@protocol SBDeviceLockController
+-(BOOL)isBlockedForThermalCondition;
+-(BOOL)isDeviceLockedOrBlocked;
+-(BOOL)isDeviceLocked;
+-(BOOL)isPasswordProtected;
+@end
 
 static id AEApplicationForDisplayName(NSString *displayName) {
 	NSArray *apps = [[objc_getClass("SBApplicationController") sharedInstance] allApplications];
@@ -132,13 +140,25 @@ static BOOL AEPreviewTweet(NSString* tweetText)
     
     // check if this is allowed
     static SBAwayController* awayController = [objc_getClass("SBAwayController") sharedAwayController];
-    if ((bool)[awayController isDeviceLocked] && (bool)[awayController isPasswordProtected])
+    static id<SBDeviceLockController> lockController = [objc_getClass("SBDeviceLockController") sharedController];
+    
+    if ([awayController respondsToSelector:@selector(isDeviceLocked)]
+        && (bool)[awayController isDeviceLocked] && (bool)[awayController isPasswordProtected])
     {
         [ctx sendAddViewsUtteranceView:[_system localizedString:@"Sorry, I don't know your lockscreen password."]];
         [ctx sendRequestCompleted];
         return YES;
     }
-        
+    else if ([lockController respondsToSelector:@selector(isDeviceLocked)]
+             && (bool)[lockController isDeviceLocked] && (bool)[lockController isPasswordProtected])
+    {
+        [ctx sendAddViewsUtteranceView:[_system localizedString:@"Sorry, I don't know your lockscreen password."]];
+        [ctx sendRequestCompleted];
+        return YES;
+    }
+    
+    // allowed, continue...
+    
 	NSString *appname = [[[match namedElement:@"app"] mutableCopy] autorelease];
 
     if ([appname isEqualToString:@"nava gone"] || [appname isEqualToString:@"navvy gone"])
@@ -149,7 +169,8 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 		[ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[_system localizedString:@"Launching %@"], [appname stringWithFirstUppercase]]];
 		//sleep(2);
 		[ctx dismissAssistant];
-		[[DSDisplayController sharedInstance] activateApplication:app animated:YES];
+		//[[DSDisplayController sharedInstance] activateApplication:app animated:YES];
+		[[LibDisplay sharedInstance] activateApplication:app animated:YES];
 	}
 	
 	else
@@ -175,9 +196,10 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 		for (id app in [appController allApplications]) {
 			if ([[app process] isRunning])
 			{
-                [[DSDisplayController sharedInstance] exitApplication:app animated:YES force:NO];
+                //[[DSDisplayController sharedInstance] exitApplication:app animated:YES force:NO];
+				[[LibDisplay sharedInstance] quitApplication:app removeFromSwitcher:YES];
             }
-            [appSwitcher _removeApplicationFromRecents:app]; // probably make configurable
+            //[appSwitcher _removeApplicationFromRecents:app]; // probably make configurable
 		}
 		
 		[ctx sendRequestCompleted];
@@ -187,8 +209,9 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 	id app = AEApplicationForDisplayName(appname);
 	if (app) {
 		[ctx sendAddViewsUtteranceView:[NSString stringWithFormat:@"Killing application %@", [appname stringWithFirstUppercase]]];
-		[[DSDisplayController sharedInstance] exitApplication:app animated:YES force:NO];
-        [appSwitcher _removeApplicationFromRecents:app]; // probably make configurable
+		//[[DSDisplayController sharedInstance] exitApplication:app animated:YES force:NO];
+        [[LibDisplay sharedInstance] quitApplication:app removeFromSwitcher:YES];
+		//[appSwitcher _removeApplicationFromRecents:app]; // probably make configurable
 	}
 	else {
         [ctx sendAddViewsUtteranceView:[NSString stringWithFormat:[_system localizedString:@"I'm sorry, but I couldn't find any application named %@"], [appname stringWithFirstUppercase]]];
@@ -264,11 +287,18 @@ static BOOL AEPreviewTweet(NSString* tweetText)
 	float val = atof(ps)/100.0f;
 	if (val <= 0.0f) val = 0.01f;
 	else if (val > 1.0f) val = 1.0f;
- 
-	//dispatch_async(dispatch_get_main_queue(), ^{
-		[[UIApplication sharedApplication] setBacklightLevel:val permanently:YES];
-		//objc_msgSend([UIApplication sharedApplication], @selector(setBacklightLevel:permanently:), val, YES);
-	//});
+
+    UIApplication* app = [UIApplication sharedApplication];	
+	if ([app respondsToSelector:@selector(setBacklightLevel:permanently:)])
+		[app setBacklightLevel:val permanently:YES];
+	else if ([app respondsToSelector:@selector(setBacklightLevel:)])
+		[app setBacklightLevel:val];
+	else
+	{
+		static Class _SBBrightnessController = objc_getClass("SBBrightnessController");
+    	[[_SBBrightnessController sharedBrightnessController] setBrightnessLevel:val];
+	}
+
 
 	//GSEventSetBacklightLevel(val);
     //static Class _SBBrightnessController = objc_getClass("SBBrightnessController");

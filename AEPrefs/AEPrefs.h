@@ -13,7 +13,7 @@
 #define PREF_FILE "/var/mobile/Library/Preferences/me.k3a.AssistantExtensions.plist"
 
 @interface AELegalController: PSViewController {
-    UITextView* _view;
+    UITextView* _vview;
 }
 - (id) view;
 @end

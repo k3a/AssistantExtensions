@@ -15,9 +15,9 @@
 # include <netinet/in.h>
 # include <netdb.h>
 # include <pthread.h>
-#include <sys/stat.h>
-#include <stdlib.h>
-#include <unistd.h>
+# include <sys/stat.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 #import <VoiceServices.h>
 
@@ -28,7 +28,7 @@ inline const T& my_min(const T& a, const T& b)
 }
 
 
-
+/// send to siri app
 bool AESendToClient(NSDictionary* aceObject)
 {
     if (InSpringBoard())
@@ -42,6 +42,7 @@ bool AESendToClient(NSDictionary* aceObject)
         return SessionSendToClient(aceObject);
     }
 }
+/// send to apple siri server
 bool AESendToServer(NSDictionary* aceObject)
 {
     if (InSpringBoard())

@@ -126,7 +126,7 @@ static NSDictionary* LocationDict(CLLocation* loc)
         {
             case kCLAuthorizationStatusNotDetermined: NSLog(@"AE: CL auth status undetermined"); break;
             case kCLAuthorizationStatusRestricted: NSLog(@"AE: CL auth status restricted"); break;
-            case kCLAuthorizationStatusDenied: NSLog(@"AE: CL auth status denied"); break;
+            case kCLAuthorizationStatusDenied: NSLog(@"AE: CL auth status denied - location services disabled?"); break;
             default: break;
         }
 	}

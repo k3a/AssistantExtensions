@@ -78,10 +78,15 @@ END*/
 
 #pragma mark - HELPER FUNCTIONS ---------------------------------------------------------------
 
+static NSString* s_ver = nil; // siri protocol version
+
 id SessionSendToClient(NSDictionary* dict, id ctx)
 {
     static Class AceObject = objc_getClass("AceObject");
     static Class BasicAceContext = objc_getClass("BasicAceContext");
+    
+    if (!AceObject) NSLog(@"AE ERROR: No AceObject class");
+    if (!BasicAceContext) NSLog(@"AE ERROR: No BasicAceContext class");
  
     if (!dict) 
     {
@@ -91,8 +96,18 @@ id SessionSendToClient(NSDictionary* dict, id ctx)
     
     // create context
     if (ctx == nil) ctx = [[[BasicAceContext alloc] init] autorelease]; // ... is not needed normally, but just in case...
+    if (!ctx) NSLog(@"AE ERROR: No context");
     
-    //NSLog(@"###### ===> Sending Ace Object to Client: %@", dict);
+
+    if ([dict objectForKey:@"v"] && !s_ver)
+        s_ver = [[dict objectForKey:@"v"] copy];
+    else if (s_ver && ![dict objectForKey:@"v"])
+    {
+        dict = [NSMutableDictionary dictionaryWithDictionary:dict];
+        [(NSMutableDictionary*)dict setObject:s_ver forKey:@"v"];
+    }
+    
+    //NSLog(@"AE: ###### ===> Sending Ace Object to Client: %@", dict);
     
     // create real AceObject
     id obj = [AceObject aceObjectWithDictionary:dict context:ctx];
@@ -107,8 +122,11 @@ id SessionSendToClient(NSDictionary* dict, id ctx)
     }
     
     // call the original method to handle our new object
-    if (s_lastSession == nil) { return nil; }
-    _ADSession$_handleAceObject$(s_lastSession, @selector(_handleAceObject:), obj);
+    if (s_lastSession == nil) { NSLog(@"AE: Last session is nil"); return nil; }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _ADSession$_handleAceObject$(s_lastSession, @selector(_handleAceObject:), obj);
+    });
     
     return obj;
 }
@@ -118,6 +136,9 @@ id SessionSendToServer(NSDictionary* dict, id ctx)
     static Class AceObject = objc_getClass("AceObject");
     static Class BasicAceContext = objc_getClass("BasicAceContext");
     
+    if (!AceObject) NSLog(@"AE ERROR: No AceObject class");
+    if (!BasicAceContext) NSLog(@"AE ERROR: No BasicAceContext class");
+    
     if (!dict) 
     {
         NSLog(@"AE ERROR: SessionSendToServer: nil dict as an argument!");
@@ -126,9 +147,16 @@ id SessionSendToServer(NSDictionary* dict, id ctx)
     
     // create context
     if (ctx == nil) ctx = [[[BasicAceContext alloc] init] autorelease]; // ... is not needed normally, but just in case...
+    if (!ctx) NSLog(@"AE ERROR: No context");
     
-    //NSLog(@"###### ===> Sending Ace Object to Server: %@", dict);
+    if (s_ver && ![dict objectForKey:@"v"])
+    {
+        dict = [NSMutableDictionary dictionaryWithDictionary:dict];
+        [(NSMutableDictionary*)dict setObject:s_ver forKey:@"v"];
+    }
     
+    //NSLog(@"AE: ###### ===> Sending Ace Object to Server: %@", dict);
+
     // create real AceObject
     id obj = [AceObject aceObjectWithDictionary:dict context:ctx];
     if (obj == nil) 
@@ -141,7 +169,9 @@ id SessionSendToServer(NSDictionary* dict, id ctx)
         //NSLog(@"SessionSendToClient <%s> from %@", object_getClassName(obj), dict);
     }
     
-    _ADSession$sendCommand$(s_lastSession, @selector(sendCommand:), obj);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _ADSession$sendCommand$(s_lastSession, @selector(sendCommand:), obj);
+    });
     
     return obj;
 }

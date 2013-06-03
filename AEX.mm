@@ -692,7 +692,7 @@ fail:
 
 -(BOOL)fireWithMatch:(id<AEPatternMatch>)match context:(id<SEContext>)ctx
 {
-    NSLog(@"AE: Invoking target %@ (%s) using the selector %s", _target, object_getClassName(_target), (const char*)_sel);
+    NSLog(@"AE: Invoking target %@ (%s) using the selector %s", _target, object_getClassName(_target), sel_getName(_sel));
     
     NSMethodSignature* sig = [_target methodSignatureForSelector:_sel];
     NSInvocation* inv = [NSInvocation invocationWithMethodSignature:sig];

@@ -1,6 +1,12 @@
 include theos/makefiles/common.mk
 
-SUBPROJECTS = AEPrefs customizer standard sbstoggles chatbot jpsupport
+export TARGET=iphone:latest:5.0
+export ARCHS = armv7
+# use CLANG
+TARGET_CC = xcrun --sdk iphoneos clang
+TARGET_CXX = xcrun --sdk iphoneos clang++
+
+SUBPROJECTS = AEPrefs customizer standard sbstoggles chatbot
 
 TWEAK_NAME = AssistantExtensions
 AssistantExtensions_FILES = AEDevHelper.xm AEAssistantdMsgCenter.mm AEContext.mm AEExtension.mm AESpringBoardMsgCenter.mm AEStringAdditions.mm AESupport.mm SiriObjects.mm AEX.mm
