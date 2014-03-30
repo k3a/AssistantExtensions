@@ -1,4 +1,5 @@
 #import "AERandomSnippet.h"
+#import <UIKit/UIKit.h>
 
 @implementation AERandomSnippet
 - (id)initWithProperties:(NSDictionary *)props system:(id<SESystem>)system {

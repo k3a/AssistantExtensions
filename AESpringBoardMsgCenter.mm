@@ -498,12 +498,21 @@ static bool HandleSpeech(NSString* refId, NSString* text, NSArray* tokens, NSSet
 
 -(NSDictionary*)handleActivateAssistant:(NSString*)name userInfo:(NSDictionary*)userInfo
 {
+	dispatch_async(dispatch_get_main_queue(), ^{
     NSLog(@"AE: Activating the assistant");
-    static Class _SBAssistantController = objc_getClass("SBAssistantController");
-    if ([_SBAssistantController preferenceEnabled] && [_SBAssistantController shouldEnterAssistant])
-    {
-        [(SpringBoard*)UIApp activateAssistantWithOptions:nil withCompletion:nil];
+
+	static Class _SBAssistantController = objc_getClass("SBAssistantController");
+    
+	if ([(SpringBoard*)UIApp respondsToSelector:@selector(activateAssistantWithOptions:withCompletion:)])
+	{
+        if ([_SBAssistantController preferenceEnabled] && [_SBAssistantController shouldEnterAssistant])
+            [(SpringBoard*)UIApp activateAssistantWithOptions:nil withCompletion:nil];
+    }        
+    else if ([_SBAssistantController supportedAndEnabled] && [_SBAssistantController shouldEnterAssistant]) // iOS 6
+	{
+        [(SBAssistantController*)[_SBAssistantController sharedInstance] activatePluginForEvent:0];
     }
+	});
     
 	return nil;
 }
@@ -532,6 +541,7 @@ static bool HandleSpeech(NSString* refId, NSString* text, NSArray* tokens, NSSet
 
 -(NSDictionary*)handleSubmitQuery:(NSString*)name userInfo:(NSDictionary*)userInfo
 {
+	dispatch_async(dispatch_get_main_queue(), ^{
     static Class _SBAssistantController = objc_getClass("SBAssistantController");
     
     NSString* query = [userInfo objectForKey:@"query"];
@@ -552,13 +562,23 @@ static bool HandleSpeech(NSString* refId, NSString* text, NSArray* tokens, NSSet
     [(SBAssistantController*)[_SBAssistantController sharedInstance] _submitQuery:query];*/
     
     SBAssistantController* ac = (SBAssistantController*)[_SBAssistantController sharedInstance];
-    AFConnection* conn = [ac _connection];
-    
+
+    AFConnection* conn = nil;
+	
+	// ios5
+	if ([ac respondsToSelector:@selector(_connection)])
+		conn = [ac _connection];
+	else if ([ac respondsToSelector:@selector(pluginController)]) //ios6
+	{
+		//[[[ac pluginController] _extraSpace] setSpace:10.0f];
+		conn = [[ac pluginController] _connection];
+	}
+
     //[conn startRequestWithText:query timeout:15];
     [conn startRequestWithCorrectedText:query forSpeechIdentifier:refId];
-    //[ac _startProcessingRequest];
     [ac expectsFaceContact];
     
+	});
     
     return nil;
 }

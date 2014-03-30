@@ -107,7 +107,7 @@ id SessionSendToClient(NSDictionary* dict, id ctx)
         [(NSMutableDictionary*)dict setObject:s_ver forKey:@"v"];
     }
     
-    //NSLog(@"AE: ###### ===> Sending Ace Object to Client: %@", dict);
+    NSLog(@"AE: ###### ===> Sending Ace Object to Client: %@", dict);
     
     // create real AceObject
     id obj = [AceObject aceObjectWithDictionary:dict context:ctx];
@@ -155,7 +155,7 @@ id SessionSendToServer(NSDictionary* dict, id ctx)
         [(NSMutableDictionary*)dict setObject:s_ver forKey:@"v"];
     }
     
-    //NSLog(@"AE: ###### ===> Sending Ace Object to Server: %@", dict);
+    NSLog(@"AE: ###### ===> Sending Ace Object to Server: %@", dict);
 
     // create real AceObject
     id obj = [AceObject aceObjectWithDictionary:dict context:ctx];
@@ -205,6 +205,30 @@ static NSArray* replaced_AFPreferencesSupportedLanguages()
     return repl;
 }*/
 
+void* ServiceSpringBoard(void*)
+{
+    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+    [[AESpringBoardMsgCenter alloc] init];
+    
+    CFRunLoopRun();
+    NSLog(@"AE: Exited from runloop");
+    
+    [pool release];
+    return NULL;
+}
+
+void* ServiceAssistantd(void*)
+{
+    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+    [[AEAssistantdMsgCenter alloc] init];
+    
+    CFRunLoopRun();
+    NSLog(@"AE: Exited from runloop");
+    
+    [pool release];
+    return NULL;
+}
+
 bool s_inSB = false;
 extern "C" void Initialize();
 extern "C" void Initialize() 
@@ -230,8 +254,7 @@ extern "C" void Initialize()
 		return;
 	}
     
-    NSLog(@"************* AssistantExtensions %s init for %s ************* ", AE_VERSION, [bundleIdent UTF8String]);
-    
+    NSLog(@"************* AssistantExtensions %s init for %@ ************* ", AE_VERSION, bundleIdent);
     
     // for custom acronyms
     GET_CLASS(BasicAceContext)
@@ -242,9 +265,8 @@ extern "C" void Initialize()
         s_inSB = true;
         //sleep(2); // just in case (to avoid reboot crashes), probably can be removed later TODO
 
-        [[AESpringBoardMsgCenter alloc] init];
-        
-        AESupportInit(true);
+        pthread_t thr;
+        pthread_create(&thr, NULL, &ServiceSpringBoard, NULL);
         
         //GET_CLASS(SBAssistantUIPluginManager)
         //LOAD_HOOK(SBAssistantUIPluginManager, _bundleSearchPaths, _bundleSearchPaths)
@@ -252,16 +274,18 @@ extern "C" void Initialize()
     }
     else if ([bundleIdent isEqualToString:@"assistantd"])
     {
+        s_inSB = false;
+        
         GET_CLASS(ADSession)
         LOAD_HOOK(ADSession, _handleAceObject:, _handleAceObject$)
         LOAD_HOOK(ADSession, sendCommand:, sendCommand$)
         
-        [[AEAssistantdMsgCenter alloc] init];
-        
-        AESupportInit(false);
-        
-        atexit(&Shutdown);
+        pthread_t thr;
+        pthread_create(&thr, NULL, &ServiceAssistantd, NULL);
     }
+    
+    AESupportInit(s_inSB);
+    atexit(&Shutdown);
     
     [pool release];
     

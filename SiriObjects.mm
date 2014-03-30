@@ -15,7 +15,7 @@
 
 NSMutableDictionary* SOCreateObjectDict(NSString* group, NSString* className, NSMutableDictionary* properties)
 {
-    if (properties == nil) properties = [NSDictionary dictionary];
+    if (properties == nil) properties = [NSMutableDictionary dictionary];
     
     return [NSMutableDictionary dictionaryWithObjectsAndKeys: 
             className,@"class", group,@"group", properties,@"properties", nil];

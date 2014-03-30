@@ -3,11 +3,13 @@
 #import <Preferences/PSSpecifier.h>
 #import <Preferences/PSTextFieldSpecifier.h>
 
+#import <UIKit/UIKit.h>
+
 #define PLIST_PATH "/var/mobile/Library/Preferences/me.k3a.ae.customizer.plist"
 static BOOL stopIt = NO;
 
 static NSUInteger GetIndexForSpec(PSListController *list, PSSpecifier *spec) {
-	NSUInteger index = (NSUInteger)[list indexOfSpecifier:spec];
+	NSUInteger index = (NSUInteger)[list indexOfSpecifier:(NSString*)spec];
 	
 	if 		((index-1)%3 == 0) { NSLog(@"asdf %i", (index-1)/3); return (index-1)/3; }
 	else if ((index-2)%3 == 0) { NSLog(@"asdf %i", (index-2)/3); return (index-2)/3; }

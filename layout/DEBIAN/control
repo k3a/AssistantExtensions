@@ -5,7 +5,7 @@ Homepage: http://ae.k3a.me
 Priority: standard
 Architecture: iphoneos-arm
 Section: Tweaks
-Author: K3A <root@k3a.me>
-Description: Plugin system for new Siri functionality. Several commands and snippets are built-in, including a chat bot for talking to Siri about anything you like.
+Author: K3A <support@k3a.me>
+Description: Plugin system for new Siri functionality. Several commands and snippets are built-in, including a chat bot for talking to Siri about anything you like. Changelog: http://k3a.me/chlogs/ae.htm. This is a pre-release build, when sending me an email, please mention that. Also note that I may not be able to respond to every email regarding pre-releases.
 Depends: firmware (>= 5.0), mobilesubstrate, me.k3a.libaiml, preferenceloader, openssl, pcre, com.iky1e.libdisplay (>= 1.2)
 Icon: file:///Library/PreferenceBundles/AEPrefs.bundle/AEPrefs@2x.png

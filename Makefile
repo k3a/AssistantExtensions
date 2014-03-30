@@ -6,7 +6,7 @@ export ARCHS = armv7
 TARGET_CC = xcrun --sdk iphoneos clang
 TARGET_CXX = xcrun --sdk iphoneos clang++
 
-SUBPROJECTS = AEPrefs customizer standard sbstoggles chatbot
+SUBPROJECTS = AEPrefs customizer standard sbstoggles chatbot Extensions/aecmd
 
 TWEAK_NAME = AssistantExtensions
 AssistantExtensions_FILES = AEDevHelper.xm AEAssistantdMsgCenter.mm AEContext.mm AEExtension.mm AESpringBoardMsgCenter.mm AEStringAdditions.mm AESupport.mm SiriObjects.mm AEX.mm

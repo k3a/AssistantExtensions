@@ -7,12 +7,12 @@ I will also publish the list of task which would be good to have completed.
 
 To Compile It
 -------------
-1. You need to have theos installed
-2. Fix theos symlinks to your theos installation
-3. Create frameworks directory and copy AssistantUI.framework and SAObjects.framework there. You can get these by extracting dyld shared cache (or maybe also from ~/Library/Developer/Xcode/iOS\ DeviceSupport..../Symbols/System/Library/PrivateFrameworks if you are a developer and have iPhone 4S - untested). I have used dyld_decache tool and extracted those from /System/Library/Caches/com.apple.dyld/dyld_shared_cache_armv7 which can be found in 4S firmwares or 4S filesystem).
-
+1. You need to have the latest Theos installed. It was tested and compiles fine with these versions: https://github.com/rpetrich/theos put into /theos, https://github.com/rpetrich/iphoneheaders put into /theos/include.
+2. Create frameworks directory and copy AssistantUI.framework and SAObjects.framework there. You can get these by extracting dyld shared cache (or maybe also from ~/Library/Developer/Xcode/iOS\ DeviceSupport..../Symbols/System/Library/PrivateFrameworks if you are a developer and have iPhone 4S - untested). I have used dyld_decache tool and extracted those from /System/Library/Caches/com.apple.dyld/dyld_shared_cache_armv7 which can be found in 4S firmwares or 4S filesystem).
+3. Run the command in the soruce code root directory: PATH="bin:$PATH" make package
 
 Hopefully you will like the code!
 
 Website: http://ae.k3a.me/
+Forums: http://forum.k3a.me/
 Twitter: @kexik

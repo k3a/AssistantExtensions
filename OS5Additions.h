@@ -22,6 +22,11 @@
 - (void)activateAssistantWithOptions:(id)fp8 withCompletion:(id)fp;
 @end
 
+@interface ACFakeAssistantController
+	-(id)_extraSpace;
+	-(void)setSpace:(float)f;
+@end
+
 
 @interface SBAwayView (AEIOS5)
 - (void)hideBulletinView;
@@ -29,9 +34,12 @@
 @end
 
 @interface SBAssistantController : NSObject
-+ (id)sharedInstance;
-+ (BOOL)preferenceEnabled;
++ (SBAssistantController*)sharedInstance;
++ (BOOL)preferenceEnabled; // ios5
++(BOOL)supportedAndEnabled; // ios6
 + (BOOL)shouldEnterAssistant;
+-(BOOL)activatePluginForEvent:(int)event; // ios6
+-(id)pluginController; //ios6
 - (void)dismissAssistant;
 - (void)dismissAssistantWithFade:(double)fp8;
 - (void)_submitQuery:(id)fp8;
